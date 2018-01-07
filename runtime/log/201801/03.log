@@ -1,0 +1,59 @@
+[ 2018-01-03T00:00:31+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/index/index
+[ log ] 127.0.0.1/tp5/index.php/admin/index/index [运行时间：0.072287s][吞吐率：13.83req/s] [内存消耗：204.65kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'user-agent' => 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/63.0.3239.84 Chrome/63.0.3239.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ /var/www/html/tp5/application/admin/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/index/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-03T00:00:31+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/index/index
+[ log ] 127.0.0.1/tp5/index.php/admin/index/index [运行时间：0.001651s][吞吐率：605.68req/s] [内存消耗：204.57kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'connection' => 'keep-alive',
+  'user-agent' => 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/63.0.3239.84 Chrome/63.0.3239.84 Safari/537.36',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/index/index',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ /var/www/html/tp5/application/admin/controller/Index.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/index/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
