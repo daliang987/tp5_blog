@@ -1,0 +1,2216 @@
+[ 2018-01-12T23:27:42+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.131114s][吞吐率：7.63req/s] [内存消耗：271.98kb] [文件加载：44]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:34:28+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.087962s][吞吐率：11.37req/s] [内存消耗：210.91kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:34:30+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.012990s][吞吐率：76.98req/s] [内存消耗：204.48kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:35:10+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.008161s][吞吐率：122.53req/s] [内存消耗：226.44kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:35:10+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.001775s][吞吐率：563.37req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/entry/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:35:10+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.001716s][吞吐率：582.70req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/entry/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:37:47+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.009111s][吞吐率：109.76req/s] [内存消耗：226.56kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:37:47+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.001708s][吞吐率：585.47req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/entry/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:37:47+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.001682s][吞吐率：594.52req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/entry/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:41:09+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.024163s][吞吐率：41.39req/s] [内存消耗：226.56kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:41:09+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.001722s][吞吐率：580.69req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/entry/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:41:09+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.001730s][吞吐率：578.05req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/entry/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:41:31+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.010083s][吞吐率：99.18req/s] [内存消耗：226.56kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:41:31+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.001599s][吞吐率：625.36req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/entry/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:41:32+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.001725s][吞吐率：579.64req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/entry/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:42:01+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.003385s][吞吐率：295.42req/s] [内存消耗：226.56kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:42:01+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.001738s][吞吐率：575.35req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/entry/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:42:01+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/entry/index
+[ log ] 127.0.0.1/tp5/index.php/admin/entry/index [运行时间：0.001688s][吞吐率：592.42req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'entry',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/entry/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Entry->index[ /var/www/html/tp5/application/admin/controller/Entry.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/entry/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:43:14+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.020234s][吞吐率：49.42req/s] [内存消耗：213.14kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:44:35+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002333s][吞吐率：428.65req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:44:37+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001809s][吞吐率：552.83req/s] [内存消耗：204.48kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:44:37+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001461s][吞吐率：684.45req/s] [内存消耗：204.16kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:44:40+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001992s][吞吐率：502.01req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:44:41+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001694s][吞吐率：590.33req/s] [内存消耗：204.48kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:45:13+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002399s][吞吐率：416.85req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:45:38+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002220s][吞吐率：450.47req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:46:12+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002406s][吞吐率：415.65req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:49:24+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.003164s][吞吐率：316.05req/s] [内存消耗：212.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:52:00+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002387s][吞吐率：418.93req/s] [内存消耗：212.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:52:27+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002609s][吞吐率：383.29req/s] [内存消耗：212.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:52:46+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002326s][吞吐率：429.92req/s] [内存消耗：212.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:53:02+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002510s][吞吐率：398.40req/s] [内存消耗：212.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:54:04+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002348s][吞吐率：425.86req/s] [内存消耗：212.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:54:05+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001593s][吞吐率：627.80req/s] [内存消耗：204.48kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:54:05+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001678s][吞吐率：595.95req/s] [内存消耗：204.48kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:54:06+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001526s][吞吐率：655.36req/s] [内存消耗：204.48kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:54:35+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.003949s][吞吐率：253.22req/s] [内存消耗：212.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:55:13+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002546s][吞吐率：392.76req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:56:18+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002601s][吞吐率：384.45req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:56:18+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001646s][吞吐率：607.52req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:56:18+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001645s][吞吐率：607.96req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:57:41+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002546s][吞吐率：392.80req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:57:41+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001671s][吞吐率：598.42req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:57:41+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001667s][吞吐率：599.87req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:57:42+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001668s][吞吐率：599.53req/s] [内存消耗：204.48kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:57:42+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001669s][吞吐率：599.19req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:57:42+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001659s][吞吐率：602.80req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:31+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002397s][吞吐率：417.18req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:31+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001669s][吞吐率：599.10req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:31+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001686s][吞吐率：593.09req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:31+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001580s][吞吐率：632.91req/s] [内存消耗：204.48kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:31+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001588s][吞吐率：629.68req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:32+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001718s][吞吐率：582.06req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:47+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002269s][吞吐率：440.72req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:47+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001480s][吞吐率：675.74req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:47+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001708s][吞吐率：585.55req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:48+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001459s][吞吐率：685.46req/s] [内存消耗：204.48kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:48+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001684s][吞吐率：593.84req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:48+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001657s][吞吐率：603.50req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:55+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002452s][吞吐率：407.85req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:55+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001663s][吞吐率：601.33req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:55+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001681s][吞吐率：594.85req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:55+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002046s][吞吐率：488.79req/s] [内存消耗：204.48kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:55+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001665s][吞吐率：600.56req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:55+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001673s][吞吐率：597.73req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:57+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001880s][吞吐率：531.93req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:57+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001489s][吞吐率：671.52req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:57+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001709s][吞吐率：585.14req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:58+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001710s][吞吐率：584.82req/s] [内存消耗：204.48kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:58+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001646s][吞吐率：607.52req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:58:58+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001507s][吞吐率：663.55req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:59:30+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.002568s][吞吐率：389.41req/s] [内存消耗：213.00kb] [文件加载：47]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:59:30+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001713s][吞吐率：583.76req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2018-01-12T23:59:31+08:00 ] 127.0.0.1 127.0.0.1 GET /tp5/index.php/admin/login/index
+[ log ] 127.0.0.1/tp5/index.php/admin/login/index [运行时间：0.001664s][吞吐率：600.99req/s] [内存消耗：204.39kb] [文件加载：45]
+[ info ] [ LANG ] /var/www/html/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '127.0.0.1',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:57.0) Gecko/20100101 Firefox/57.0',
+  'accept' => '*/*',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://127.0.0.1/tp5/index.php/admin/login/index',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ /var/www/html/tp5/application/admin/controller/Login.php ]
+[ info ] [ VIEW ] /var/www/html/tp5/application/admin/view/login/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
