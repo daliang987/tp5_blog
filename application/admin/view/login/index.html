@@ -23,7 +23,7 @@
                     <h4 class="panel-title">个人博客系统</h4>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" action="{:url('login')}" method="post">
                         <div class="form-group">
                             <div class="col-md-offset-4 col-md-4">
                                 <h3>
@@ -36,20 +36,20 @@
                         <div class="form-group">
 
                             <div class="col-md-offset-2 col-md-8">
-                                <input type="email" class="form-control" id="username" placeholder="用户名">
+                                <input type="text" class="form-control" name="admin_username" placeholder="用户名">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-8">
-                                <input type="password" class="form-control" id="password" placeholder="密码">
+                                <input type="password" class="form-control" name="admin_password" placeholder="密码">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-4">
-                                <input type="password" class="form-control" id="text" placeholder="验证码">
+                                <input type="text" class="form-control" name="vcode" placeholder="验证码">
                             </div>
                             <div class="col-md-4">
-                                <img src="#" />
+                                <img src="{:url('vcode')}" alt="captcha" onclick=this.src=this.src+'?'+Math.random() /> 
                             </div>
                         </div>
                         <div class="form-group">
