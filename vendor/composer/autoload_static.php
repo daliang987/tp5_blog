@@ -33,6 +33,10 @@ class ComposerStaticInite626511a65ba34803a261569c1e86cc3
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'h' => 
+        array (
+            'houdunwang\\arr\\' => 15,
+        ),
         'W' => 
         array (
             'Workerman\\' => 10,
@@ -100,8 +104,12 @@ class ComposerStaticInite626511a65ba34803a261569c1e86cc3
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'houdunwang\\arr\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/houdunwang/arr/src',
         ),
         'Workerman\\' => 
         array (

@@ -1,0 +1,65 @@
+{extend name="base" /} {block name="content"}
+
+<div class="alert alert-info">
+    标签首页
+</div>
+
+
+
+
+<div class="panel panel-info">
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="{:url('admin/tag/index')}">标签列表</a>
+            </li>
+            <li>
+                <a href="{:url('admin/tag/store')}">创建标签</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container-fluid">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <tr class="info">
+                <th>编号</th>
+                <th>标签名称</th>
+                <th>操作</th>
+            </tr>
+            {volist name="tagdata" id='tag'}
+            <tr>
+                <td>{$tag.tag_id}</td>
+                <td>{$tag.tag_name}</td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{:url('admin/tag/edit',['tag_id'=>$tag.tag_id])}">编辑</a>
+                            </li>
+
+                            <li class="divider"></li>
+                            <li>
+                                <a href="javascript:del({$tag.tag_id})">删除</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            {/volist}
+        </table>
+        {$tagdata->render()}
+    </div>
+</div>
+
+<script>
+        function del(tag_id) {
+            require(['hdjs'], function (hdjs) {
+                hdjs.confirm('确定删除吗?', function () {
+                    location.href='{:url("del")}?tag_id='+tag_id;
+                })
+            })
+        }
+    </script>
+{/block}

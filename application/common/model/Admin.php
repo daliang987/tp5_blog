@@ -53,15 +53,13 @@ class Admin extends Model
             return ['valid'=>0,'msg'=>'原始密码不正确'];
         }
         // halt($userinfo);
-        $res=$this->save(['admin_password'=>md5($data['admin_newpass'])],['admin_id'=>session('admin.admin_id')]);
+        $res=$this->save(['admin_password'=>md5($data['admin_newpass'])],[$this->pk=>session('admin.admin_id')]);
 
         if($res){
             return ['valid'=>1,'msg'=>'密码修改成功'];
         }else{
             return ['valid'=>0,'msg'=>'密码修改失败'];
         }
-
-        
 
     }
 }
