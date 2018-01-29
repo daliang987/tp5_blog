@@ -109,4 +109,24 @@ class Article extends Controller{
         }
 
     }
+
+    public function edit(){
+        if(request()->isPost()){
+
+        }
+
+        $arc_id=input('param.arc_id');
+        
+        $oldData=db('article')->find($arc_id);
+        $cate_data=(new \app\common\model\Category)->getAll();
+        $tag_data=db('tag')->select();
+
+        $tag_ids=db('arc_tag')->where('arc_id',$arc_id)->column("tag_id");
+        $this->assign('tag_ids',$tag_ids);
+        // halt($oldData);
+        $this->assign('catedata',$cate_data);
+        $this->assign('tagdata',$tag_data);
+        $this->assign('oldArc',$oldData);
+        return $this->fetch();
+    }
 }

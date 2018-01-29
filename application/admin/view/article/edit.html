@@ -1,0 +1,153 @@
+{extend name="base" /} {block name="content"}
+
+<div class="alert alert-info">
+    添加文章
+</div>
+<div class="panel panel-info">
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="{:url('admin/article/index')}">文章管理</a>
+            </li>
+            <li class="active">
+                <a href="{:url('admin/article/store')}">文章编辑</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-11">
+                <form class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">文章标题</label>
+                        <div class="col-md-10">
+                            <input type="text" name="arc_title" value="{$oldArc.arc_title}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">文章作者</label>
+                        <div class="col-md-10">
+                            <input type="text" name="arc_author" value="{$oldArc.arc_author}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">文章排序</label>
+                        <div class="col-md-10">
+                            <input type="number" name="arc_sort" value="{$oldArc.arc_sort}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">所属分类</label>
+                        <div class="col-md-10">
+                            <select class="form-control" name="cate_id">
+                                {volist name="catedata" id="vo"}
+                                <option value="{$vo.cate_id}" {if condition="$vo.cate_id==$oldArc.cate_id"} selected{/if}>{$vo._cate_name}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">标签</label>
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                {volist name="tagdata" id="tag"}
+                                <label>
+                                    <input type="checkbox" {if condition="in_array($tag.tag_id,$tag_ids)"}checked{/if} name="tag[]" value="{$tag.tag_id}">{$tag.tag_name}</label>
+                                {/volist}
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">缩略图</label>
+                        <div class="col-md-10">
+                            <div class="input-group">
+                                <input class="form-control" name="arc_thumb" readonly="" value="{$oldArc.arc_thumb}">
+                                <div class="input-group-btn">
+                                    <button onclick="upImagePc(this)" class="btn btn-default" type="button">选择图片</button>
+                                </div>
+                            </div>
+                            <div class="input-group" style="margin-top:5px;">
+                                <img src="{$oldArc.arc_thumb}" class="img-responsive img-thumbnail" width="150">
+                                <em class="close" style="position:absolute; top: 0px; right: -14px;" title="删除这张图片" onclick="removeImg(this)">×</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">文章摘要</label>
+                        <div class="col-md-10">
+                            <textarea name="arc_digist" id="" rows="3" class="form-control">{$oldArc.arc_digist}</textarea>
+                        </div>
+                    </div>
+                <!--
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">文章内容(百度编辑器)</label>
+                        <div class="col-md-10">
+                            <textarea name="" id="bdeditor" style="height:300px;width:100%;"></textarea>
+                        </div>
+                    </div>
+                -->
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">文章内容(markdown编辑器)</label>
+                        <div class="col-md-10">
+                            <div id="mdeditor">
+                                <textarea  name="arc_content" hidden>{$oldArc.arc_content} </textarea>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-offset-2 col-md-8">
+                            <input type="submit" class="form-control col-md-12 btn-info" value="添加文章">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require(['hdjs']);
+    //上传图片
+    function upImagePc() {
+        require(['hdjs'], function (hdjs) {
+            var options = {
+                multiple: false,//是否允许多图上传
+                //data是向后台服务器提交的POST数据
+                data: { name: '后盾人', year: 2099 },
+            };
+            hdjs.image(function (images) {
+                //上传成功的图片，数组类型
+                $("[name='arc_thumb']").val(images[0]);
+                $(".img-thumbnail").attr('src', images[0]);
+            }, options)
+        });
+    }
+
+    //移除图片
+    function removeImg(obj) {
+        $(obj).prev('img').attr('src', '__STATIC__/img/nopic.jpg');
+        $(obj).parent().prev().find('input').val('');
+    }
+</script>
+
+<script>
+    // //百度编辑器js
+    // require(['hdjs'], function (hdjs) {
+    //     hdjs.ueditor('bdeditor', { hash: 2, data: 'hd' }, function (editor) {
+    //         console.log(editor)
+    //     });
+    // })
+</script>
+<script>
+    require(['hdjs'], function (hdjs) {
+        hdjs.markdown("mdeditor", {
+            width: '100%',
+            heigth: 300
+        });
+    });
+</script> {/block}

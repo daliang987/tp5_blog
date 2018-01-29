@@ -32,7 +32,7 @@
                 <td>{$article.arc_title}</td>
                 <td>{$article.arc_author}</td>
                 <td>
-                    <input type="number" value="{$article.arc_sort}" class="form-control" onblur="changeSort(this,{$article.arc_id})" />
+                    <input type="number" value="{$article.arc_sort}" class="form-control" onblur="changeSort(this,'{$article.arc_id}')" />
                 </td>
                 <td>{$article.cate_name}</td>
                 <td>{:date('Y-m-d H:i:s',$article.sendtime)}</td>
@@ -43,10 +43,7 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="">添加子类</a>
-                            </li>
-                            <li>
-                                <a href="">编辑</a>
+                                <a href="{:url('edit',['arc_id'=>$article.arc_id])}">编辑</a>
                             </li>
 
                             <li class="divider"></li>
@@ -81,7 +78,7 @@
             // alert(res.code);
             if (res.code) {
                 require(['hdjs'], function (hdjs) {
-                    hdjs.message(res.msg, 'refresh', 'success', res.wait);  
+                    hdjs.message(res.msg, 'refresh', 'success', res.wait);
                 });
             } else {
                 require(['hdjs'], function (hdjs) {
