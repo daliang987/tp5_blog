@@ -14,10 +14,32 @@ create table blog_cate(
     cate_name varchar(45) not null default '',
     cate_pid int not null default 0,
     cate_sort int not null default 100
-)
+);
 
 
 create table blog_tag(
     tag_id int unsigned auto_increment primary key,
     tag_name varchar(50) not null default ''
-)
+);
+
+
+create table blog_article(
+    arc_id int unsigned auto_increment primary key,
+    arc_title varchar(45) not null default '',
+    arc_author varchar(45) not null default '',
+    arc_sort int unsigned not null default 100,
+    arc_digist varchar(200) not null default '',
+    arc_content text,
+    sendtime int not null default 0,
+    updatetime int not null default 0,
+    arc_click int not null default 0,
+    is_recycle tinyint not null default 2,
+    arc_thumb varchar(100),
+    cate_id int,
+    admin_id int
+);
+
+create table blog_arc_tag(
+    arc_id int not null,
+    tag_id int not null
+);
