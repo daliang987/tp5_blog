@@ -1,0 +1,58 @@
+ {extend name="base" /} {block name="content"}
+
+
+<div class="alert alert-info">
+    友链首页
+</div>
+<div class="panel panel-info">
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="{:url('admin/link/index')}">友链首页</a>
+            </li>
+            <li>
+                <a href="{:url('admin/link/store')}">添加友链</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="container-fluid">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <tr class="info">
+                <th>编号</th>
+                <th>配置名称</th>
+                <th>配置值</th>
+                <th>描述</th>
+            </tr>
+            {volist name="setdata" id='webset'}
+            <tr>
+                <td>{$webset.webset_id}</td>
+                <td>{$webset.webset_name}</td>
+                <td>
+                    <input type="text" class="form-control" name="webset_value" value="{$webset.webset_value}" id="websetvalue" onblur="changeValue('{$webset.webset_id}',this)">
+                </td>
+                <td>{$webset.webset_desc}</td>
+
+            </tr>
+            {/volist}
+        </table>
+        {$setdata->render()}
+    </div>
+
+</div>
+<script>
+    function changeValue(id,obj) {
+        $.post("{:url('edit')}",{webset_id:id,webset_value:$(obj).val()},function(res){
+            if(res.code){
+                require(['hdjs'], function (hdjs) {
+                    hdjs.message(res.msg, 'refresh', 'success', res.wait);
+                });
+            }else{
+                require(['hdjs'], function (hdjs) {
+                    hdjs.message(res.msg, 'back', 'error', res.wait);
+                });
+            }
+        });
+    }
+</script> {/block}

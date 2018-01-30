@@ -1,0 +1,40 @@
+{extend name="base" /} {block name="content"}
+<script>
+
+    
+    function ajaxsub() {
+        datafrm = $('#myform').serialize();
+        $.ajax({
+            type: "post",
+            url: "{:url('store')}",
+            data: datafrm
+        });
+
+        // $.post("{:url('store')}",{username:'admin',pass:'123'},function(res){
+        //     if(res.code){
+        //         require(['hdjs'], function (hdjs) {
+        //             hdjs.message(res.msg, 'refresh', 'success', res.wait);
+        //         });
+        //     }else{
+        //         require(['hdjs'], function (hdjs) {
+        //             hdjs.message(res.msg, 'back', 'error', res.wait);
+        //         });
+        //     }
+        // });
+    }
+
+
+</script>
+
+<form id="myform">
+    <input type="text" name="username" id="">
+    <input type="text" name="password" id="">
+    <!-- a链接可以放在表单里-->
+    <!-- <a href="javascript:ajaxsub()">asdf</a>  -->
+    <!--  submit 和button不行-->
+    <!-- <input type="submit" value="tijiao" onclick="ajaxsub()">  -->
+</form>
+
+<!-- button可以放在外面提交 -->
+<button onclick="javascript:ajaxsub()">dddd</button> 
+{/block}

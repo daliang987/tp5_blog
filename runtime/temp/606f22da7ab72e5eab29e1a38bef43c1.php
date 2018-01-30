@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpStudy\WWW\tp5\public/../application/admin\view\article\index.html";i:1517240230;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517239435;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpStudy\WWW\tp5\public/../application/admin\view\article\index.html";i:1517322718;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517323066;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,7 +97,7 @@
                                 <a href="<?php echo url('admin/article/index'); ?>">文章管理</a>
                             </li>
                             <li role="presentation">
-                                <a href="#">回收站</a>
+                                <a href="<?php echo url('admin/article/recycle'); ?>">回收站</a>
                             </li>
                             <li role="presentation">
                                 <a href="#">网站设置</a>
@@ -161,7 +161,7 @@
 
                             <li class="divider"></li>
                             <li>
-                                <a href="javascript:">删除</a>
+                                <a href="javascript:del(<?php echo $article['arc_id']; ?>)">删除到回收站</a>
                             </li>
                         </ul>
                     </div>
@@ -175,10 +175,10 @@
     </div>
 </div>
 <script>
-    function del(cate_id) {
+    function del(arc_id) {
         require(['hdjs'], function (hdjs) {
-            hdjs.confirm('确定删除吗?', function () {
-                location.href = '<?php echo url("del"); ?>?cate_id=' + cate_id;
+            hdjs.confirm('确定删除到回收站吗?', function () {
+                location.href = 'deltorecycle?arc_id=' + arc_id;
             })
         })
     }

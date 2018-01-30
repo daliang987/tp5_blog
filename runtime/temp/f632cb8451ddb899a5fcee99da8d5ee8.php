@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\phpStudy\WWW\tp5\public/../application/admin\view\tag\index.html";i:1517235409;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517325886;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\webset\index.html";i:1517414051;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517410511;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,7 +103,7 @@
                                 <a href="<?php echo url('admin/link/index'); ?>">友链管理</a>
                             </li>
                             <li role="presentation">
-                                <a href="#">网站设置</a>
+                                <a href="<?php echo url('admin/webset/index'); ?>">网站设置</a>
                             </li>
                             <li role="presentation">
                                 <a href="#">评论管理</a>
@@ -116,69 +116,62 @@
             <div class="col-md-10">
                 
 
+
 <div class="alert alert-info">
-    标签首页
+    友链首页
 </div>
-
-
-
-
 <div class="panel panel-info">
     <div class="panel-body">
         <ul class="nav nav-tabs">
             <li class="active">
-                <a href="<?php echo url('admin/tag/index'); ?>">标签列表</a>
+                <a href="<?php echo url('admin/link/index'); ?>">友链首页</a>
             </li>
             <li>
-                <a href="<?php echo url('admin/tag/store'); ?>">创建标签</a>
+                <a href="<?php echo url('admin/link/store'); ?>">添加友链</a>
             </li>
         </ul>
     </div>
+
+
     <div class="container-fluid">
         <table class="table table-striped table-bordered table-hover table-condensed">
             <tr class="info">
                 <th>编号</th>
-                <th>标签名称</th>
-                <th>操作</th>
+                <th>配置名称</th>
+                <th>配置值</th>
+                <th>描述</th>
             </tr>
-            <?php if(is_array($tagdata) || $tagdata instanceof \think\Collection || $tagdata instanceof \think\Paginator): $i = 0; $__LIST__ = $tagdata;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tag): $mod = ($i % 2 );++$i;?>
+            <?php if(is_array($setdata) || $setdata instanceof \think\Collection || $setdata instanceof \think\Paginator): $i = 0; $__LIST__ = $setdata;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$webset): $mod = ($i % 2 );++$i;?>
             <tr>
-                <td><?php echo $tag['tag_id']; ?></td>
-                <td><?php echo $tag['tag_name']; ?></td>
+                <td><?php echo $webset['webset_id']; ?></td>
+                <td><?php echo $webset['webset_name']; ?></td>
                 <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="<?php echo url('admin/tag/edit',['tag_id'=>$tag['tag_id']]); ?>">编辑</a>
-                            </li>
-
-                            <li class="divider"></li>
-                            <li>
-                                <a href="javascript:del(<?php echo $tag['tag_id']; ?>)">删除</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <input type="text" class="form-control" name="webset_value" value="<?php echo $webset['webset_value']; ?>" id="websetvalue" onblur="changeValue('<?php echo $webset['webset_id']; ?>',this)">
                 </td>
+                <td><?php echo $webset['webset_desc']; ?></td>
+
             </tr>
             <?php endforeach; endif; else: echo "" ;endif; ?>
         </table>
-        <?php echo $tagdata->render(); ?>
+        <?php echo $setdata->render(); ?>
     </div>
+
 </div>
-
 <script>
-        function del(tag_id) {
-            require(['hdjs'], function (hdjs) {
-                hdjs.confirm('确定删除吗?', function () {
-                    location.href='<?php echo url("del"); ?>?tag_id='+tag_id;
-                })
-            })
-        }
-    </script>
-
+    function changeValue(id,obj) {
+        $.post("<?php echo url('edit'); ?>",{webset_id:id,webset_value:$(obj).val()},function(res){
+            if(res.code){
+                require(['hdjs'], function (hdjs) {
+                    hdjs.message(res.msg, 'refresh', 'success', res.wait);
+                });
+            }else{
+                require(['hdjs'], function (hdjs) {
+                    hdjs.message(res.msg, 'back', 'error', res.wait);
+                });
+            }
+        });
+    }
+</script> 
             </div>
         </div>
     </div>

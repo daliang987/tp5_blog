@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\phpStudy\WWW\tp5\public/../application/admin\view\index\index.html";i:1517235409;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517239435;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\phpStudy\WWW\tp5\public/../application/admin\view\index\index.html";i:1517235409;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517410511;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,10 +97,13 @@
                                 <a href="<?php echo url('admin/article/index'); ?>">文章管理</a>
                             </li>
                             <li role="presentation">
-                                <a href="#">回收站</a>
+                                <a href="<?php echo url('admin/article/recycle'); ?>">回收站</a>
                             </li>
                             <li role="presentation">
-                                <a href="#">网站设置</a>
+                                <a href="<?php echo url('admin/link/index'); ?>">友链管理</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="<?php echo url('admin/webset/index'); ?>">网站设置</a>
                             </li>
                             <li role="presentation">
                                 <a href="#">评论管理</a>

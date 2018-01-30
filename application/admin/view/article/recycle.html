@@ -8,10 +8,7 @@
     <div class="panel-body">
         <ul class="nav nav-tabs">
             <li class="active">
-                <a href="{:url('admin/article/index')}">文章管理</a>
-            </li>
-            <li>
-                <a href="{:url('admin/article/store')}">文章添加</a>
+                <a href="{:url('admin/article/index')}">文章回收站</a>
             </li>
         </ul>
     </div>
@@ -43,12 +40,12 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{:url('edit',['arc_id'=>$article.arc_id])}">编辑</a>
+                                <a href="{:url('outToRecycle',['arc_id'=>$article.arc_id])}">还原</a>
                             </li>
 
                             <li class="divider"></li>
                             <li>
-                                <a href="javascript:del({$article.arc_id})">删除到回收站</a>
+                                <a href="javascript:confirmDel({$article.arc_id})">彻底删除</a>
                             </li>
                         </ul>
                     </div>
@@ -62,10 +59,10 @@
     </div>
 </div>
 <script>
-    function del(arc_id) {
+    function confirmDel(arc_id) {
         require(['hdjs'], function (hdjs) {
-            hdjs.confirm('确定删除到回收站吗?', function () {
-                location.href = 'deltorecycle?arc_id=' + arc_id;
+            hdjs.confirm('确定彻底删除吗?', function () {
+                location.href = 'confirmDel?arc_id=' + arc_id;
             })
         })
     }

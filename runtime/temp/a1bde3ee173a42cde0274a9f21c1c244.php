@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\phpStudy\WWW\tp5\public/../application/admin\view\tag\index.html";i:1517235409;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517325886;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\phpStudy\WWW\tp5\public/../application/admin\view\link\edit.html";i:1517327769;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517325886;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -117,67 +117,54 @@
                 
 
 <div class="alert alert-info">
-    标签首页
+    友链编辑
 </div>
-
-
-
-
 <div class="panel panel-info">
     <div class="panel-body">
         <ul class="nav nav-tabs">
-            <li class="active">
-                <a href="<?php echo url('admin/tag/index'); ?>">标签列表</a>
-            </li>
             <li>
-                <a href="<?php echo url('admin/tag/store'); ?>">创建标签</a>
+                <a href="<?php echo url('admin/link/index'); ?>">友链首页</a>
+            </li>
+            <li class="active">
+                <a href="<?php echo url('admin/link/edit'); ?>">友链编辑</a>
             </li>
         </ul>
     </div>
     <div class="container-fluid">
-        <table class="table table-striped table-bordered table-hover table-condensed">
-            <tr class="info">
-                <th>编号</th>
-                <th>标签名称</th>
-                <th>操作</th>
-            </tr>
-            <?php if(is_array($tagdata) || $tagdata instanceof \think\Collection || $tagdata instanceof \think\Paginator): $i = 0; $__LIST__ = $tagdata;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tag): $mod = ($i % 2 );++$i;?>
-            <tr>
-                <td><?php echo $tag['tag_id']; ?></td>
-                <td><?php echo $tag['tag_name']; ?></td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="<?php echo url('admin/tag/edit',['tag_id'=>$tag['tag_id']]); ?>">编辑</a>
-                            </li>
-
-                            <li class="divider"></li>
-                            <li>
-                                <a href="javascript:del(<?php echo $tag['tag_id']; ?>)">删除</a>
-                            </li>
-                        </ul>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <form class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">友链名称</label>
+                        <div class="col-md-8">
+                            <input type="text" name="link_name" value="<?php echo $link['link_name']; ?>" class="form-control">
+                        </div>
                     </div>
-                </td>
-            </tr>
-            <?php endforeach; endif; else: echo "" ;endif; ?>
-        </table>
-        <?php echo $tagdata->render(); ?>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">友链地址</label>
+                        <div class="col-md-8">
+                            <input type="text" name="link_url" value="<?php echo $link['link_url']; ?>" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">排序</label>
+                        <div class="col-md-8">
+                            <input type="number" name="link_sort" value="<?php echo $link['link_sort']; ?>" class="form-control">
+                        </div>
+                    </div>
+                    <input type="hidden" name="link_id" value="<?php echo $link['link_id']; ?>">
+                    <div class="form-group">
+
+                        <div class="col-md-offset-2 col-md-8">
+                            <input type="submit" class="form-control col-md-12 btn-info" value="修改友链">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
-<script>
-        function del(tag_id) {
-            require(['hdjs'], function (hdjs) {
-                hdjs.confirm('确定删除吗?', function () {
-                    location.href='<?php echo url("del"); ?>?tag_id='+tag_id;
-                })
-            })
-        }
-    </script>
 
             </div>
         </div>

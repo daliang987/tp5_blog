@@ -43,3 +43,19 @@ create table blog_arc_tag(
     arc_id int not null,
     tag_id int not null
 );
+
+
+create table blog_link(
+    link_id int unsigned auto_increment primary key,
+    link_name varchar(30) not null default '',
+    link_url varchar(255) not null default '',
+    link_sort int unsigned not null default 10
+);
+
+
+create table blog_webset(
+    webset_id int unsigned auto_increment primary key,
+    webset_name varchar(45) not null default '',
+    webset_value varchar(45) not null default '',
+    webset_desc varchar(45) not null default ''
+);

@@ -69,4 +69,43 @@ class Article extends Model{
         }
     }
 
+    public function edit($data){
+        
+        $result=$this->validate(true)->allowField(true)->save($data,[$this->pk=>$data['arc_id']]);
+        if($result){
+            (new ArcTag())->where("arc_id",$data['arc_id'])->delete();
+            foreach($data['tag'] as $value){
+                $arcTagData=[
+                    'arc_id'=>$data['arc_id'],
+                    'tag_id'=>$value,
+                ];
+                (new ArcTag())->save($arcTagData);
+            }
+            return ['valid'=>1,'msg'=>'操作成功'];
+        }else{
+            return ['valid'=>0, 'msg'=>$this->getError()];
+        }
+
+    }
+
+    public function getRecycle(){
+        $data=db('article')->alias('a')->join('cate c','a.cate_id=c.cate_id')->where('is_recycle',1)->
+        field('arc_id,arc_title,arc_author,cate_name,arc_sort,sendtime')->
+        order('a.arc_sort asc,a.sendtime desc,a.arc_title asc')->paginate(3);
+        // halt($data);
+        return $data;
+    }
+
+    public function confirmDel($arc_id){
+        $arc_id=input('get.arc_id');
+        $result=$this->destroy($arc_id);
+        if($result){
+            (new ArcTag())->where('arc_id',$arc_id)->delete();
+            return ['valid'=>1,'msg'=>'删除成功'];
+        }else{
+            return ['valid'=>0,'msg'=>$this->getError()];
+        }
+    }
+
+
 }
