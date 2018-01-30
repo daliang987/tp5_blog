@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:67:"D:\phpStudy\WWW\tp5\public/../application/admin\view\tag\index.html";i:1517235409;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517325886;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\phpStudy\WWW\tp5\public/../application/admin\view\article\recycle.html";i:1517324054;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517324454;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,7 +100,7 @@
                                 <a href="<?php echo url('admin/article/recycle'); ?>">回收站</a>
                             </li>
                             <li role="presentation">
-                                <a href="<?php echo url('admin/link/index'); ?>">友链管理</a>
+                                <a href="<?php echo url('admin/link/index'); ?>">友联管理</a>
                             </li>
                             <li role="presentation">
                                 <a href="#">网站设置</a>
@@ -117,20 +117,14 @@
                 
 
 <div class="alert alert-info">
-    标签首页
+    文章列表
 </div>
-
-
-
 
 <div class="panel panel-info">
     <div class="panel-body">
         <ul class="nav nav-tabs">
             <li class="active">
-                <a href="<?php echo url('admin/tag/index'); ?>">标签列表</a>
-            </li>
-            <li>
-                <a href="<?php echo url('admin/tag/store'); ?>">创建标签</a>
+                <a href="<?php echo url('admin/article/index'); ?>">文章回收站</a>
             </li>
         </ul>
     </div>
@@ -138,13 +132,23 @@
         <table class="table table-striped table-bordered table-hover table-condensed">
             <tr class="info">
                 <th>编号</th>
-                <th>标签名称</th>
+                <th>文章名称</th>
+                <th>作者</th>
+                <th class="col-md-1">排序</th>
+                <th>所属分类</th>
+                <th>添加时间</th>
                 <th>操作</th>
             </tr>
-            <?php if(is_array($tagdata) || $tagdata instanceof \think\Collection || $tagdata instanceof \think\Paginator): $i = 0; $__LIST__ = $tagdata;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tag): $mod = ($i % 2 );++$i;?>
+            <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$article): $mod = ($i % 2 );++$i;?>
             <tr>
-                <td><?php echo $tag['tag_id']; ?></td>
-                <td><?php echo $tag['tag_name']; ?></td>
+                <td><?php echo $article['arc_id']; ?></td>
+                <td><?php echo $article['arc_title']; ?></td>
+                <td><?php echo $article['arc_author']; ?></td>
+                <td>
+                    <input type="number" value="<?php echo $article['arc_sort']; ?>" class="form-control" onblur="changeSort(this,'<?php echo $article['arc_id']; ?>')" />
+                </td>
+                <td><?php echo $article['cate_name']; ?></td>
+                <td><?php echo date('Y-m-d H:i:s',$article['sendtime']); ?></td>
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作
@@ -152,12 +156,12 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="<?php echo url('admin/tag/edit',['tag_id'=>$tag['tag_id']]); ?>">编辑</a>
+                                <a href="<?php echo url('outToRecycle',['arc_id'=>$article['arc_id']]); ?>">还原</a>
                             </li>
 
                             <li class="divider"></li>
                             <li>
-                                <a href="javascript:del(<?php echo $tag['tag_id']; ?>)">删除</a>
+                                <a href="javascript:confirmDel(<?php echo $article['arc_id']; ?>)">彻底删除</a>
                             </li>
                         </ul>
                     </div>
@@ -165,20 +169,38 @@
             </tr>
             <?php endforeach; endif; else: echo "" ;endif; ?>
         </table>
-        <?php echo $tagdata->render(); ?>
+        <div class="pull-right">
+            <?php echo $data->render(); ?>
+        </div>
     </div>
 </div>
-
 <script>
-        function del(tag_id) {
-            require(['hdjs'], function (hdjs) {
-                hdjs.confirm('确定删除吗?', function () {
-                    location.href='<?php echo url("del"); ?>?tag_id='+tag_id;
-                })
+    function confirmDel(arc_id) {
+        require(['hdjs'], function (hdjs) {
+            hdjs.confirm('确定彻底删除吗?', function () {
+                location.href = 'confirmDel?arc_id=' + arc_id;
             })
-        }
-    </script>
+        })
+    }
 
+    function changeSort(obj, arc_id) {
+        value = $(obj).val();
+        // alert(value);
+        // alert(arc_id);
+        $.post("<?php echo url('changeSort'); ?>", { arc_sort: value, arc_id: arc_id }, function (res) {
+            // alert(res.code);
+            if (res.code) {
+                require(['hdjs'], function (hdjs) {
+                    hdjs.message(res.msg, 'refresh', 'success', res.wait);
+                });
+            } else {
+                require(['hdjs'], function (hdjs) {
+                    hdjs.message(res.msg, 'back', 'error', res.wait);
+                });
+            }
+        }, 'json');
+    }
+</script> 
             </div>
         </div>
     </div>

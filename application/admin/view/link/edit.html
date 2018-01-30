@@ -1,0 +1,52 @@
+{extend name="base" /} {block name="content"}
+
+<div class="alert alert-info">
+    友链编辑
+</div>
+<div class="panel panel-info">
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="{:url('admin/link/index')}">友链首页</a>
+            </li>
+            <li class="active">
+                <a href="{:url('admin/link/edit')}">友链编辑</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <form class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">友链名称</label>
+                        <div class="col-md-8">
+                            <input type="text" name="link_name" value="{$link.link_name}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">友链地址</label>
+                        <div class="col-md-8">
+                            <input type="text" name="link_url" value="{$link.link_url}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">排序</label>
+                        <div class="col-md-8">
+                            <input type="number" name="link_sort" value="{$link.link_sort}" class="form-control">
+                        </div>
+                    </div>
+                    <input type="hidden" name="link_id" value="{$link.link_id}">
+                    <div class="form-group">
+
+                        <div class="col-md-offset-2 col-md-8">
+                            <input type="submit" class="form-control col-md-12 btn-info" value="修改友链">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{/block}

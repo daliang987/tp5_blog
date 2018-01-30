@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\article\edit.html";i:1517242462;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517239435;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\article\edit.html";i:1517321603;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517239435;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -212,10 +212,12 @@
                         </div>
                     </div>
 
+                    <input type="hidden" name="arc_id" value="<?php echo $oldArc['arc_id']; ?>">
+
                     <div class="form-group">
 
-                        <div class="col-md-offset-2 col-md-8">
-                            <input type="submit" class="form-control col-md-12 btn-info" value="添加文章">
+                        <div class="col-md-offset-2 col-md-4">
+                            <input type="submit" class="form-control col-md-12 btn-info" value="修改文章">
                         </div>
                     </div>
                 </form>

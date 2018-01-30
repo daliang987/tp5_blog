@@ -112,7 +112,12 @@ class Article extends Controller{
 
     public function edit(){
         if(request()->isPost()){
-
+            $res=$this->db->edit(input('post.'));
+            if($res['valid']){
+                $this->success($res['msg'],'index');exit;
+            }else{
+                $this->error($res['msg']);exit;
+            }
         }
 
         $arc_id=input('param.arc_id');
@@ -128,5 +133,43 @@ class Article extends Controller{
         $this->assign('tagdata',$tag_data);
         $this->assign('oldArc',$oldData);
         return $this->fetch();
+    }
+
+    public function deltorecycle(){
+        $arc_id=input('get.arc_id');
+        $res=$this->db->save(['is_recycle'=>1],['arc_id'=>$arc_id]);
+        if($res){
+            $this->success('删除到回收站','index');exit;
+        }else{
+            $this->error('删除失败');exit;
+        }
+    }
+
+    public function recycle(){
+        $fields=$this->db->getRecycle();
+        $this->assign('data',$fields);
+        return $this->fetch();
+    }
+
+
+    public function outToRecycle(){
+        $arc_id=input('param.arc_id');
+        $res=$this->db->save(['is_recycle'=>2],['arc_id'=>$arc_id]);
+        if($res){
+            $this->success('已恢复该文章','index');exit;
+        }else{
+            $this->error('恢复失败');exit;
+        }
+    }
+
+
+    public function confirmDel(){
+        $arc_id=input('get.arc_id');
+        $res=$this->db->confirmDel($arc_id);
+        if($res){
+            $this->success($res['msg'],'recycle');exit;
+        }else{
+            $this->error($res['msg']);exit;
+        }
     }
 }
