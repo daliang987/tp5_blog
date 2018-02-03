@@ -2,19 +2,13 @@
 namespace app\index\controller;
 use think\Controller;
 
-class Index extends Controller
+class Index extends Common
 {
 
-    protected $dbcate;
-    protected function _initialize(){
-        parent::_initialize();
-        $dbcate=db('cate')->where('cate_pid',0)->select();
-        $this->assign('cate',$dbcate);
-    }
 
     public function index()
     {
-        $arcdata=db('article')->order('sendtime desc')->select();
+        $arcdata=db('article')->order('sendtime desc')->limit(10)->select();
         $this->assign('article',$arcdata);
         return $this->fetch();
     }
@@ -29,12 +23,18 @@ class Index extends Controller
     }
 
     public function content(){
-        
-
         $arc_id=input('param.arc_id');
         $arcdata=db('article')->find($arc_id);
         $this->assign('arcdata',$arcdata);
 
+        return $this->fetch();
+    }
+
+
+    public function link(){
+
+        $linkdata=db('link')->select();
+        $this->assign('link',$linkdata);
         return $this->fetch();
     }
 }

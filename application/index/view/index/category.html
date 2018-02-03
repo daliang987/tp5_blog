@@ -1,12 +1,14 @@
-{extend name="index_base"/}
-{block name="content"}
+{extend name="index_base"/} {block name="content"}
+<div class="arclist">
+    <ul>
+        {volist name="arcdata" id="arc"}
+        <li>
+            <span class="time">{:date('Y/m/d H:i',$arc.sendtime)}</span>
+            <a href="{:url('content',['arc_id'=>$arc.arc_id])}">{$arc.arc_title}</a>
+        </li>
+        {/volist}
 
-{volist name="arcdata" id="arc"}
-
-<ul>
-    <li><span class="time">{:date('Y/m/d H:i',$arc.sendtime)}</span><a href="{:url('content',['arc_id'=>$arc.arc_id])}">{$arc.arc_title}</a></li>
-</ul>
-
-{/volist}
+    </ul>
+</div>
 
 {/block}

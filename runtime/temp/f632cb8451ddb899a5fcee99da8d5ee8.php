@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\webset\index.html";i:1517414051;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517410511;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\webset\index.html";i:1517668165;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517663358;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,7 +106,7 @@
                                 <a href="<?php echo url('admin/webset/index'); ?>">网站设置</a>
                             </li>
                             <li role="presentation">
-                                <a href="#">评论管理</a>
+                                <a href="<?php echo url('admin/comment/index'); ?>">评论管理</a>
                             </li>
                         </ul>
                     </div>
@@ -118,16 +118,16 @@
 
 
 <div class="alert alert-info">
-    友链首页
+    网站配置
 </div>
 <div class="panel panel-info">
     <div class="panel-body">
         <ul class="nav nav-tabs">
             <li class="active">
-                <a href="<?php echo url('admin/link/index'); ?>">友链首页</a>
+                <a href="<?php echo url('admin/webset/index'); ?>">网站配置</a>
             </li>
             <li>
-                <a href="<?php echo url('admin/link/store'); ?>">添加友链</a>
+                <a href="<?php echo url('admin/webset/store'); ?>">添加配置</a>
             </li>
         </ul>
     </div>
@@ -140,6 +140,7 @@
                 <th>配置名称</th>
                 <th>配置值</th>
                 <th>描述</th>
+                <th>操作</th>
             </tr>
             <?php if(is_array($setdata) || $setdata instanceof \think\Collection || $setdata instanceof \think\Paginator): $i = 0; $__LIST__ = $setdata;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$webset): $mod = ($i % 2 );++$i;?>
             <tr>
@@ -149,7 +150,23 @@
                     <input type="text" class="form-control" name="webset_value" value="<?php echo $webset['webset_value']; ?>" id="websetvalue" onblur="changeValue('<?php echo $webset['webset_id']; ?>',this)">
                 </td>
                 <td><?php echo $webset['webset_desc']; ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="<?php echo url('admin/webset/edit',['webset_id'=>$webset['webset_id']]); ?>">编辑</a>
+                            </li>
 
+                            <li class="divider"></li>
+                            <li>
+                                <a href="javascript:del(<?php echo $webset['webset_id']; ?>)">删除</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
             </tr>
             <?php endforeach; endif; else: echo "" ;endif; ?>
         </table>
@@ -158,18 +175,26 @@
 
 </div>
 <script>
-    function changeValue(id,obj) {
-        $.post("<?php echo url('edit'); ?>",{webset_id:id,webset_value:$(obj).val()},function(res){
-            if(res.code){
+    function changeValue(id, obj) {
+        $.post("<?php echo url('edit'); ?>", { webset_id: id, webset_value: $(obj).val() }, function (res) {
+            if (res.code) {
                 require(['hdjs'], function (hdjs) {
                     hdjs.message(res.msg, 'refresh', 'success', res.wait);
                 });
-            }else{
+            } else {
                 require(['hdjs'], function (hdjs) {
                     hdjs.message(res.msg, 'back', 'error', res.wait);
                 });
             }
         });
+    }
+
+    function del(id) {
+        require(['hdjs'], function (hdjs) {
+            hdjs.confirm('确定删除吗?', function () {
+                location.href = '<?php echo url("del"); ?>?webset_id=' + id;
+            })
+        })
     }
 </script> 
             </div>

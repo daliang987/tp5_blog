@@ -33,17 +33,45 @@ class Webset extends Controller{
             }
         }
 
+        $webset_id=input('param.webset_id');
+        $websetdata=db('webset')->find($webset_id);
+        $this->assign('webset',$websetdata);
+
+        if(request()->isPost()){
+            $res=$this->db->edit(input('post.'));
+            if($res['valid']){
+                $this->success($res['msg'],'index');exit;
+            }else{
+                $this->error($res['msg']);exit;
+            }
+        }
+
         return $this->fetch();
     }
 
 
     
     public function store(){
-        if(request()->isAjax()){
-            // halt(input('post.'));
-            $this->success('love','index');exit;
+
+        if(request()->isPost()){
+            $res=$this->db->store(input('post.'));
+            if($res['valid']){
+                $this->success($res['msg'],'index');exit;
+            }else{
+                $this->error($res['msg']);exit;
+            }
         }
         return $this->fetch();
+    }
+
+    public function del(){
+        $webset_id=input('get.webset_id');
+        $res=$this->db->del($webset_id);
+        if($res['valid']){
+            $this->success($res['msg'],'index');exit;
+        }else{
+            $this->error($res['msg']);exit;
+        }
     }
  
 }

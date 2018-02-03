@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpStudy\WWW\tp5\public/../application/admin\view\comment\index.html";i:1517501443;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517500200;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpStudy\WWW\tp5\public/../application/admin\view\comment\index.html";i:1517661016;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517661016;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 

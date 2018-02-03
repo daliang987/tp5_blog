@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\link\store.html";i:1517327168;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517325886;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"D:\phpStudy\WWW\tp5\public/../application/admin\view\link\store.html";i:1517495273;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517663358;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,10 +103,10 @@
                                 <a href="<?php echo url('admin/link/index'); ?>">友链管理</a>
                             </li>
                             <li role="presentation">
-                                <a href="#">网站设置</a>
+                                <a href="<?php echo url('admin/webset/index'); ?>">网站设置</a>
                             </li>
                             <li role="presentation">
-                                <a href="#">评论管理</a>
+                                <a href="<?php echo url('admin/comment/index'); ?>">评论管理</a>
                             </li>
                         </ul>
                     </div>

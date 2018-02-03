@@ -2,16 +2,16 @@
 
 
 <div class="alert alert-info">
-    友链首页
+    网站配置
 </div>
 <div class="panel panel-info">
     <div class="panel-body">
         <ul class="nav nav-tabs">
             <li class="active">
-                <a href="{:url('admin/link/index')}">友链首页</a>
+                <a href="{:url('admin/webset/index')}">网站配置</a>
             </li>
             <li>
-                <a href="{:url('admin/link/store')}">添加友链</a>
+                <a href="{:url('admin/webset/store')}">添加配置</a>
             </li>
         </ul>
     </div>
@@ -24,6 +24,7 @@
                 <th>配置名称</th>
                 <th>配置值</th>
                 <th>描述</th>
+                <th>操作</th>
             </tr>
             {volist name="setdata" id='webset'}
             <tr>
@@ -33,7 +34,23 @@
                     <input type="text" class="form-control" name="webset_value" value="{$webset.webset_value}" id="websetvalue" onblur="changeValue('{$webset.webset_id}',this)">
                 </td>
                 <td>{$webset.webset_desc}</td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{:url('admin/webset/edit',['webset_id'=>$webset.webset_id])}">编辑</a>
+                            </li>
 
+                            <li class="divider"></li>
+                            <li>
+                                <a href="javascript:del({$webset.webset_id})">删除</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
             </tr>
             {/volist}
         </table>
@@ -42,17 +59,25 @@
 
 </div>
 <script>
-    function changeValue(id,obj) {
-        $.post("{:url('edit')}",{webset_id:id,webset_value:$(obj).val()},function(res){
-            if(res.code){
+    function changeValue(id, obj) {
+        $.post("{:url('edit')}", { webset_id: id, webset_value: $(obj).val() }, function (res) {
+            if (res.code) {
                 require(['hdjs'], function (hdjs) {
                     hdjs.message(res.msg, 'refresh', 'success', res.wait);
                 });
-            }else{
+            } else {
                 require(['hdjs'], function (hdjs) {
                     hdjs.message(res.msg, 'back', 'error', res.wait);
                 });
             }
         });
+    }
+
+    function del(id) {
+        require(['hdjs'], function (hdjs) {
+            hdjs.confirm('确定删除吗?', function () {
+                location.href = '{:url("del")}?webset_id=' + id;
+            })
+        })
     }
 </script> {/block}

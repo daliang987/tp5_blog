@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\content.html";i:1517656940;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517643468;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\content.html";i:1517661016;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517676831;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,9 +25,12 @@
 <body>
     <div class="blog-show">
         <div class="header">
+            <i class="fa fa-flag fa-2x pull-left"></i>
             <ul>
-                <li><a href="<?php echo url('index'); ?>">首页</a></li>
-                <?php if(is_array($cate) || $cate instanceof \think\Collection || $cate instanceof \think\Paginator): $i = 0; $__LIST__ = $cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$category): $mod = ($i % 2 );++$i;?>
+                <li>
+                    <a href="<?php echo url('index'); ?>">首页</a>
+                </li>
+                <?php if(is_array($_cate) || $_cate instanceof \think\Collection || $_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$category): $mod = ($i % 2 );++$i;?>
                 <li>
                     <a href="<?php echo url('category',['cate_id'=>$category['cate_id']]); ?>"><?php echo $category['cate_name']; ?></a>
                 </li>
@@ -35,8 +38,7 @@
             </ul>
         </div>
         <hr>
-        <div class="desc"></div>
-        <div class="search"></div>
+
         <div class="content">
             
 
@@ -75,9 +77,24 @@
     });
 </script> 
         </div>
-        <div class="footer"></div>
+        <hr>
+        <div class="footer">
+            <div class="copyright">
+                <?php echo $_webset['copyright']; ?>
+            </div>
+            <div class="footer-link">
+                <ul>
+                    <li><a href="<?php echo url('link'); ?>">友情链接</a></li>
+                    <li><a href="mailto:<?php echo $_webset['email']; ?>">邮箱</a></li>
+                    <li><a href="<?php echo $_webset['weibo']; ?>" target="_blank">微博</a></li>
+                    
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
     </div>
 
 </body>
 <link rel="stylesheet" href="__STATIC__/css/index.css">
+
 </html>

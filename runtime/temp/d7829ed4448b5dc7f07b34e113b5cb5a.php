@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\index.html";i:1517657151;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517643468;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\index.html";i:1517673410;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517676831;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,9 +25,12 @@
 <body>
     <div class="blog-show">
         <div class="header">
+            <i class="fa fa-flag fa-2x pull-left"></i>
             <ul>
-                <li><a href="<?php echo url('index'); ?>">首页</a></li>
-                <?php if(is_array($cate) || $cate instanceof \think\Collection || $cate instanceof \think\Paginator): $i = 0; $__LIST__ = $cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$category): $mod = ($i % 2 );++$i;?>
+                <li>
+                    <a href="<?php echo url('index'); ?>">首页</a>
+                </li>
+                <?php if(is_array($_cate) || $_cate instanceof \think\Collection || $_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$category): $mod = ($i % 2 );++$i;?>
                 <li>
                     <a href="<?php echo url('category',['cate_id'=>$category['cate_id']]); ?>"><?php echo $category['cate_name']; ?></a>
                 </li>
@@ -35,24 +38,72 @@
             </ul>
         </div>
         <hr>
-        <div class="desc"></div>
-        <div class="search"></div>
+
         <div class="content">
             
 
-<?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): $i = 0; $__LIST__ = $article;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arc): $mod = ($i % 2 );++$i;?>
+<div class="content-left">
+    <div class="index-title">Statement</div>
+    <div class="desc">
+        <?php echo $_webset['person_desc']; ?>
+    </div>
+    <div class="index-title">Search</div>
+    <div class="search">
+        <input type="text" name="keyword" id="">
+    </div>
+    <div class="index-title">Archive</div>
+    <div class="arclist">
 
-<ul>
-    <li><span class="time"><?php echo date('Y M d',$arc['sendtime']); ?></span><a href="<?php echo url('content',['arc_id'=>$arc['arc_id']]); ?>"><?php echo $arc['arc_title']; ?></a></li>
-</ul>
+        <ul>
+            <?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): $i = 0; $__LIST__ = $article;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arc): $mod = ($i % 2 );++$i;?>
+            <li>
+                <span class="time"><?php echo date('Y M d',$arc['sendtime']); ?></span>
+                <a href="<?php echo url('content',['arc_id'=>$arc['arc_id']]); ?>"><?php echo $arc['arc_title']; ?></a>
+            </li>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </ul>
 
-<?php endforeach; endif; else: echo "" ;endif; ?>
+    </div>
+</div>
+<div class="content-right">
+    <div class="taglist">
+        <ul>
+            <?php if(is_array($_tag) || $_tag instanceof \think\Collection || $_tag instanceof \think\Paginator): $i = 0; $__LIST__ = $_tag;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tag): $mod = ($i % 2 );++$i;?>
+            <li>
+                <a href=""><?php echo $tag['tag_name']; ?></a>
+            </li>
+
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+            <div class="clear"></div>
+        </ul>
+        
+    </div>
+</div>
+
+
+
+<div class="clear"></div>
 
 
         </div>
-        <div class="footer"></div>
+        <hr>
+        <div class="footer">
+            <div class="copyright">
+                <?php echo $_webset['copyright']; ?>
+            </div>
+            <div class="footer-link">
+                <ul>
+                    <li><a href="<?php echo url('link'); ?>">友情链接</a></li>
+                    <li><a href="mailto:<?php echo $_webset['email']; ?>">邮箱</a></li>
+                    <li><a href="<?php echo $_webset['weibo']; ?>" target="_blank">微博</a></li>
+                    
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
     </div>
 
 </body>
 <link rel="stylesheet" href="__STATIC__/css/index.css">
+
 </html>

@@ -1,12 +1,45 @@
-{extend name="index_base" /}
-{block name="content"}
+{extend name="index_base" /} {block name="content"}
 
-{volist name="article" id="arc"}
+<div class="content-left">
+    <div class="index-title">Statement</div>
+    <div class="desc">
+        {$_webset.person_desc}
+    </div>
+    <div class="index-title">Search</div>
+    <div class="search">
+        <input type="text" name="keyword" id="">
+    </div>
+    <div class="index-title">Archive</div>
+    <div class="arclist">
 
-<ul>
-    <li><span class="time">{:date('Y M d',$arc.sendtime)}</span><a href="{:url('content',['arc_id'=>$arc.arc_id])}">{$arc.arc_title}</a></li>
-</ul>
+        <ul>
+            {volist name="article" id="arc"}
+            <li>
+                <span class="time">{:date('Y M d',$arc.sendtime)}</span>
+                <a href="{:url('content',['arc_id'=>$arc.arc_id])}">{$arc.arc_title}</a>
+            </li>
+            {/volist}
+        </ul>
 
-{/volist}
+    </div>
+</div>
+<div class="content-right">
+    <div class="taglist">
+        <ul>
+            {volist name="_tag" id="tag"}
+            <li>
+                <a href="">{$tag.tag_name}</a>
+            </li>
+
+            {/volist}
+            <div class="clear"></div>
+        </ul>
+        
+    </div>
+</div>
+
+
+
+<div class="clear"></div>
 
 {/block}

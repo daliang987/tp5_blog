@@ -9,8 +9,8 @@
             <li>
                 <a href="{:url('admin/webset/index')}">网站配置</a>
             </li>
-            <li class="active">
-                <a href="{:url('admin/webset/store')}">添加配置</a>
+            <li  class="active">
+                <a href="{:url('admin/webset/store')}">编辑配置</a>
             </li>
         </ul>
     </div>
@@ -21,25 +21,26 @@
                     <div class="form-group">
                         <label for="" class="col-md-2 control-label">配置名称</label>
                         <div class="col-md-8">
-                            <input type="text" name="webset_name" class="form-control" placeholder="配置名称">
+                            <input type="text" name="webset_name" value="{$webset.webset_name}" class="form-control" placeholder="配置名称">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-md-2 control-label">配置值</label>
                         <div class="col-md-8">
-                            <input type="text" name="webset_value" class="form-control" placeholder="配置值">
+                            <input type="text" name="webset_value" value="{$webset.webset_value}" class="form-control" placeholder="配置值">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-md-2 control-label">描述</label>
                         <div class="col-md-8">
-                            <input type="text" name="webset_desc" class="form-control" placeholder="描述">
+                            <input type="text" name="webset_desc" value="{$webset.webset_desc}" class="form-control" placeholder="描述">
                         </div>
                     </div>
+                    <input type="hidden" name="webset_id" value={$webset.webset_id}>
                     <div class="form-group">
 
                         <div class="col-md-offset-2 col-md-8">
-                            <input type="submit" class="form-control col-md-12 btn-info" value="添加配置">
+                            <input type="submit" class="form-control col-md-12 btn-info" value="修改配置">
                         </div>
                     </div>
                 </form>

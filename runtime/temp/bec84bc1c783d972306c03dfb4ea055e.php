@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\webset\store.html";i:1517416094;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517410511;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\phpStudy\WWW\tp5\public/../application/admin\view\webset\store.html";i:1517664845;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517663358;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,7 +106,7 @@
                                 <a href="<?php echo url('admin/webset/index'); ?>">网站设置</a>
                             </li>
                             <li role="presentation">
-                                <a href="#">评论管理</a>
+                                <a href="<?php echo url('admin/comment/index'); ?>">评论管理</a>
                             </li>
                         </ul>
                     </div>
@@ -115,44 +115,54 @@
             </div>
             <div class="col-md-10">
                 
-<script>
 
-    
-    function ajaxsub() {
-        datafrm = $('#myform').serialize();
-        $.ajax({
-            type: "post",
-            url: "<?php echo url('store'); ?>",
-            data: datafrm
-        });
+<div class="alert alert-info">
+    网站配置
+</div>
+<div class="panel panel-info">
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="<?php echo url('admin/webset/index'); ?>">网站配置</a>
+            </li>
+            <li class="active">
+                <a href="<?php echo url('admin/webset/store'); ?>">添加配置</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <form class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">配置名称</label>
+                        <div class="col-md-8">
+                            <input type="text" name="webset_name" class="form-control" placeholder="配置名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">配置值</label>
+                        <div class="col-md-8">
+                            <input type="text" name="webset_value" class="form-control" placeholder="配置值">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">描述</label>
+                        <div class="col-md-8">
+                            <input type="text" name="webset_desc" class="form-control" placeholder="描述">
+                        </div>
+                    </div>
+                    <div class="form-group">
 
-        // $.post("<?php echo url('store'); ?>",{username:'admin',pass:'123'},function(res){
-        //     if(res.code){
-        //         require(['hdjs'], function (hdjs) {
-        //             hdjs.message(res.msg, 'refresh', 'success', res.wait);
-        //         });
-        //     }else{
-        //         require(['hdjs'], function (hdjs) {
-        //             hdjs.message(res.msg, 'back', 'error', res.wait);
-        //         });
-        //     }
-        // });
-    }
-
-
-</script>
-
-<form id="myform">
-    <input type="text" name="username" id="">
-    <input type="text" name="password" id="">
-    <!-- a链接可以放在表单里-->
-    <!-- <a href="javascript:ajaxsub()">asdf</a>  -->
-    <!--  submit 和button不行-->
-    <!-- <input type="submit" value="tijiao" onclick="ajaxsub()">  -->
-</form>
-
-<!-- button可以放在外面提交 -->
-<button onclick="javascript:ajaxsub()">dddd</button> 
+                        <div class="col-md-offset-2 col-md-8">
+                            <input type="submit" class="form-control col-md-12 btn-info" value="添加配置">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
             </div>
         </div>
