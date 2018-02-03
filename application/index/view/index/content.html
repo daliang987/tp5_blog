@@ -5,7 +5,7 @@
     <div class="title">{$arcdata.arc_title}</div>
     <div class="min-title">
         <span class="author">作者：{$arcdata.arc_author}</span>
-        <span class="sendtime">发表时间：{:date('Y-m-d H:i',$arcdata.sendtime)}</span>
+        <span class="sendtime">发表时间：{:date('Y/m/d H:i',$arcdata.sendtime)}</span>
         <span class="readcount">阅读：{$arcdata.sendtime.arc_click}</span>
     </div>
 
@@ -17,6 +17,13 @@
     </div>
 
 
+</div>
+
+<div class="comment">
+    <div class="new-comment"></div>
+    <div class="comment-detial">
+
+    </div>
 </div>
 
 <script>

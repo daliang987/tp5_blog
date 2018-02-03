@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\content.html";i:1517643244;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517643468;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\content.html";i:1517656940;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517643468;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +45,7 @@
     <div class="title"><?php echo $arcdata['arc_title']; ?></div>
     <div class="min-title">
         <span class="author">作者：<?php echo $arcdata['arc_author']; ?></span>
-        <span class="sendtime">发表时间：<?php echo date('Y-m-d H:i',$arcdata['sendtime']); ?></span>
+        <span class="sendtime">发表时间：<?php echo date('Y/m/d H:i',$arcdata['sendtime']); ?></span>
         <span class="readcount">阅读：<?php echo $arcdata['sendtime']['arc_click']; ?></span>
     </div>
 
@@ -57,6 +57,13 @@
     </div>
 
 
+</div>
+
+<div class="comment">
+    <div class="new-comment"></div>
+    <div class="comment-detial">
+
+    </div>
 </div>
 
 <script>

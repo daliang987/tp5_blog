@@ -4,7 +4,7 @@
 {volist name="article" id="arc"}
 
 <ul>
-    <li><span class="time">{:date('Y-m-d H:i',$arc.sendtime)}</span><a href="{:url('content',['arc_id'=>$arc.arc_id])}">{$arc.arc_title}</a></li>
+    <li><span class="time">{:date('Y M d',$arc.sendtime)}</span><a href="{:url('content',['arc_id'=>$arc.arc_id])}">{$arc.arc_title}</a></li>
 </ul>
 
 {/volist}

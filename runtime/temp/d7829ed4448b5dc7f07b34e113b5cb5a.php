@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\index.html";i:1517641162;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517643468;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\index.html";i:1517657151;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517643468;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +43,7 @@
 <?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): $i = 0; $__LIST__ = $article;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arc): $mod = ($i % 2 );++$i;?>
 
 <ul>
-    <li><span class="time"><?php echo date('Y-m-d H:i',$arc['sendtime']); ?></span><a href="<?php echo url('content',['arc_id'=>$arc['arc_id']]); ?>"><?php echo $arc['arc_title']; ?></a></li>
+    <li><span class="time"><?php echo date('Y M d',$arc['sendtime']); ?></span><a href="<?php echo url('content',['arc_id'=>$arc['arc_id']]); ?>"><?php echo $arc['arc_title']; ?></a></li>
 </ul>
 
 <?php endforeach; endif; else: echo "" ;endif; ?>

@@ -24,8 +24,11 @@
 <body>
     <div class="blog-show">
         <div class="header">
+            <i class="fa fa-flag fa-2x pull-left"></i>
             <ul>
-                <li><a href="{:url('index')}">首页</a></li>
+                <li>
+                    <a href="{:url('index')}">首页</a>
+                </li>
                 {volist name="cate" id="category"}
                 <li>
                     <a href="{:url('category',['cate_id'=>$category.cate_id])}">{$category.cate_name}</a>
@@ -44,4 +47,5 @@
 
 </body>
 <link rel="stylesheet" href="__STATIC__/css/index.css">
+
 </html>
