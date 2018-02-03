@@ -1,0 +1,12 @@
+{extend name="index_base"/}
+{block name="content"}
+
+{volist name="arcdata" id="arc"}
+
+<ul>
+    <li><span class="time">{:date('Y-m-d H:i',$arc.sendtime)}</span><a href="{:url('content',['arc_id'=>$arc.arc_id])}">{$arc.arc_title}</a></li>
+</ul>
+
+{/volist}
+
+{/block}

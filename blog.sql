@@ -59,3 +59,14 @@ create table blog_webset(
     webset_value varchar(45) not null default '',
     webset_desc varchar(45) not null default ''
 );
+
+
+create table blog_comment(
+    comment_id int unsigned auto_increment primary key,
+    comment_nickname varchar(30) not null default '',
+    comment_email varchar(45),
+    comment_url varchar(100),
+    comment_content varchar(150) not null default '',
+    create_time int unsigned not null default 0,
+    arc_id int unsigned not null default 0
+);

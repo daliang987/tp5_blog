@@ -70,4 +70,14 @@ class Category extends Model{
         }
     }
 
+    public function getArc($cate_id){
+        $data=db('cate')->select();
+        $son_ids=$this->getSon($data,$cate_id);
+        $son_ids[]=$cate_id;
+
+        $arcdata=db('article')->whereIn('cate_id',$son_ids)->select();
+        // halt($arcdata);
+        return $arcdata;
+    }
+
 }

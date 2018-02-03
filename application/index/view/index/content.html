@@ -1,0 +1,29 @@
+{extend name="index_base" /} {block name="content"}
+
+
+<div class="article_header">
+    <div class="title">{$arcdata.arc_title}</div>
+    <div class="min-title">
+        <span class="author">作者：{$arcdata.arc_author}</span>
+        <span class="sendtime">发表时间：{:date('Y-m-d H:i',$arcdata.sendtime)}</span>
+        <span class="readcount">阅读：{$arcdata.sendtime.arc_click}</span>
+    </div>
+
+</div>
+
+<div class="article_content">
+    <div id="editormd">
+        <textarea hidden>{$arcdata.arc_content}</textarea>
+    </div>
+
+
+</div>
+
+<script>
+    require(['hdjs'], function (hdjs) {
+        hdjs.markdownToHTML("editormd", {
+            htmlDecode: "style,script,iframe,php",
+            emoji: true
+        });
+    });
+</script> {/block}
