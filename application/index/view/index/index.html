@@ -1,13 +1,16 @@
 {extend name="index_base" /} {block name="content"}
 
-<div class="content-left">
+<div class="blog-content-left">
     <div class="index-title">Statement</div>
     <div class="desc">
         {$_webset.person_desc}
     </div>
     <div class="index-title">Search</div>
     <div class="search">
-        <input type="text" name="keyword" id="">
+        <form action="{:url('search')}" method="post" method="post">
+            <input type="text" name="keyword">
+            <input type="submit" value="搜索" class="btn btn-success">
+        </form>
     </div>
     <div class="index-title">Archive</div>
     <div class="arclist">
@@ -23,18 +26,33 @@
 
     </div>
 </div>
-<div class="content-right">
+<div class="blog-content-right">
+    <div class="catelist">
+        <ul>
+            <li onclick="javascript:cateshow()">
+                <a href="#">文章分类</a>
+            </li>
+            {volist name="_cate" id="ca"}
+            <li>
+                <a href="{:url('category',['cate_id'=>$ca.cate_id])}">{$ca.cate_name}</a>
+            </li>
+            {/volist}
+        </ul>
+    </div>
     <div class="taglist">
         <ul>
+            <li>
+                <a class="tag-title" href="javascript:void(0)">标签</a>
+            </li>
             {volist name="_tag" id="tag"}
             <li>
-                <a href="">{$tag.tag_name}</a>
+                <a href="{:url('tag',['tag_id'=>$tag.tag_id])}">{$tag.tag_name}</a>
             </li>
 
             {/volist}
             <div class="clear"></div>
         </ul>
-        
+
     </div>
 </div>
 
@@ -42,4 +60,8 @@
 
 <div class="clear"></div>
 
-{/block}
+<script>
+    function cateshow() {
+        $(".catelist ul li:first").nextAll("li").slideToggle();
+    }
+</script> {/block}

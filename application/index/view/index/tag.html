@@ -1,4 +1,4 @@
-{extend name="index_base"/} {block name="content"}
+{extend name="index_base" /} {block name="content"}
 
 <div class="blog-function">
     <div class="func">
@@ -18,42 +18,36 @@
                 </div>
                 <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {}, "image": { "viewList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"], "viewText": "分享到：", "viewSize": "16" }, "selectShare": { "bdContainerClass": null, "bdSelectMiniList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"] } }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
     </div>
+
+</div>
+<p class="text-center">
+    {volist name="_tag" id="tag"}
+    <a href="{:url('tag',['tag_id'=>$tag.tag_id])}">
+        {if condition="input('param.tag_id')==$tag.tag_id"}
+        <span class="label label-success">{$tag.tag_name}</span>
+        {else}
+        <span class="label label-info">{$tag.tag_name}</span>
+        {/if}
+    </a>
+    {/volist}
+
+</p>
+
+<hr>
+<div class="arclist">
+
+    <ul>
+        {volist name="arcdata" id="arc"}
+        <li>
+            <span class="time">{:date('Y/m/d H:i',$arc.sendtime)}</span>
+            <a href="{:url('content',['arc_id'=>$arc.arc_id])}">{$arc.arc_title}</a>
+        </li>
+        {/volist}
+
+    </ul>
+    {$arcdata->render()}
 </div>
 
-<div class="blog-content-left">
-    <p class="text-white">
-        当前分类：
-        <span class="text-light">{$curr_cate.cate_name}</span>
-    </p>
-    <hr>
-    <div class="arclist">
-        <ul>
-            {volist name="arcdata" id="arc"}
-            <li>
-                <span class="time">{:date('Y/m/d H:i',$arc.sendtime)}</span>
-                <a href="{:url('content',['arc_id'=>$arc.arc_id])}">{$arc.arc_title}</a>
-            </li>
-            {/volist}
 
-        </ul>
-    </div>
-</div>
-
-<div class="blog-content-right">
-    <div class="catelist">
-        <ul>
-            <li onclick="javascript:cateshow()">
-                <a href="javascript:void(0)">{$curr_cate.cate_name}</a>
-            </li>
-
-            {volist name="cate_son" id="son"}
-            <li>
-                <a href="{:url('category',['cate_id'=>$son.cate_id])}">{$son.cate_name}</a>
-            </li>
-            {/volist}
-
-        </ul>
-    </div>
-</div>
 
 {/block}

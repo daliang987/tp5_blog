@@ -40,12 +40,15 @@ class Category extends Model{
 
     public function getSon($data,$cate_id){
         static $temp=[];
+
         foreach($data as $k=>$v){
+            
             if($v['cate_pid']==$cate_id){
                 $temp[]=$v['cate_id'];
                 $this->getSon($data,$v['cate_id']);
             }
         }
+        
         return $temp;
     }
 

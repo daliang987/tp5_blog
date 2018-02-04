@@ -1,0 +1,23 @@
+{extend name="index_base" /} {block name="content"}
+
+<h4>
+    <p class="text-white">当前搜索关键字：
+        <span class="text-light">{:input('post.keyword')}</span>
+    </p>
+</h4>
+<hr>
+
+<div class="arclist">
+    <ul>
+        {volist name="arcdata" id="arc"}
+        <li>
+            <span class="time">{:date('Y/m/d H:i',$arc.sendtime)}</span>
+            <a href="{:url('content',['arc_id'=>$arc.arc_id])}">{$arc.arc_title}</a>
+        </li>
+        {/volist}
+
+    </ul>
+    {$arcdata->render()}
+</div>
+
+{/block}
