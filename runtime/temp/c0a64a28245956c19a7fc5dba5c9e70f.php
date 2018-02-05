@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpStudy\WWW\tp5\public/../application/admin\view\comment\index.html";i:1517661016;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517661016;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpStudy\WWW\tp5\public/../application/admin\view\comment\index.html";i:1517661016;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517841870;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +25,7 @@
     </script>
     <script src="__STATIC__/node_modules/hdjs/static/requirejs/require.js"></script>
     <script src="__STATIC__/node_modules/hdjs/static/requirejs/config.js"></script>
+    <link rel="stylesheet" href="__STATIC__/node_modules/hdjs/dist/hdjs.css">
 </head>
 
 <body>
@@ -98,9 +99,6 @@
                             </li>
                             <li role="presentation">
                                 <a href="<?php echo url('admin/article/recycle'); ?>">回收站</a>
-                            </li>
-                            <li role="presentation">
-                                <a href="<?php echo url('admin/link/index'); ?>">友链管理</a>
                             </li>
                             <li role="presentation">
                                 <a href="<?php echo url('admin/link/index'); ?>">友链管理</a>

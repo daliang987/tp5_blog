@@ -27,4 +27,21 @@ class Common extends Controller{
         $dbTag=db('tag')->select();
         $this->assign('_tag',$dbTag);
     }
+
+
+    public function getTags($arcData){
+        $tag_ids=db('article')->alias('a')->join('arc_tag at','at.arc_id=a.arc_id')->where('a.arc_id',$arcData['arc_id'])->column('tag_id');
+        $tadData=db('tag')->whereIn('tag_id',$tag_ids)->field('tag_id,tag_name')->select();
+        return $tadData;
+    }
+
+
+    public function setTitle($title){
+        $this->assign('title',$title);
+    }
+
+    public function setCount($arcData){
+        $count=count($arcData);
+        $this->assign('count',$count);
+    }
 }

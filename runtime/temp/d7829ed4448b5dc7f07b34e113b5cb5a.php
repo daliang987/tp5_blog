@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\index.html";i:1517752661;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517747744;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\index.html";i:1517841422;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517843458;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>白帽子博客</title>
+    <title><?php if(isset($title)): ?><?php echo $title; endif; ?>--[<?php echo $_webset['blog_title']; ?>]</title>
     <script>
         window.hdjs = {};
         //组件目录必须绝对路径(在网站根目录时不用设置)
@@ -79,7 +79,7 @@
     <div class="catelist">
         <ul>
             <li onclick="javascript:cateshow()">
-                <a href="#">文章分类</a>
+                <a href="javascript:void(0)">文章分类</a>
             </li>
             <?php if(is_array($_cate) || $_cate instanceof \think\Collection || $_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ca): $mod = ($i % 2 );++$i;?>
             <li>

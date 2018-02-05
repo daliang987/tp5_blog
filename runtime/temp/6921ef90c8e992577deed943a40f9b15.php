@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\category.html";i:1517755436;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517747744;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\category.html";i:1517840853;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517843458;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>白帽子博客</title>
+    <title><?php if(isset($title)): ?><?php echo $title; endif; ?>--[<?php echo $_webset['blog_title']; ?>]</title>
     <script>
         window.hdjs = {};
         //组件目录必须绝对路径(在网站根目录时不用设置)
@@ -71,8 +71,9 @@
 
 <div class="blog-content-left">
     <p class="text-white">
-        当前分类：
+        当前分类：|--
         <span class="text-light"><?php echo $curr_cate['cate_name']; ?></span>
+        <small class="text-right">共<?php echo $count; ?>篇文章</small>
     </p>
     <hr>
     <div class="arclist">

@@ -25,7 +25,7 @@
     <div class="min-title">
         <span class="author">作者：{$arcdata.arc_author}</span>
         <span class="sendtime">{:date('Y/m/d H:i',$arcdata.sendtime)}</span>
-        <span class="readcount">阅读：{$arcdata.sendtime.arc_click}</span>
+        <span class="readcount">阅读：{$arcdata.arc_click}</span>
 
         <p>
             {volist name="tag" id="tagd"}
@@ -48,30 +48,32 @@
 
 <div class="comment">
     <div class="new-comment">
-        <form class="form-horizontal">
+        <form class="form-horizontal" id="form-comment">
             <div class="form-group">
                 <span class="label-control col-md-2">用户名：</span>
                 <div class="col-md-5">
-                    <input type="text" class="form-control" name="" id="">
+                    <input type="text" placeholder="用户名" class="form-control" name="comment_nickname" id="">
                 </div>
 
             </div>
             <div class="form-group">
                 <span class="label-control col-md-2">邮箱：</span>
                 <div class="col-md-5">
-                    <input type="text" class="form-control " name="" id="">
+                    <input type="text" placeholder="邮箱" class="form-control " name="comment_email" id="">
                 </div>
 
             </div>
             <div class="form-group">
                 <span class="label-control col-md-2">评论内容：</span>
                 <div class="col-md-10">
-                    <textarea class="form-control input-comment" rows="3"></textarea>
+                    <textarea class="form-control input-comment" name="comment_content" placeholder="评论内容..." rows="3"></textarea>
                 </div>
             </div>
+            <input type="hidden" name="arc_id" value="{$arcdata.arc_id}">
             <div class="form-group">
                 <div class="col-md-offset-2 submit-comment">
-                    <input type="submit" class="btn btn-success" value="发表评论">
+                    <!-- <input type="submit" class="btn btn-success" value="发表评论"> -->
+                    <a class="btn btn-success" href="javascript:subcomment()">发表评论</a>
                 </div>
 
             </div>
@@ -111,7 +113,59 @@
         $('html, body').animate({ scrollTop: 0 }, 'fast');//带动画  
     }
 
-    function subcomment(){
-        
+
+    serializeObject = function (form) {
+        var o = {};
+        var a = form.serializeArray();
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
     }
+    function subcomment() {
+
+        postdata = serializeObject($('#form-comment'));
+        // $.ajax({
+        //     type: 'POST',
+        //     data: postdata,
+        //     // data:{comment_nickname:'wangdaliang',comment_email:'123@qq.com',comment_content:'test123123123'},
+        //     url: "{:url('comment')}",
+        //     success: function (res) {
+
+        //         if (res.code) {
+        //             require(['hdjs'], function (hdjs) {
+        //                 hdjs.message(res.message, res.url, 'success', res.wait, '')
+        //             });
+        //         } else {
+        //             require(['hdjs'], function (hdjs) {
+        //                 hdjs.message(res.message, res.url, 'error', res.wait, '')
+        //             });
+        //         }
+        //     }
+        // })
+
+
+        $.post(
+            "{:url('comment')}",postdata,
+            
+            function (res) {
+
+                if (res.code) {
+                    alert(1);
+                    require(['hdjs'], function (hdjs) {
+                        hdjs.message(res.message, res.url, 'success', res.wait)
+                    });
+                }
+            }
+        )
+    }
+
+
 </script> {/block}

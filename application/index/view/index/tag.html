@@ -20,7 +20,7 @@
     </div>
 
 </div>
-<p class="text-center">
+<p class="text-center text-white">
     {volist name="_tag" id="tag"}
     <a href="{:url('tag',['tag_id'=>$tag.tag_id])}">
         {if condition="input('param.tag_id')==$tag.tag_id"}
@@ -30,7 +30,9 @@
         {/if}
     </a>
     {/volist}
-
+    <br>
+    <br>
+    <small>共{$count}篇文章</small>
 </p>
 
 <hr>

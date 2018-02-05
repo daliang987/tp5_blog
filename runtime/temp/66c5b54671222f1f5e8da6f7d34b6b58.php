@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\phpStudy\WWW\tp5\public/../application/admin\view\category\index.html";i:1516535526;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517663358;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\phpStudy\WWW\tp5\public/../application/admin\view\category\index.html";i:1516535526;s:62:"D:\phpStudy\WWW\tp5\public/../application/admin\view\base.html";i:1517841870;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +25,7 @@
     </script>
     <script src="__STATIC__/node_modules/hdjs/static/requirejs/require.js"></script>
     <script src="__STATIC__/node_modules/hdjs/static/requirejs/config.js"></script>
+    <link rel="stylesheet" href="__STATIC__/node_modules/hdjs/dist/hdjs.css">
 </head>
 
 <body>

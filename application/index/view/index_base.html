@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>白帽子博客</title>
+    <title>{if condition="isset($title)"}{$title}{/if}--[{$_webset.blog_title}]</title>
     <script>
         window.hdjs = {};
         //组件目录必须绝对路径(在网站根目录时不用设置)

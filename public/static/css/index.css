@@ -63,7 +63,6 @@ a:hover{
 .blog-header ul li{
     float: left;
     list-style-type: none;
-    margin-left: 10px;
     width: 80px;
     border-right: 1px dotted #00bebe;
     text-align: center;
