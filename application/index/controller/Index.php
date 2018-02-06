@@ -50,6 +50,8 @@ class Index extends Common
         $tag_data=parent::getTags($arcdata);
         $this->assign('tag',$tag_data);
         
+        $comment=db('comment')->where('arc_id',$arc_id)->order('create_time desc')->paginate(15);
+        $this->assign('_comment',$comment);
 
         return $this->fetch();
     }

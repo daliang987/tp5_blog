@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\index.html";i:1517841422;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517843458;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\index.html";i:1517841422;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517926202;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,25 +27,27 @@
 
 <body>
     <!-- <div hd-cloak> -->
-        <div class="blog-show">
-            <div class="blog-header">
-                <ul>
-                    <li> <i class="fa fa-shield fa-2x"></i></li>
-                    <li>
-                        <a href="<?php echo url('index'); ?>">首页</a>
-                    </li>
-                    <?php if(is_array($_cate) || $_cate instanceof \think\Collection || $_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$category): $mod = ($i % 2 );++$i;?>
-                    <li>
-                        <a href="<?php echo url('category',['cate_id'=>$category['cate_id']]); ?>"><?php echo $category['cate_name']; ?></a>
-                    </li>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                    <div class="clear"></div>
-                </ul>
-                <div class="blog-title">Daliang's Blog</div>
-            </div>
+    <div class="blog-show">
+        <div class="blog-header">
+            <ul>
+                <li>
+                    <i class="fa fa-shield fa-2x"></i>
+                </li>
+                <li>
+                    <a href="<?php echo url('index'); ?>">首页</a>
+                </li>
+                <?php if(is_array($_cate) || $_cate instanceof \think\Collection || $_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$category): $mod = ($i % 2 );++$i;?>
+                <li>
+                    <a href="<?php echo url('category',['cate_id'=>$category['cate_id']]); ?>"><?php echo $category['cate_name']; ?></a>
+                </li>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <div class="clear"></div>
+            </ul>
+            <div class="blog-title">Daliang's Blog</div>
+        </div>
 
-            <hr>
-
+        <hr>
+        <div hd-cloak>
             <div class="blog-content">
                 
 
@@ -115,28 +117,29 @@
     }
 </script> 
             </div>
-            <hr>
-            <div class="blog-footer">
-                <div class="copyright">
-                    <?php echo $_webset['copyright']; ?>
-                </div>
-                <div class="blog-footer-link">
-                    <ul>
-                        <li>
-                            <a href="<?php echo url('link'); ?>">友情链接</a>
-                        </li>
-                        <li>
-                            <a href="mailto:<?php echo $_webset['email']; ?>">邮箱</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo $_webset['weibo']; ?>" target="_blank">微博</a>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="clear"></div>
-            </div>
         </div>
+        <hr>
+        <div class="blog-footer">
+            <div class="copyright">
+                <?php echo $_webset['copyright']; ?>
+            </div>
+            <div class="blog-footer-link">
+                <ul>
+                    <li>
+                        <a href="<?php echo url('link'); ?>">友情链接</a>
+                    </li>
+                    <li>
+                        <a href="mailto:<?php echo $_webset['email']; ?>">邮箱</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $_webset['weibo']; ?>" target="_blank">微博</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
     <!-- </div> -->
 </body>
 

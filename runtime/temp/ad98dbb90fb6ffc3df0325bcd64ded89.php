@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\content.html";i:1517849679;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517843458;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpStudy\WWW\tp5\public/../application/index\view\index\content.html";i:1517929224;s:68:"D:\phpStudy\WWW\tp5\public/../application/index\view\index_base.html";i:1517926202;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,25 +27,27 @@
 
 <body>
     <!-- <div hd-cloak> -->
-        <div class="blog-show">
-            <div class="blog-header">
-                <ul>
-                    <li> <i class="fa fa-shield fa-2x"></i></li>
-                    <li>
-                        <a href="<?php echo url('index'); ?>">首页</a>
-                    </li>
-                    <?php if(is_array($_cate) || $_cate instanceof \think\Collection || $_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$category): $mod = ($i % 2 );++$i;?>
-                    <li>
-                        <a href="<?php echo url('category',['cate_id'=>$category['cate_id']]); ?>"><?php echo $category['cate_name']; ?></a>
-                    </li>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                    <div class="clear"></div>
-                </ul>
-                <div class="blog-title">Daliang's Blog</div>
-            </div>
+    <div class="blog-show">
+        <div class="blog-header">
+            <ul>
+                <li>
+                    <i class="fa fa-shield fa-2x"></i>
+                </li>
+                <li>
+                    <a href="<?php echo url('index'); ?>">首页</a>
+                </li>
+                <?php if(is_array($_cate) || $_cate instanceof \think\Collection || $_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$category): $mod = ($i % 2 );++$i;?>
+                <li>
+                    <a href="<?php echo url('category',['cate_id'=>$category['cate_id']]); ?>"><?php echo $category['cate_name']; ?></a>
+                </li>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <div class="clear"></div>
+            </ul>
+            <div class="blog-title">Daliang's Blog</div>
+        </div>
 
-            <hr>
-
+        <hr>
+        <div hd-cloak>
             <div class="blog-content">
                 
 <div class="blog-function">
@@ -119,31 +121,39 @@
                 </div>
             </div>
             <input type="hidden" name="arc_id" value="<?php echo $arcdata['arc_id']; ?>">
-            <div class="form-group">
-                <div class="col-md-offset-2 submit-comment">
-                    <!-- <input type="submit" class="btn btn-success" value="发表评论"> -->
-                    <a class="btn btn-success" href="javascript:subcomment()">发表评论</a>
-                </div>
-
-            </div>
         </form>
+        
+        <!-- <div class="form-group">
+            <div class="col-md-offset-2 submit-comment">
+                
+            </div>
 
+        </div> -->
+
+        <button class="btn btn-success" onclick="javascript:subcomment()">发表评论</button>
     </div>
     <hr>
     <div class="comment-detial">
         <ul>
+            <?php if(is_array($_comment) || $_comment instanceof \think\Collection || $_comment instanceof \think\Paginator): $i = 0; $__LIST__ = $_comment;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$comment): $mod = ($i % 2 );++$i;?>
             <li>
                 <div class="user-info">
                     <div class="user-header"></div>
-                    <div class="nickname">我爱吃火锅 :</div>
+                    <div class="nickname"><?php echo $comment['comment_nickname']; ?> :</div>
                 </div>
                 <div class="user-comment">
-                    这是评论内容
+                    <?php echo $comment['comment_content']; ?>
                     <div class="reply">
-                        <a href="#">回复</a>
+                        <a href="javascript:void(0)">回复</a>
                     </div>
                 </div>
             </li>
+            <hr> <?php endforeach; endif; else: echo "" ;endif; ?>
+
+            <div class="clear"></div>
+            <div class="pull-right">
+                <?php echo $_comment->render(); ?>
+            </div>
             <div class="clear"></div>
         </ul>
     </div>
@@ -202,45 +212,48 @@
 
 
         $.post(
-            "<?php echo url('comment'); ?>",postdata,
-            
-            function (res) {
+            "<?php echo url('comment'); ?>", postdata,
 
+            function (res) {
                 if (res.code) {
-                    alert(1);
                     require(['hdjs'], function (hdjs) {
-                        hdjs.message(res.message, res.url, 'success', res.wait)
+                        hdjs.message(res.msg, 'refresh', 'success', res.wait)
+                    });
+                } else {
+                    require(['hdjs'], function (hdjs) {
+                        hdjs.message(res.msg, 'back', 'error', res.wait)
                     });
                 }
-            }
-        )
+            }, 'json'
+        );
     }
 
 
 </script> 
             </div>
-            <hr>
-            <div class="blog-footer">
-                <div class="copyright">
-                    <?php echo $_webset['copyright']; ?>
-                </div>
-                <div class="blog-footer-link">
-                    <ul>
-                        <li>
-                            <a href="<?php echo url('link'); ?>">友情链接</a>
-                        </li>
-                        <li>
-                            <a href="mailto:<?php echo $_webset['email']; ?>">邮箱</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo $_webset['weibo']; ?>" target="_blank">微博</a>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="clear"></div>
-            </div>
         </div>
+        <hr>
+        <div class="blog-footer">
+            <div class="copyright">
+                <?php echo $_webset['copyright']; ?>
+            </div>
+            <div class="blog-footer-link">
+                <ul>
+                    <li>
+                        <a href="<?php echo url('link'); ?>">友情链接</a>
+                    </li>
+                    <li>
+                        <a href="mailto:<?php echo $_webset['email']; ?>">邮箱</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $_webset['weibo']; ?>" target="_blank">微博</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
     <!-- </div> -->
 </body>
 

@@ -70,31 +70,39 @@
                 </div>
             </div>
             <input type="hidden" name="arc_id" value="{$arcdata.arc_id}">
-            <div class="form-group">
-                <div class="col-md-offset-2 submit-comment">
-                    <!-- <input type="submit" class="btn btn-success" value="发表评论"> -->
-                    <a class="btn btn-success" href="javascript:subcomment()">发表评论</a>
-                </div>
-
-            </div>
         </form>
+        
+        <!-- <div class="form-group">
+            <div class="col-md-offset-2 submit-comment">
+                
+            </div>
 
+        </div> -->
+
+        <button class="btn btn-success" onclick="javascript:subcomment()">发表评论</button>
     </div>
     <hr>
     <div class="comment-detial">
         <ul>
+            {volist name="_comment" id="comment"}
             <li>
                 <div class="user-info">
                     <div class="user-header"></div>
-                    <div class="nickname">我爱吃火锅 :</div>
+                    <div class="nickname">{$comment.comment_nickname} :</div>
                 </div>
                 <div class="user-comment">
-                    这是评论内容
+                    {$comment.comment_content}
                     <div class="reply">
-                        <a href="#">回复</a>
+                        <a href="javascript:void(0)">回复</a>
                     </div>
                 </div>
             </li>
+            <hr> {/volist}
+
+            <div class="clear"></div>
+            <div class="pull-right">
+                {$_comment->render()}
+            </div>
             <div class="clear"></div>
         </ul>
     </div>
@@ -153,18 +161,20 @@
 
 
         $.post(
-            "{:url('comment')}",postdata,
-            
-            function (res) {
+            "{:url('comment')}", postdata,
 
+            function (res) {
                 if (res.code) {
-                    alert(1);
                     require(['hdjs'], function (hdjs) {
-                        hdjs.message(res.message, res.url, 'success', res.wait)
+                        hdjs.message(res.msg, 'refresh', 'success', res.wait)
+                    });
+                } else {
+                    require(['hdjs'], function (hdjs) {
+                        hdjs.message(res.msg, 'back', 'error', res.wait)
                     });
                 }
-            }
-        )
+            }, 'json'
+        );
     }
 
 
