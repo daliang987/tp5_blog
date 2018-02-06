@@ -29,6 +29,11 @@
                         <div class="col-md-8">
                             <select class="form-control" name="cate_pid">
                                 <option value="0">顶级栏目</option>
+                                {volist name="cate_tree" id="cate_tree"}
+
+                                <option value="{$cate_tree.cate_id}">{$cate_tree._cate_name}</option>
+
+                                {/volist}
                             </select>
                         </div>
                     </div>
