@@ -14,7 +14,7 @@ class Tag extends Controller{
 
     public function index(){
 
-        $tagData=db('tag')->paginate(3);
+        $tagData=db('tag')->paginate(10);
         $this->assign('tagdata',$tagData);
 
         return $this->fetch();

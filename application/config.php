@@ -140,8 +140,8 @@ return [
 
     // 视图输出字符串内容替换
     'view_replace_str'       => [
-            '__ROOT__'	=>	'/tp5',
-            '__STATIC__' => '/tp5/public/static'
+            '__ROOT__'	=>	'/'.THINK_PATH,
+            '__STATIC__' => THINK_PATH.'/public/static'
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',

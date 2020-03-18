@@ -1,4 +1,5 @@
-create database blog;
+create database blog default charset utf8;
+use blog;
 create table blog_admin(
     admin_id int auto_increment primary key,
     admin_username varchar(45) not null,
@@ -77,3 +78,4 @@ INSERT INTO `blog_webset` (`webset_id`, `webset_name`, `webset_value`, `webset_d
 (4, 'copyright', 'Copyright © 2018 Powered by Daliang''s Blog', '版权信息'),
 (5, 'weibo', 'https://weibo.com/u/1780197770/home?wvr=5&lf=', ''),
 (6, 'blog_title', 'Daliang''s Blog', '博客标题');
+
