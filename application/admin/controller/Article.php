@@ -55,7 +55,7 @@ class Article extends Controller
             'path' => 'uploads/'.date('Y/m/d'),
             
         ]);
-        $file = File::path('/uploads')->upload();
+        $file = File::path('uploads')->upload();
         if ($file) {
             //成功时返回数据 message 为文件地址
             $json = ['valid' => 1, 'message' => '/'.$file[0]['path']];
