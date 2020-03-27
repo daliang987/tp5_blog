@@ -1,4 +1,4 @@
-create database blog default charset utf8;
+create database blog default charset=utf8;
 use blog;
 create table blog_admin(
     admin_id int auto_increment primary key,

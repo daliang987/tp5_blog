@@ -58,7 +58,7 @@ class Article extends Controller
         $file = File::path('uploads')->upload();
         if ($file) {
             //成功时返回数据 message 为文件地址
-            $json = ['valid' => 1, 'message' => '/tp5/public/'.$file[0]['path']];
+            $json = ['valid' => 1, 'message' => '/public/'.$file[0]['path']];
         } else {
             //失败时返回数据 message 为失败原因
             $json = ['valid' => 0, 'message' => "后台提示:".File::getError()];
@@ -93,7 +93,7 @@ class Article extends Controller
         $files = glob('uploads/*');
         // halt($files);
         foreach ($files as $f) {
-            $data[] = ['url' => "/tp5/public/".$f, 'path' => '/tp5/public/'.$f];
+            $data[] = ['url' => "/public/".$f, 'path' => '/public/'.$f];
         }
         //返回数据 data为文件列表 page 为分页数据，可以使用 houdunwang/page 组件生成
         $json = ['valid'=>1,'data' => $data,'page'=>[]];
