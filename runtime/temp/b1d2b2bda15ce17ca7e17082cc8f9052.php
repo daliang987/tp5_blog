@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/admin\view\article\index.html";i:1547690768;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1547690768;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/admin\view\article\index.html";i:1547690768;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1585304261;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,17 +59,11 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">个人资料</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo url('admin/entry/pass'); ?>">密码修改</a>
-                            </li>
-                            <li>
-                                <a href="#">消息中心</a>
+                                <a href="<?php echo url('admin/index/pass'); ?>">密码修改</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a href="#">注销</a>
+                                <a href="<?php echo url('admin/login/logout'); ?>">注销</a>
                             </li>
                         </ul>
                     </li>
@@ -86,7 +80,7 @@
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
                             <li role="presentation">
-                                <a href="<?php echo url('admin/entry/index'); ?>">博客首页</a>
+                                <a href="<?php echo url('admin/index/index'); ?>">博客首页</a>
                             </li>
                             <li role="presentation">
                                 <a href="<?php echo url('admin/category/index'); ?>">栏目管理</a>

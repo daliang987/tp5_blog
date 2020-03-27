@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\blog\public/../application/admin\view\index\index.html";i:1585303130;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1585304261;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:61:"D:\xampp\htdocs\blog/application/admin\view\comment\show.html";i:1547690768;s:53:"D:\xampp\htdocs\blog/application/admin\view\base.html";i:1585303185;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +59,13 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
+                                <a href="#">个人资料</a>
+                            </li>
+                            <li>
                                 <a href="<?php echo url('admin/index/pass'); ?>">密码修改</a>
+                            </li>
+                            <li>
+                                <a href="#">消息中心</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
@@ -111,43 +117,68 @@
             <div class="col-md-10">
                 
 
-<div class="container-fluid">
+<div class="alert alert-info">
+    评论详情
+</div>
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                温馨提示
-            </h3>
-        </div>
-        <div class="panel-body">
-            欢迎来到您的博客系统！haha!
-        </div>
-    </div>
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <div class="panel-title">
-                系统信息
+
+
+<div class="panel panel-info">
+    <div class="panel-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <form class="form-horizontal" method="post">
+                        <div class="form-group">
+                            <label for="" class="col-md-2 control-label">评论编号</label>
+                            <div class="col-md-8">
+                                <p class="form-control-static"><?php echo $comment['comment_id']; ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-md-2 control-label">用户昵称</label>
+                            <div class="col-md-8">
+                                <p class="form-control-static"><?php echo $comment['comment_nickname']; ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-md-2 control-label">邮箱</label>
+                            <div class="col-md-8">
+                                <p class="form-control-static"><?php echo $comment['comment_email']; ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-md-2 control-label">url</label>
+                            <div class="col-md-8">
+                                <p class="form-control-static"><?php echo $comment['comment_url']; ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-md-2 control-label">评论内容</label>
+                            <div class="col-md-8">
+                                <p class="form-control-static"><?php echo $comment['comment_content']; ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-md-2 control-label">评论时间</label>
+                            <div class="col-md-8">
+                                <p class="form-control-static"><?php echo date('Y-m-d H:i:s',$comment['create_time']); ?></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-md-2 control-label">评论文章</label>
+                            <div class="col-md-8">
+                                <p class="form-control-static"><a href="<?php echo url('admin/article/edit',['arc_id'=>$comment['arc_id']]); ?>"><?php echo $comment['arc_title']; ?></a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="panel-body">
-            <table class="table">
-                <tr>
-                    <td>核心框架</td>
-                    <td>thinkphp 5</td>
-                </tr>
-                <tr>
-                    <td>版本号</td>
-                    <td>1.0</td>
-                </tr>
-                <tr>
-                    <td>开发者</td>
-                    <td>王大亮</td>
-                </tr>
-            </table>
-        </div>
+    </div>
+</div>
 
-        
             </div>
         </div>
     </div>

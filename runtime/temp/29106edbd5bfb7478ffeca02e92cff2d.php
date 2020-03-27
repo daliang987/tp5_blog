@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\blog\public/../application/admin\view\index\index.html";i:1585303130;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1585304261;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\xampp\htdocs\blog/application/admin\view\category\index.html";i:1547690768;s:53:"D:\xampp\htdocs\blog/application/admin\view\base.html";i:1585304261;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,43 +111,70 @@
             <div class="col-md-10">
                 
 
-<div class="container-fluid">
+<div class="alert alert-info">
+    栏目首页
+</div>
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                温馨提示
-            </h3>
-        </div>
-        <div class="panel-body">
-            欢迎来到您的博客系统！haha!
-        </div>
+
+
+
+<div class="panel panel-info">
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="<?php echo url('admin/category/index'); ?>">栏目首页</a>
+            </li>
+            <li>
+                <a href="<?php echo url('admin/category/store'); ?>">创建栏目</a>
+            </li>
+        </ul>
     </div>
+    <div class="container-fluid">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <tr class="info">
+                <th>编号</th>
+                <th>栏目名称</th>
+                <th>操作</th>
+            </tr>
+            <?php if(is_array($cate_data) || $cate_data instanceof \think\Collection || $cate_data instanceof \think\Paginator): $i = 0; $__LIST__ = $cate_data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cate_data): $mod = ($i % 2 );++$i;?>
+            <tr>
+                <td><?php echo $cate_data['cate_id']; ?></td>
+                <td><?php echo $cate_data['_cate_name']; ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="<?php echo url('admin/category/addson',['cate_id'=>$cate_data['cate_id']]); ?>">添加子类</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo url('admin/category/edit',['cate_id'=>$cate_data['cate_id']]); ?>">编辑</a>
+                            </li>
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <div class="panel-title">
-                系统信息
-            </div>
-        </div>
-        <div class="panel-body">
-            <table class="table">
-                <tr>
-                    <td>核心框架</td>
-                    <td>thinkphp 5</td>
-                </tr>
-                <tr>
-                    <td>版本号</td>
-                    <td>1.0</td>
-                </tr>
-                <tr>
-                    <td>开发者</td>
-                    <td>王大亮</td>
-                </tr>
-            </table>
-        </div>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="javascript:del(<?php echo $cate_data['cate_id']; ?>)">删除</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </table>
+    </div>
+</div>
+<script>
+        function del(cate_id) {
+            require(['hdjs'], function (hdjs) {
+                hdjs.confirm('确定删除吗?', function () {
+                    location.href='<?php echo url("del"); ?>?cate_id='+cate_id;
+                })
+            })
+        }
+    </script>
 
-        
             </div>
         </div>
     </div>

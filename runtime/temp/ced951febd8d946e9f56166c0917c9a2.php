@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\blog\public/../application/admin\view\index\index.html";i:1585303130;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1585304261;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:59:"D:\xampp\htdocs\blog/application/admin\view\link\store.html";i:1547690768;s:53:"D:\xampp\htdocs\blog/application/admin\view\base.html";i:1585303185;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +59,13 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
+                                <a href="#">个人资料</a>
+                            </li>
+                            <li>
                                 <a href="<?php echo url('admin/index/pass'); ?>">密码修改</a>
+                            </li>
+                            <li>
+                                <a href="#">消息中心</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
@@ -111,43 +117,55 @@
             <div class="col-md-10">
                 
 
-<div class="container-fluid">
-
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                温馨提示
-            </h3>
-        </div>
-        <div class="panel-body">
-            欢迎来到您的博客系统！haha!
-        </div>
+<div class="alert alert-info">
+    添加友链
+</div>
+<div class="panel panel-info">
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="<?php echo url('admin/link/index'); ?>">友链首页</a>
+            </li>
+            <li class="active">
+                <a href="<?php echo url('admin/link/store'); ?>">添加友链</a>
+            </li>
+        </ul>
     </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <form class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">友链名称</label>
+                        <div class="col-md-8">
+                            <input type="text" name="link_name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">友链地址</label>
+                        <div class="col-md-8">
+                            <input type="text" name="link_url" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">排序</label>
+                        <div class="col-md-8">
+                            <input type="number" name="link_sort" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <div class="panel-title">
-                系统信息
+                        <div class="col-md-offset-2 col-md-8">
+                            <input type="submit" class="form-control col-md-12 btn-info" value="添加友链">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="panel-body">
-            <table class="table">
-                <tr>
-                    <td>核心框架</td>
-                    <td>thinkphp 5</td>
-                </tr>
-                <tr>
-                    <td>版本号</td>
-                    <td>1.0</td>
-                </tr>
-                <tr>
-                    <td>开发者</td>
-                    <td>王大亮</td>
-                </tr>
-            </table>
-        </div>
+    </div>
+</div>
 
-        
+
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\blog\public/../application/admin\view\index\index.html";i:1585303130;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1585304261;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:63:"D:\xampp\htdocs\blog/application/admin\view\category\store.html";i:1547690768;s:53:"D:\xampp\htdocs\blog/application/admin\view\base.html";i:1585304261;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,43 +111,62 @@
             <div class="col-md-10">
                 
 
-<div class="container-fluid">
-
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                温馨提示
-            </h3>
-        </div>
-        <div class="panel-body">
-            欢迎来到您的博客系统！haha!
-        </div>
+<div class="alert alert-info">
+    添加栏目
+</div>
+<div class="panel panel-info">
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="<?php echo url('admin/category/index'); ?>">栏目首页</a>
+            </li>
+            <li class="active">
+                <a href="<?php echo url('admin/category/store'); ?>">创建栏目</a>
+            </li>
+        </ul>
     </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <form class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">栏目名称</label>
+                        <div class="col-md-8">
+                            <input type="text" name="cate_name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">所属栏目</label>
+                        <div class="col-md-8">
+                            <select class="form-control" name="cate_pid">
+                                <option value="0">顶级栏目</option>
+                                <?php if(is_array($cate_tree) || $cate_tree instanceof \think\Collection || $cate_tree instanceof \think\Paginator): $i = 0; $__LIST__ = $cate_tree;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cate_tree): $mod = ($i % 2 );++$i;?>
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <div class="panel-title">
-                系统信息
+                                <option value="<?php echo $cate_tree['cate_id']; ?>"><?php echo $cate_tree['_cate_name']; ?></option>
+
+                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">排序</label>
+                        <div class="col-md-8">
+                            <input type="text" name="cate_sort" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-offset-2 col-md-8">
+                            <input type="submit" class="form-control col-md-12 btn-info" value="创建栏目">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="panel-body">
-            <table class="table">
-                <tr>
-                    <td>核心框架</td>
-                    <td>thinkphp 5</td>
-                </tr>
-                <tr>
-                    <td>版本号</td>
-                    <td>1.0</td>
-                </tr>
-                <tr>
-                    <td>开发者</td>
-                    <td>王大亮</td>
-                </tr>
-            </table>
-        </div>
+    </div>
+</div>
 
-        
+
             </div>
         </div>
     </div>

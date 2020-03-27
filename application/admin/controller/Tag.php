@@ -33,6 +33,19 @@ class Tag extends Controller{
         return $this->fetch();
     }
 
+    public function storeByAjax(){
+        if(request()->isPost()){
+            // halt(input('post.'));
+            $tagdata=db('tag')->where('tag_name',input('post.tag_name'))->find();
+            if($tagdata){
+                $res=['valida'=>0,'msg'=>'已存在该标签'];
+                return json_encode($res);
+            }
+            $res=$this->db->store(input('post.'));
+            return json_encode($res);
+        }
+    }
+
     public function edit(){
 
         if(request()->isPost()){

@@ -1,111 +1,39 @@
 {extend name="base" /} {block name="content"}
 
-<div class="row">
-    <table class="table table-hover table-bordered table-striped table-condensed">
-        <thead>
-            <th class="col-md-2">编号</th>
-            <th class="col-md-8">分类名称</th>
-            <th class="col-md-2">操作</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>常见漏洞</td>
-                <td>
-                    <div class="btn-group btn-group-xs">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            操作
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">修改</a>
-                            </li>
-                            <li>
-                                <a href="#">添加子类</a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <a href="#">删除</a>
-                            </li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>常见漏洞</td>
-                <td>
-                    <div class="btn-group btn-group-xs">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            操作
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">修改</a>
-                            </li>
-                            <li>
-                                <a href="#">添加子类</a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <a href="#">删除</a>
-                            </li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>常见漏洞</td>
-                <td>
-                    <div class="btn-group btn-group-xs">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            操作
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">修改</a>
-                            </li>
-                            <li>
-                                <a href="#">添加子类</a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <a href="#">删除</a>
-                            </li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>常见漏洞</td>
-                <td>
-                    <div class="btn-group btn-group-xs">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            操作
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">修改</a>
-                            </li>
-                            <li>
-                                <a href="#">添加子类</a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <a href="#">删除</a>
-                            </li>
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
+<div class="container-fluid">
 
-    </table>
-</div>
-{/block}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                温馨提示
+            </h3>
+        </div>
+        <div class="panel-body">
+            欢迎来到您的博客系统！haha!
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-title">
+                系统信息
+            </div>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <td>核心框架</td>
+                    <td>thinkphp 5</td>
+                </tr>
+                <tr>
+                    <td>版本号</td>
+                    <td>1.0</td>
+                </tr>
+                <tr>
+                    <td>开发者</td>
+                    <td>王大亮</td>
+                </tr>
+            </table>
+        </div>
+
+        {/block}

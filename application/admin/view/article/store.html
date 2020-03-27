@@ -47,14 +47,22 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-md-2 control-label">标签</label>
+                        <label for="" class="col-md-2 control-label">添加标签</label>
+                        <div class="col-md-9">
+                            <input type="text" id="arc_tag" class="form-control">
+                        </div>
+                        <div class="col-md-1">
+                            <input type="button" class="btn btn-primary col-md-12" id="btn-add-tag" value="添加">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">选择标签</label>
                         <div class="col-md-10">
-                            <div class="checkbox">
+                            <div class="checkbox" id="tag_checkbox">
                                 {volist name="tagdata" id="tag"}
                                 <label>
                                     <input type="checkbox" name="tag[]" value="{$tag.tag_id}">{$tag.tag_name}</label>
                                 {/volist}
-
                             </div>
                         </div>
 
@@ -65,12 +73,15 @@
                             <div class="input-group">
                                 <input class="form-control" name="arc_thumb" readonly="" value="">
                                 <div class="input-group-btn">
-                                    <button onclick="upImagePc(this)" class="btn btn-default" type="button">选择图片</button>
+                                    <button onclick="upImagePc(this)" class="btn btn-default"
+                                        type="button">选择图片</button>
                                 </div>
                             </div>
                             <div class="input-group" style="margin-top:5px;">
-                                <img src="__STATIC__/node_modules/hdjs/static/image/nopic.jpg" class="img-responsive img-thumbnail" width="150">
-                                <em class="close" style="position:absolute; top: 0px; right: -14px;" title="删除这张图片" onclick="removeImg(this)">×</em>
+                                <img src="__STATIC__/node_modules/hdjs/static/image/nopic.jpg"
+                                    class="img-responsive img-thumbnail" width="150">
+                                <em class="close" style="position:absolute; top: 0px; right: -14px;" title="删除这张图片"
+                                    onclick="removeImg(this)">×</em>
                             </div>
                         </div>
                     </div>
@@ -78,10 +89,10 @@
                     <div class="form-group">
                         <label for="" class="col-md-2 control-label">文章摘要</label>
                         <div class="col-md-10">
-                            <textarea name="arc_digist"  id="" rows="3" class="form-control"></textarea>
+                            <textarea name="arc_digist" id="" rows="3" class="form-control"></textarea>
                         </div>
                     </div>
-                <!--
+                    <!--
                     <div class="form-group">
                         <label for="" class="col-md-2 control-label">文章内容(百度编辑器)</label>
                         <div class="col-md-10">
@@ -92,8 +103,8 @@
                     <div class="form-group">
                         <label for="" class="col-md-2 control-label">文章内容(markdown编辑器)</label>
                         <div class="col-md-10">
-                            <div id="mdeditor">
-                                <textarea  name="arc_content" hidden></textarea>
+                            <div id="editor">
+                                <textarea name="arc_content" hidden></textarea>
                             </div>
 
                         </div>
@@ -101,7 +112,7 @@
 
                     <div class="form-group">
 
-                        <div class="col-md-offset-2 col-md-8">
+                        <div class="col-md-offset-2 col-md-2">
                             <input type="submit" class="form-control col-md-12 btn-info" value="添加文章">
                         </div>
                     </div>
@@ -111,28 +122,8 @@
     </div>
 </div>
 <script>
-    require(['hdjs']);
-    //上传图片
-    function upImagePc() {
-        require(['hdjs'], function (hdjs) {
-            var options = {
-                multiple: false,//是否允许多图上传
-                //data是向后台服务器提交的POST数据
-                data: { name: '后盾人', year: 2099 },
-            };
-            hdjs.image(function (images) {
-                //上传成功的图片，数组类型
-                $("[name='arc_thumb']").val(images[0]);
-                $(".img-thumbnail").attr('src', images[0]);
-            }, options)
-        });
-    }
 
-    //移除图片
-    function removeImg(obj) {
-        $(obj).prev('img').attr('src', '__STATIC__/img/nopic.jpg');
-        $(obj).parent().prev().find('input').val('');
-    }
+
 </script>
 
 <script>
@@ -145,9 +136,53 @@
 </script>
 <script>
     require(['hdjs'], function (hdjs) {
-        hdjs.markdown("mdeditor", {
+        hdjs.markdown("editor", {
             width: '100%',
-            heigth: 300
+            heigth: 300,
+            autoFocus: false
         });
-    });
+
+
+        //上传图片
+        function upImagePc() {
+            require(['hdjs'], function (hdjs) {
+                var options = {
+                    multiple: false,//是否允许多图上传
+                    //data是向后台服务器提交的POST数据
+                    data: { name: '后盾人', year: 2099 },
+                };
+                hdjs.image(function (images) {
+                    //上传成功的图片，数组类型
+                    $("[name='arc_thumb']").val(images[0]);
+                    $(".img-thumbnail").attr('src', images[0]);
+                }, options)
+            });
+        }
+
+        //移除图片
+        function removeImg(obj) {
+            $(obj).prev('img').attr('src', '__STATIC__/img/nopic.jpg');
+            $(obj).parent().prev().find('input').val('');
+        }
+
+        //添加标签
+
+        $('#btn-add-tag').click(function () {
+            if ($('#arc_tag').val().trim()) {
+                $.ajax({
+                    url: "{:url('admin/tag/storeByAjax')}",
+                    type: 'post',
+                    data: { 'tag_name': $('#arc_tag').val().trim() },
+                    success: function (data) {
+                        data = JSON.parse(data);
+                        if (data.valid == 1) {
+                            $('#tag_checkbox').append('<label><input type="checkbox" name="tag[]" checked value="' + data.tagid + '">' + $('#arc_tag').val() + '</label>');
+                        } else {
+                            alert(data.msg);
+                        }
+                    }
+                })
+            }
+        })
+    })
 </script> {/block}

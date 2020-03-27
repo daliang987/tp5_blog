@@ -55,10 +55,10 @@ class Article extends Controller
             'path' => 'uploads/'.date('Y/m/d'),
             
         ]);
-        $file = File::path('uploads')->upload();
+        $file = File::path('/uploads')->upload();
         if ($file) {
             //成功时返回数据 message 为文件地址
-            $json = ['valid' => 1, 'message' => '/public/'.$file[0]['path']];
+            $json = ['valid' => 1, 'message' => '/'.$file[0]['path']];
         } else {
             //失败时返回数据 message 为失败原因
             $json = ['valid' => 0, 'message' => "后台提示:".File::getError()];
@@ -73,7 +73,7 @@ class Article extends Controller
         if ($file) {
             $info=$file->validate(['size'=>1024*1024*5,'ext'=>'jpg,png,gif'])->move(ROOT_PATH . 'public' . DS . 'uploads');
             if ($info) {
-                // halt($info);
+                halt($info);
                 // 成功上传后 获取上传信息
                 // 输出 jpg
                 echo $info->getExtension();
@@ -93,7 +93,7 @@ class Article extends Controller
         $files = glob('uploads/*');
         // halt($files);
         foreach ($files as $f) {
-            $data[] = ['url' => "/public/".$f, 'path' => '/public/'.$f];
+            $data[] = ['url' => "/".$f, 'path' => '/'.$f];
         }
         //返回数据 data为文件列表 page 为分页数据，可以使用 houdunwang/page 组件生成
         $json = ['valid'=>1,'data' => $data,'page'=>[]];

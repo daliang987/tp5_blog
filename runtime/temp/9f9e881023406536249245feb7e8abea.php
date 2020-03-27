@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\blog\public/../application/admin\view\index\index.html";i:1585303130;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1585304261;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:58:"D:\xampp\htdocs\blog/application/admin\view\tag\index.html";i:1547690768;s:53:"D:\xampp\htdocs\blog/application/admin\view\base.html";i:1585304261;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,43 +111,68 @@
             <div class="col-md-10">
                 
 
-<div class="container-fluid">
+<div class="alert alert-info">
+    标签首页
+</div>
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                温馨提示
-            </h3>
-        </div>
-        <div class="panel-body">
-            欢迎来到您的博客系统！haha!
-        </div>
+
+
+
+<div class="panel panel-info">
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="<?php echo url('admin/tag/index'); ?>">标签列表</a>
+            </li>
+            <li>
+                <a href="<?php echo url('admin/tag/store'); ?>">创建标签</a>
+            </li>
+        </ul>
     </div>
+    <div class="container-fluid">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <tr class="info">
+                <th>编号</th>
+                <th>标签名称</th>
+                <th>操作</th>
+            </tr>
+            <?php if(is_array($tagdata) || $tagdata instanceof \think\Collection || $tagdata instanceof \think\Paginator): $i = 0; $__LIST__ = $tagdata;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tag): $mod = ($i % 2 );++$i;?>
+            <tr>
+                <td><?php echo $tag['tag_id']; ?></td>
+                <td><?php echo $tag['tag_name']; ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="<?php echo url('admin/tag/edit',['tag_id'=>$tag['tag_id']]); ?>">编辑</a>
+                            </li>
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <div class="panel-title">
-                系统信息
-            </div>
-        </div>
-        <div class="panel-body">
-            <table class="table">
-                <tr>
-                    <td>核心框架</td>
-                    <td>thinkphp 5</td>
-                </tr>
-                <tr>
-                    <td>版本号</td>
-                    <td>1.0</td>
-                </tr>
-                <tr>
-                    <td>开发者</td>
-                    <td>王大亮</td>
-                </tr>
-            </table>
-        </div>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="javascript:del(<?php echo $tag['tag_id']; ?>)">删除</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </table>
+        <?php echo $tagdata->render(); ?>
+    </div>
+</div>
 
-        
+<script>
+    function del(tag_id) {
+        require(['hdjs'], function (hdjs) {
+            hdjs.confirm('确定删除吗?', function () {
+                location.href = '<?php echo url("del"); ?>?tag_id=' + tag_id;
+            })
+        })
+    }
+</script> 
             </div>
         </div>
     </div>

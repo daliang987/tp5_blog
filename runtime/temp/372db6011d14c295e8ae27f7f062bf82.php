@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\blog\public/../application/admin\view\index\index.html";i:1585303130;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1585304261;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:61:"D:\xampp\htdocs\blog/application/admin\view\webset\index.html";i:1547690768;s:53:"D:\xampp\htdocs\blog/application/admin\view\base.html";i:1585303185;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +59,13 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
+                                <a href="#">个人资料</a>
+                            </li>
+                            <li>
                                 <a href="<?php echo url('admin/index/pass'); ?>">密码修改</a>
+                            </li>
+                            <li>
+                                <a href="#">消息中心</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
@@ -111,43 +117,87 @@
             <div class="col-md-10">
                 
 
-<div class="container-fluid">
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                温馨提示
-            </h3>
-        </div>
-        <div class="panel-body">
-            欢迎来到您的博客系统！haha!
-        </div>
+<div class="alert alert-info">
+    网站配置
+</div>
+<div class="panel panel-info">
+    <div class="panel-body">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="<?php echo url('admin/webset/index'); ?>">网站配置</a>
+            </li>
+            <li>
+                <a href="<?php echo url('admin/webset/store'); ?>">添加配置</a>
+            </li>
+        </ul>
     </div>
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <div class="panel-title">
-                系统信息
-            </div>
-        </div>
-        <div class="panel-body">
-            <table class="table">
-                <tr>
-                    <td>核心框架</td>
-                    <td>thinkphp 5</td>
-                </tr>
-                <tr>
-                    <td>版本号</td>
-                    <td>1.0</td>
-                </tr>
-                <tr>
-                    <td>开发者</td>
-                    <td>王大亮</td>
-                </tr>
-            </table>
-        </div>
 
-        
+    <div class="container-fluid">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <tr class="info">
+                <th>编号</th>
+                <th>配置名称</th>
+                <th>配置值</th>
+                <th>描述</th>
+                <th>操作</th>
+            </tr>
+            <?php if(is_array($setdata) || $setdata instanceof \think\Collection || $setdata instanceof \think\Paginator): $i = 0; $__LIST__ = $setdata;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$webset): $mod = ($i % 2 );++$i;?>
+            <tr>
+                <td><?php echo $webset['webset_id']; ?></td>
+                <td><?php echo $webset['webset_name']; ?></td>
+                <td>
+                    <input type="text" class="form-control" name="webset_value" value="<?php echo $webset['webset_value']; ?>" id="websetvalue" onblur="changeValue('<?php echo $webset['webset_id']; ?>',this)">
+                </td>
+                <td><?php echo $webset['webset_desc']; ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="<?php echo url('admin/webset/edit',['webset_id'=>$webset['webset_id']]); ?>">编辑</a>
+                            </li>
+
+                            <li class="divider"></li>
+                            <li>
+                                <a href="javascript:del(<?php echo $webset['webset_id']; ?>)">删除</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </table>
+        <?php echo $setdata->render(); ?>
+    </div>
+
+</div>
+<script>
+    function changeValue(id, obj) {
+        $.post("<?php echo url('edit'); ?>", { webset_id: id, webset_value: $(obj).val() }, function (res) {
+            if (res.code) {
+                require(['hdjs'], function (hdjs) {
+                    hdjs.message(res.msg, 'refresh', 'success', res.wait);
+                });
+            } else {
+                require(['hdjs'], function (hdjs) {
+                    hdjs.message(res.msg, 'back', 'error', res.wait);
+                });
+            }
+        });
+    }
+
+    function del(id) {
+        require(['hdjs'], function (hdjs) {
+            hdjs.confirm('确定删除吗?', function () {
+                location.href = '<?php echo url("del"); ?>?webset_id=' + id;
+            })
+        })
+    }
+</script> 
             </div>
         </div>
     </div>

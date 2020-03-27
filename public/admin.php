@@ -13,6 +13,7 @@
 
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../application/');
+
 //定义入口绑定
 define('BIND_MODULE','admin');
 
