@@ -31,9 +31,10 @@ create table blog_article(
     arc_sort int unsigned not null default 100,
     arc_digist varchar(200) not null default '',
     arc_content text,
+    arc_click int not null default 0,
+    editor_type varchar(10) not null default 'md',
     sendtime int not null default 0,
     updatetime int not null default 0,
-    arc_click int not null default 0,
     is_recycle tinyint not null default 2,
     arc_thumb varchar(100),
     cate_id int,
@@ -68,6 +69,7 @@ create table blog_comment(
     comment_email varchar(45),
     comment_url varchar(100),
     comment_content varchar(150) not null default '',
+    conmment_parentid int unsigned not null default 0,
     create_time int unsigned not null default 0,
     arc_id int unsigned not null default 0
 );

@@ -11,7 +11,7 @@
                 <a href="{:url('admin/article/index')}">文章管理</a>
             </li>
             <li>
-                <a href="{:url('admin/article/store')}">文章添加</a>
+                <a href="{:url('admin/article/mdstore')}">文章添加</a>
             </li>
         </ul>
     </div>
@@ -32,7 +32,8 @@
                 <td>{$article.arc_title}</td>
                 <td>{$article.arc_author}</td>
                 <td>
-                    <input type="number" value="{$article.arc_sort}" class="form-control" onblur="changeSort(this,'{$article.arc_id}')" />
+                    <input type="number" value="{$article.arc_sort}" class="form-control"
+                        onblur="changeSort(this,'{$article.arc_id}')" />
                 </td>
                 <td>{$article.cate_name}</td>
                 <td>{:date('Y-m-d H:i:s',$article.sendtime)}</td>
@@ -43,7 +44,11 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{:url('edit',['arc_id'=>$article.arc_id])}">编辑</a>
+                                {if condition="$article.arc_author='bd'"}
+                                <a href="{:url('bdedit',['arc_id'=>$article.arc_id])}">编辑</a>
+                                {else /}
+                                <a href="{:url('mdedit',['arc_id'=>$article.arc_id])}">编辑</a>
+                                {/if}
                             </li>
 
                             <li class="divider"></li>

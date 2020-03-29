@@ -23,21 +23,67 @@ class Article extends Controller
         return $this->fetch();
     }
 
-    public function store()
+    public function mdstore()
     {
         if (request()->isPost()) {
-            // halt(input('post.'));
-            $res=$this->db->store(input('post.'));
-            if ($res['valid']) {
-                $this->success($res['msg'], 'index');
-                exit;
-            } else {
-                $this->error($res['msg']);
-                exit;
+            $data1=input('post.');
+            $content=input('post.arc_content','',null); //博文内容不过滤
+            $data1['arc_content']=$content;
+
+            if($data1['switch']=="yes"){
+                session('formdata',$data1);
+                $this->redirect('bdstore');
+            }
+            else{
+                $res=$this->db->store($data1);
+                if ($res['valid']) {
+                    session('formdata',null);
+                    $this->success($res['msg'], 'index');
+                    exit;
+                } else {
+                    $this->error($res['msg']);
+                    exit;
+                }
+                
+            }
+        }
+        
+        $cateData=(new \app\common\model\Category())->getAll();
+        $this->assign('catedata', $cateData);
+
+        $tagData=db('tag')->select();
+        $this->assign('tagdata', $tagData);
+        return $this->fetch();
+        
+    }
+
+    public function bdstore()
+    {
+        if (request()->isPost()) {
+            $data1=input('post.');
+            $content=input('post.arc_content','',null); //博文内容不过滤
+            $data1['arc_content']=$content;
+
+            if(input('post.switch')=="yes"){
+                session('formdata',$data1);
+                // halt($data1);
+                $this->redirect('mdstore');;
+            }
+            else{ 
+                $res=$this->db->store($data1);
+                if ($res['valid']) {
+                    session('formdata',null);
+                    $this->success($res['msg'], 'index');
+                    
+                    exit;
+                } else {
+                    $this->error($res['msg']);
+                    exit;
+                }
             }
         }
 
-
+       
         $cateData=(new \app\common\model\Category())->getAll();
         $this->assign('catedata', $cateData);
 
@@ -116,10 +162,48 @@ class Article extends Controller
         }
     }
 
-    public function edit()
+    public function bdedit()
     {
         if (request()->isPost()) {
-            $res=$this->db->edit(input('post.'));
+
+            $data1=input('post.');
+            $content=input('post.arc_content','',null); //博文内容不过滤
+            $data1['arc_content']=$content;
+            //halt($data1);
+            $res=$this->db->edit($data1);
+            if ($res['valid']) {
+                $this->success($res['msg'], 'index');
+                exit;
+            } else {
+                $this->error($res['msg']);
+                exit;
+            }
+        }
+
+        $arc_id=input('param.arc_id');
+        
+        $oldData=db('article')->find($arc_id);
+        $cate_data=(new \app\common\model\Category)->getAll();
+        $tag_data=db('tag')->select();
+
+        $tag_ids=db('arc_tag')->where('arc_id', $arc_id)->column("tag_id");
+        $this->assign('tag_ids', $tag_ids);
+        // halt($oldData);
+        $this->assign('catedata', $cate_data);
+        $this->assign('tagdata', $tag_data);
+        $this->assign('oldArc', $oldData);
+        return $this->fetch();
+    }
+
+    public function mdedit()
+    {
+        if (request()->isPost()) {
+
+            $data1=input('post.');
+            $content=input('post.arc_content','',null); //博文内容不过滤
+            $data1['arc_content']=$content;
+            // halt($data1);
+            $res=$this->db->edit($data1);
             if ($res['valid']) {
                 $this->success($res['msg'], 'index');
                 exit;

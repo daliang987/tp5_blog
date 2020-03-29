@@ -44,8 +44,8 @@ class Article extends Model{
         }else{
             return ['valid'=>0,'msg'=>$this->getError()];
         }
-
     }
+
 
     public function getAll(){
         $data=db('article')->alias('a')->join('cate c','a.cate_id=c.cate_id')->where('is_recycle',2)->
@@ -70,7 +70,9 @@ class Article extends Model{
     }
 
     public function edit($data){
-        
+        if(!isset($data['tag'])){
+            return ['valid'=>0,'msg'=>'请选择标签'];
+        }
         $result=$this->validate(true)->allowField(true)->save($data,[$this->pk=>$data['arc_id']]);
         if($result){
             (new ArcTag())->where("arc_id",$data['arc_id'])->delete();

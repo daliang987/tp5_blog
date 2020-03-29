@@ -15,7 +15,7 @@
                     <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
                     <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
                 </div>
-                <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {}, "image": { "viewList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"], "viewText": "分享到：", "viewSize": "16" }, "selectShare": { "bdContainerClass": null, "bdSelectMiniList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"] } }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+                <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {}, "image": { "viewList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"], "viewText": "分享到：", "viewSize": "16" }, "selectShare": { "bdContainerClass": null, "bdSelectMiniList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"] } }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
     </div>
 </div>
 
@@ -87,8 +87,10 @@
             {volist name="_comment" id="comment"}
             <li>
                 <div class="user-info">
-                    <div class="user-header"></div>
-                    <div class="nickname">{$comment.comment_nickname} :</div>
+                    <div class="user-header"><i class="fa fa-user-circle-o fa-3x"></i></div>
+                    <div class="nickname">{$comment.comment_nickname} </div>
+                    <div class="comment-time">在 {:date('Y/m/d H:i',$comment.create_time)} 说：</div>
+                    <div class="clear"></div>
                 </div>
                 <div class="user-comment">
                     {$comment.comment_content}
@@ -99,10 +101,6 @@
             </li>
             <hr> {/volist}
 
-            <div class="clear"></div>
-            <div class="pull-right">
-                {$_comment->render()}
-            </div>
             <div class="clear"></div>
         </ul>
     </div>

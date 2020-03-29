@@ -88,6 +88,7 @@ a:hover{
 
 .arclist {
     margin-bottom: 30px;
+    border-right:1px dotted  #efefef;
 }
 .arclist ul li{
     list-style-type: none;
@@ -305,27 +306,45 @@ a:hover{
     color:#00bebe;
 }
 
-.comment-detial{
-    border-bottom:1px dotted #efefef;
-    border-top:1px dotted #efefef;
+.user-header{
+    float: left;
 }
 
-.user-info{
+
+.nickname{
+    line-height: 42px;
     float: left;
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+.comment-time{
+    line-height: 42px;
+    float: left;
+    margin-left: 15px;
+    font-size: 12px;
+    color:#bcbcbc;
+}
+
+
+/* .comment-detial{
+    border-bottom:1px dotted #efefef;
+    border-top:1px dotted #efefef;
+} */
+
+.user-info{
     color:#efefef;
     line-height: 42px;
-    width: 15%;
+    width: 100%;
 }
 
 .user-comment{
-    float: left;
-    width: 85%;
+    width: 100%;
     min-height: 50px;
-    border:1px solid #00bebe;
-    border-radius: 5px;
     margin:10px auto;
     padding:10px;
     color:#efefef;
+    font-size: 16px;
 }
 
 .reply{
