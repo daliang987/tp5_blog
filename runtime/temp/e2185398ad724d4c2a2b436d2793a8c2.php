@@ -1,4 +1,55 @@
-{extend name="index_base" /} {block name="content"}
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/index\view\index\content.html";i:1585566893;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585532521;}*/ ?>
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><?php if(isset($title)): ?><?php echo $title; endif; ?>--[<?php echo $_webset['blog_title']; ?>]</title>
+    <script>
+        window.hdjs = {};
+        //组件目录必须绝对路径(在网站根目录时不用设置)
+        window.hdjs.base = '__STATIC__/node_modules/hdjs';
+        //上传文件后台地址
+        //window.hdjs.uploader = 'test/php/uploader.php?';
+        window.hdjs.uploader = '<?php echo url("admin/article/upload"); ?>';
+        //获取文件列表的后台地址
+        window.hdjs.filesLists = '<?php echo url("admin/article/filelist"); ?>?';
+    </script>
+
+    <script src="__STATIC__/node_modules/hdjs/static/requirejs/require.js"></script>
+    <script src="__STATIC__/node_modules/hdjs/static/requirejs/config.js"></script>
+    <link rel="stylesheet" href="__STATIC__/node_modules/hdjs/dist/hdjs.css">
+
+</head>
+
+<body>
+    <!-- <div hd-cloak> -->
+    <div class="blog-show">
+        <div class="blog-header">
+            <ul>
+                <li>
+                    <i class="fa fa-shield fa-2x"></i>
+                </li>
+                <li>
+                    <a href="<?php echo url('index'); ?>">首页</a>
+                </li>
+                <?php if(is_array($_cate) || $_cate instanceof \think\Collection || $_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$category): $mod = ($i % 2 );++$i;?>
+                <li>
+                    <a href="<?php echo url('category',['cate_id'=>$category['cate_id']]); ?>"><?php echo $category['cate_name']; ?></a>
+                </li>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <div class="clear"></div>
+            </ul>
+            <div class="blog-title"><?php echo $_webset['blog_title']; ?></div>
+        </div>
+
+        <hr>
+        <div hd-cloak>
+            <div class="blog-content">
+                
 <div class="blog-function">
     <div class="func">
         <a href="javascript:history.back()" id="back">返回</a>
@@ -21,18 +72,18 @@
 
 
 <div class="article-header">
-    <div class="title">{$arcdata.arc_title}</div>
+    <div class="title"><?php echo $arcdata['arc_title']; ?></div>
     <div class="min-title">
-        <span class="author">作者：{$arcdata.arc_author}</span>
-        <span class="sendtime">{:date('Y/m/d H:i',$arcdata.sendtime)}</span>
-        <span class="readcount">阅读：{$arcdata.arc_click}</span>
+        <span class="author">作者：<?php echo $arcdata['arc_author']; ?></span>
+        <span class="sendtime"><?php echo date('Y/m/d H:i',$arcdata['sendtime']); ?></span>
+        <span class="readcount">阅读：<?php echo $arcdata['arc_click']; ?></span>
 
         <p>
-            {volist name="tag" id="tagd"}
-            <a href="{:url('tag',['tag_id'=>$tagd.tag_id])}">
-                <span class="label label-success">{$tagd.tag_name}</span>
+            <?php if(is_array($tag) || $tag instanceof \think\Collection || $tag instanceof \think\Paginator): $i = 0; $__LIST__ = $tag;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tagd): $mod = ($i % 2 );++$i;?>
+            <a href="<?php echo url('tag',['tag_id'=>$tagd['tag_id']]); ?>">
+                <span class="label label-success"><?php echo $tagd['tag_name']; ?></span>
             </a>
-            {/volist}
+            <?php endforeach; endif; else: echo "" ;endif; ?>
 
         </p>
     </div>
@@ -41,15 +92,15 @@
 <div class="article-content">
 
 
-    {if condition="$arcdata.editor_type eq 'md'"}
+    <?php if($arcdata['editor_type'] == 'md'): ?>
     <div id="editormd">
-        <textarea hidden>{$arcdata.arc_content}</textarea>
+        <textarea hidden><?php echo $arcdata['arc_content']; ?></textarea>
     </div>
-    {else /}
+    <?php else: ?>
     <div class="bdeditore-preview">
-        {$arcdata.arc_content}
+        <?php echo $arcdata['arc_content']; ?>
     </div>
-    {/if}
+    <?php endif; ?>
 </div>
 
 
@@ -89,7 +140,7 @@
                 </div>
             </div>
             <input type="hidden" name="comment_parentid" id="comment_parentid" value="0">
-            <input type="hidden" name="arc_id" value="{$arcdata.arc_id}">
+            <input type="hidden" name="arc_id" value="<?php echo $arcdata['arc_id']; ?>">
         </form>
 
 
@@ -98,25 +149,25 @@
     <hr>
     <div class="comment-detial">
         <ul id="comment_list">
-            {volist name="_comment" id="comment"}
+            <?php if(is_array($_comment) || $_comment instanceof \think\Collection || $_comment instanceof \think\Paginator): $i = 0; $__LIST__ = $_comment;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$comment): $mod = ($i % 2 );++$i;?>
             <li>
                 <div class="user-info">
                     <div class="user-header"><i class="fa fa-user-circle-o fa-2x"></i></div>
-                    <div class="nickname">{$comment.comment_nickname} </div>
-                    <div class="comment-time">在 {:date('Y/m/d H:i',$comment.create_time)} 说：</div>
-                    <div class="comment-id">{$comment.comment_id}</div>
+                    <div class="nickname"><?php echo $comment['comment_nickname']; ?> </div>
+                    <div class="comment-time">在 <?php echo date('Y/m/d H:i',$comment['create_time']); ?> 说：</div>
+                    <div class="comment-id"><?php echo $comment['comment_id']; ?></div>
                     <div class="clear"></div>
                 </div>
                 <div class="user-comment">
-                    {$comment.comment_content}
+                    <?php echo $comment['comment_content']; ?>
                     <div class="reply">
                         <a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
                     </div>
                 </div>
             </li>
-            <hr> {/volist}
+            <hr> <?php endforeach; endif; else: echo "" ;endif; ?>
             <div class="pull-right">
-                {$_comment->render()}
+                <?php echo $_comment->render(); ?>
             </div>
             <div class="clear"></div>
             
@@ -136,7 +187,7 @@
             _this=$(this);
             $.ajax({
                 type:'post',
-                url:'{:url("index/index/getSubcomment")}',
+                url:'<?php echo url("index/index/getSubcomment"); ?>',
                 data:{"comment_id":$(this).find('.comment-id').html()},
                 success:function(data){
                     data=JSON.parse(data);
@@ -184,7 +235,7 @@
             postdata = serializeObject($('#form-comment'));
             console.log(postdata);
             $.post(
-                "{:url('comment')}", postdata,
+                "<?php echo url('comment'); ?>", postdata,
 
                 function (res) {
 
@@ -223,4 +274,34 @@
     });
 
 
-</script> {/block}
+</script> 
+            </div>
+        </div>
+        <hr>
+        <div class="blog-footer">
+            <div class="copyright">
+                <?php echo $_webset['copyright']; ?>
+            </div>
+            <div class="blog-footer-link">
+                <ul>
+                    <li>
+                        <a href="<?php echo url('link'); ?>">友情链接</a>
+                    </li>
+                    <li>
+                        <a href="mailto:<?php echo $_webset['email']; ?>">邮箱</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $_webset['weibo']; ?>" target="_blank">微博</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- </div> -->
+</body>
+
+<link rel="stylesheet" href="__STATIC__/css/index.css">
+
+</html>

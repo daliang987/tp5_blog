@@ -69,7 +69,7 @@ create table blog_comment(
     comment_email varchar(45),
     comment_url varchar(100),
     comment_content varchar(150) not null default '',
-    conmment_parentid int unsigned not null default 0,
+    comment_parentid int unsigned not null default 0,
     create_time int unsigned not null default 0,
     arc_id int unsigned not null default 0
 );

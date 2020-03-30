@@ -49,8 +49,8 @@ class Index extends Common
 
         $tag_data=parent::getTags($arcdata);
         $this->assign('tag',$tag_data);
-        
-        $comment=db('comment')->where('arc_id',$arc_id)->order('create_time desc')->paginate(15);
+
+        $comment=db('comment')->where('arc_id',$arc_id)->where('comment_parentid',0)->whereOr('comment_parentid',26)->order('create_time desc')->paginate(5);
         $this->assign('_comment',$comment);
 
         return $this->fetch();
@@ -104,5 +104,19 @@ class Index extends Common
                 $this->error($res['msg']);exit;
             }
         }
+    }
+
+    public function getSubcomment(){
+        $subcomment=array();
+        if(request()->isAjax()){
+            $parentid=input('post.comment_id');
+           
+            $children=db('comment')->where('comment_parentid',$parentid)->select();
+            for($x=0;$x<count($children);$x++){
+                array_unshift($subcomment,$children[$x]);
+            }
+            
+        }
+        return json_encode($subcomment);
     }
 }

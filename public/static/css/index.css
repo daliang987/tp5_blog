@@ -15,7 +15,7 @@ ul li{
 }
 
 hr{
-    border-top:1px dashed #00bebe;
+    border-top:1px dotted #00bebe ;
 }
 
 a{
@@ -158,6 +158,12 @@ a:hover{
     color:#efefef;
 }
 
+.bdeditore-preview{
+    padding:20px;
+    background: #232323;
+    color:#efefef;
+}
+
 .blog-content-left{
     width: 70%;
     /* border:1px dashed #efefef; */
@@ -280,15 +286,31 @@ a:hover{
 }
 
 .func>a{
-    color:#00bebe;
+    color:#efefef;
 }
+
 
 
 .blog-function{
     position: fixed;
     bottom:250px;
     right: 20px;
+    border: 1px dashed #00bebe;
+    padding:10px;
+    border-radius: 10px;
 }
+
+.blog-function:before {
+    content: "";
+    width: 0;
+    height: 0;
+    right: 100%;
+    top: 38px;
+    position: absolute;
+    border-top: 13px solid transparent;
+    border-right: 26px solid #00bebe;
+    border-bottom: 13px solid transparent;
+} 
 
 .input-comment{
     resize: none;
@@ -312,14 +334,14 @@ a:hover{
 
 
 .nickname{
-    line-height: 42px;
+    line-height: 28px;
     float: left;
     margin-left: 15px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .comment-time{
-    line-height: 42px;
+    line-height: 28px;
     float: left;
     margin-left: 15px;
     font-size: 12px;
@@ -334,22 +356,38 @@ a:hover{
 
 .user-info{
     color:#efefef;
-    line-height: 42px;
+    line-height: 28px;
     width: 100%;
 }
 
 .user-comment{
     width: 100%;
-    min-height: 50px;
+    min-height: 30px;
     margin:10px auto;
-    padding:10px;
+    padding:0 10px 0 0;
     color:#efefef;
-    font-size: 16px;
+    font-size: 14px;
+    position: relative;
+}
+
+.comment-id{
+    display: none;
 }
 
 .reply{
-    float: right;
+    position: absolute;
+    right: 20px;
+    top: -40px;
 }
+
+/* #reply_comment{
+    color:#efefef;
+    border:1px solid #00bebe;
+    margin:5px;
+    padding:5px;
+    border-radius: 3px;
+    background: #00bebe;
+} */
 
 .pagination>li>a, .pagination>li>span {
     position: relative;
