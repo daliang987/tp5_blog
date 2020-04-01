@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:75:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\article\index.html";i:1585494313;s:66:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\base.html";i:1585319215;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:75:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\article\index.html";i:1585580044;s:66:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\base.html";i:1585319215;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -139,7 +139,13 @@
             <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$article): $mod = ($i % 2 );++$i;?>
             <tr>
                 <td><?php echo $article['arc_id']; ?></td>
-                <td><?php echo $article['arc_title']; ?></td>
+                <td>
+                    <?php if($article['editor_type']='bd'): ?>
+                    <a href="<?php echo url('bdedit',['arc_id'=>$article['arc_id']]); ?>"> <?php echo $article['arc_title']; ?></a>
+                    <?php else: ?>
+                    <a href="<?php echo url('mdedit',['arc_id'=>$article['arc_id']]); ?>"> <?php echo $article['arc_title']; ?></a>
+                    <?php endif; ?>
+                </td>
                 <td><?php echo $article['arc_author']; ?></td>
                 <td>
                     <input type="number" value="<?php echo $article['arc_sort']; ?>" class="form-control"
@@ -154,7 +160,7 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <?php if($article['arc_author']='bd'): ?>
+                                <?php if($article['editor_type']='bd'): ?>
                                 <a href="<?php echo url('bdedit',['arc_id'=>$article['arc_id']]); ?>">编辑</a>
                                 <?php else: ?>
                                 <a href="<?php echo url('mdedit',['arc_id'=>$article['arc_id']]); ?>">编辑</a>

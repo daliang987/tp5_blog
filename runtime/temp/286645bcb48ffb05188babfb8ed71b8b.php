@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/index\view\index\content.html";i:1585725826;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585532521;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:75:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index\content.html";i:1585757042;s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index_base.html";i:1585322471;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -154,23 +154,43 @@
                 <div>
                     <h5 class="media-heading pull-left" id="nickname"><?php echo $comment['comment_nickname']; ?></h5>
                     <h6 class="comment-time">在 <?php echo date('Y/m/d H:i',$comment['create_time']); ?> 说：</h6>
+                    
                     <div class="clear"></div>
                 </div>
                 <div id="comment-content">
                     <?php echo $comment['comment_content']; ?>
-
-                    
+                    <hr>
+                        <?php if(is_array($comment['subcomment']) || $comment['subcomment'] instanceof \think\Collection || $comment['subcomment'] instanceof \think\Paginator): $i = 0; $__LIST__ = $comment['subcomment'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?>
+                        <div class="media ">
+                            <div class="media-left">
+                                <i class="fa fa-user-circle-o fa-2x"></i>
+                            </div>
+                            <div class="media-body">
+                                <div>
+                                    <h5 class="media-heading pull-left" id="nickname"><?php echo $c['comment_nickname']; ?></h5>
+                                    <h6 class="comment-time">在 <?php echo date('Y/m/d H:i',$c['create_time']); ?> 说：</h6>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                <div id="comment-content">
+                                    <?php echo $c['comment_content']; ?>
+                                </div>
+                            </div>
+                            <div class="comment-id" id="comment_id"><?php echo $c['comment_id']; ?></div>
+                            <div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
                 </div>
             </div>
             <div class="comment-id" id="comment_id"><?php echo $comment['comment_id']; ?></div>
-            <div class="media-right"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
+            <div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
             </div>
         </li>
         <hr>
         <?php endforeach; endif; else: echo "" ;endif; ?>
-        <div class="pull-right">
-            <?php echo $_comment->render(); ?>
-        </div>
+
         <div class="clear"></div>
     </ul>
 

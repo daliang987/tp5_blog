@@ -103,23 +103,43 @@
                 <div>
                     <h5 class="media-heading pull-left" id="nickname">{$comment.comment_nickname}</h5>
                     <h6 class="comment-time">在 {:date('Y/m/d H:i',$comment.create_time)} 说：</h6>
+                    
                     <div class="clear"></div>
                 </div>
                 <div id="comment-content">
                     {$comment.comment_content}
-
-                    
+                    <hr>
+                        {volist name="comment.subcomment" id="c"}
+                        <div class="media ">
+                            <div class="media-left">
+                                <i class="fa fa-user-circle-o fa-2x"></i>
+                            </div>
+                            <div class="media-body">
+                                <div>
+                                    <h5 class="media-heading pull-left" id="nickname">{$c.comment_nickname}</h5>
+                                    <h6 class="comment-time">在 {:date('Y/m/d H:i',$c.create_time)} 说：</h6>
+                                    
+                                    <div class="clear"></div>
+                                </div>
+                                <div id="comment-content">
+                                    {$c.comment_content}
+                                </div>
+                            </div>
+                            <div class="comment-id" id="comment_id">{$c.comment_id}</div>
+                            <div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
+                            </div>
+                        </div>
+                        <hr>
+                        {/volist}
                 </div>
             </div>
             <div class="comment-id" id="comment_id">{$comment.comment_id}</div>
-            <div class="media-right"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
+            <div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
             </div>
         </li>
         <hr>
         {/volist}
-        <div class="pull-right">
-            {$_comment->render()}
-        </div>
+
         <div class="clear"></div>
     </ul>
 

@@ -359,13 +359,7 @@ a:hover{
     width: 100%;
 }
 
-.user-comment{
-    width: 100%;
-    min-height: 30px;
-    margin:10px auto;
-    padding:0 10px 0 0;
-    color:#efefef;
-    font-size: 14px;
+.media{
     position: relative;
 }
 
@@ -373,10 +367,10 @@ a:hover{
     display: none;
 }
 
-.reply{
+.media>.reply{
     position: absolute;
-    right: 20px;
-    top: -40px;
+    right: 0px;
+    top: 0px;
 }
 
 /* #reply_comment{

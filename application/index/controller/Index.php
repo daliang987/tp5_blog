@@ -9,12 +9,6 @@ use think\Controller;
 class Index extends Common
 {
 
-    protected $allsub;
-
-    protected function _initialize(){
-        $allsub=array();
-    }
-
     public function index()
     {
         parent::setTitle('首页');
@@ -68,38 +62,18 @@ class Index extends Common
         $subcomment = db('comment')->where('arc_id',$arc_id)->where('comment_parentid','<>',0)->select();
 
         // halt($subcomment);
-        $temp=[];
+        $new=[];
         foreach($comment as $com){
-            $com["subcomment"]=$this->getSubcomment($com["comment_id"],$subcomment);
-            
-            $temp[]=$com;
+
+            $subs=$this->getSubcomment($com["comment_id"],$subcomment);
+            $com["subcomment"]=$subs;
+            $new[]=$com;
+            unset($subs);
         }
 
-        halt($temp);
 
-        $comment1= db('comment')->alias('a')->join('comment b','b.comment_parentid=a.comment_id','left')
-            ->field('a.*,b.comment_id as subcomment')->where('a.arc_id', $arc_id)
-            ->where('a.comment_parentid', 0)->order('a.comment_id')->paginate(5)->each(function($item){
-            if($item['subcomment']){
-                $item['subcomment']=db('comment')->where('comment_id',$item['subcomment'])->select();
-                halt($item);
-                return $item;
-            }
-        });
-        halt($comment1);
-
-        $commnet=$comment->each(function($item,$key){
-            $subcomment=db('comment')->where('arc_id', $item["arc_id"])->where('comment_parentid','<>', 0)->where('comment_parentid',$item['comment_id'])->order('create_time asc')->select();
-            if($subcomment){
-                $item["subcomment"]=$subcomment;
-                // halt($item);
-            }
-            return $item;
-        });
-
-
-        halt($comment);
-        $this->assign('_comment', $comment);
+        // halt($new);
+        $this->assign('_comment', $new);
         
 
         return $this->fetch();

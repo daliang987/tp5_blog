@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\xampp\htdocs\blog\public/../application/index\view\index\category.html";i:1585532521;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585532521;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index\index.html";i:1585740747;s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index_base.html";i:1585322471;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,64 +51,85 @@
             <div class="blog-content">
                 
 
-<div class="blog-function">
-    <div class="func">
-        <a href="javascript:history.back()" id="back">返回</a>
-        <hr>
-        <a href="javascript:scrolltop()">回到顶部</a>
-        <hr>
-        <a href="javascript:void(0)">分享
-            <span>
-                <div class="bdsharebuttonbox">
-                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                    <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
-                    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-                </div>
-                <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {}, "image": { "viewList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"], "viewText": "分享到：", "viewSize": "16" }, "selectShare": { "bdContainerClass": null, "bdSelectMiniList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"] } }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
-    </div>
-</div>
-
 <div class="blog-content-left">
-    <p class="text-white">
-        当前分类：|--
-        <span class="text-light"><?php echo $curr_cate['cate_name']; ?></span>
-        <small class="text-right">共<?php echo $count; ?>篇文章</small>
-    </p>
-    <hr>
+    <div class="index-title">Statement</div>
+    <div class="desc">
+        <?php echo $_webset['person_desc']; ?>
+    </div>
+    <div class="index-title">Search</div>
+    <div class="search">
+        <form action="<?php echo url('search'); ?>" method="post" method="post">
+            <input type="text" name="keyword">
+            <input type="submit" value="搜索" class="btn btn-success">
+        </form>
+    </div>
+    <div class="index-title">Articles</div>
     <div class="arclist">
+
         <ul>
-            <?php if(is_array($arcdata) || $arcdata instanceof \think\Collection || $arcdata instanceof \think\Paginator): $i = 0; $__LIST__ = $arcdata;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arc): $mod = ($i % 2 );++$i;?>
+            <?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): $i = 0; $__LIST__ = $article;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arc): $mod = ($i % 2 );++$i;?>
             <li>
-                <span class="time"><?php echo date('Y/m/d H:i',$arc['sendtime']); ?></span>
+                <span class="time"><?php echo date('Y M d',$arc['sendtime']); ?></span>
                 <a href="<?php echo url('content',['arc_id'=>$arc['arc_id']]); ?>"><?php echo $arc['arc_title']; ?></a>
             </li>
             <?php endforeach; endif; else: echo "" ;endif; ?>
-
         </ul>
+
     </div>
 </div>
-
 <div class="blog-content-right">
     <div class="catelist">
+        
         <ul>
             <li onclick="javascript:cateshow()">
-                <a href="javascript:void(0)"><?php echo $curr_cate['cate_name']; ?></a>
+                <a href="javascript:void(0)">文章分类</a>
             </li>
-
-            <?php if(is_array($cate_son) || $cate_son instanceof \think\Collection || $cate_son instanceof \think\Paginator): $i = 0; $__LIST__ = $cate_son;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+            <?php if(is_array($_cate) || $_cate instanceof \think\Collection || $_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ca): $mod = ($i % 2 );++$i;?>
             <li>
-                <a href="<?php echo url('category',['cate_id'=>$son['cate_id']]); ?>"><?php echo $son['cate_name']; ?></a>
+                <a href="<?php echo url('category',['cate_id'=>$ca['cate_id']]); ?>"><?php echo $ca['cate_name']; ?></a>
             </li>
             <?php endforeach; endif; else: echo "" ;endif; ?>
-
         </ul>
+    </div>
+    <div class="taglist">
+        <ul>
+            <li>
+                <a class="tag-title" href="javascript:void(0)">标签</a>
+            </li>
+            <?php if(is_array($_tag) || $_tag instanceof \think\Collection || $_tag instanceof \think\Paginator): $i = 0; $__LIST__ = $_tag;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tag): $mod = ($i % 2 );++$i;?>
+            <li>
+                <a href="<?php echo url('tag',['tag_id'=>$tag['tag_id']]); ?>"><?php echo $tag['tag_name']; ?></a>
+            </li>
+
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+            <div class="clear"></div>
+        </ul>
+
     </div>
 </div>
 
 
+
+<div class="clear"></div>
+
+<script>
+    function cateshow() {
+        $(".catelist ul li:first").nextAll("li").slideToggle();
+    }
+
+    require(['hdjs'],function(hdjs){
+        $(function(){
+            $.ajax({
+                type:'get',
+                url:'<?php echo url("index/Index/loadweather"); ?>',
+                success:function(data){
+                    alert(data.status);
+                },
+                dataType:'json',
+            })
+        })
+    })
+</script> 
             </div>
         </div>
         <hr>
