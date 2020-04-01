@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\blog\public/../application/index\view\index\index.html";i:1585559857;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585532521;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\blog\public/../application/index\view\index\index.html";i:1585712527;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585532521;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,6 +79,7 @@
 </div>
 <div class="blog-content-right">
     <div class="catelist">
+        
         <ul>
             <li onclick="javascript:cateshow()">
                 <a href="javascript:void(0)">文章分类</a>
@@ -115,6 +116,19 @@
     function cateshow() {
         $(".catelist ul li:first").nextAll("li").slideToggle();
     }
+
+    require(['hdjs'],function(hdjs){
+        $(function(){
+            $.ajax({
+                type:'get',
+                url:'<?php echo url("index/Index/loadweather"); ?>',
+                success:function(data){
+                    alert(data.status);
+                },
+                dataType:'json',
+            })
+        })
+    })
 </script> 
             </div>
         </div>

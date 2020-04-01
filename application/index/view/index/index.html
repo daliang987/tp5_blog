@@ -28,6 +28,7 @@
 </div>
 <div class="blog-content-right">
     <div class="catelist">
+        
         <ul>
             <li onclick="javascript:cateshow()">
                 <a href="javascript:void(0)">文章分类</a>
@@ -64,4 +65,17 @@
     function cateshow() {
         $(".catelist ul li:first").nextAll("li").slideToggle();
     }
+
+    require(['hdjs'],function(hdjs){
+        $(function(){
+            $.ajax({
+                type:'get',
+                url:'{:url("index/Index/loadweather")}',
+                success:function(data){
+                    alert(data.status);
+                },
+                dataType:'json',
+            })
+        })
+    })
 </script> {/block}

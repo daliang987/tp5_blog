@@ -44,4 +44,5 @@ class Common extends Controller{
         $count=count($arcData);
         $this->assign('count',$count);
     }
+
 }

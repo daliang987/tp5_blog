@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/index\view\index\content.html";i:1585566893;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585532521;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/index\view\index\content.html";i:1585725826;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585532521;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,11 +103,7 @@
     <?php endif; ?>
 </div>
 
-
-
-</div>
-
-<div class="index-title">Comment：</div>
+<div class="index-title" id="comment_title">Comment：</div>
 
 <div class="comment">
     <div class="new-comment">
@@ -115,7 +111,8 @@
             <div class="form-group">
                 <span class="label-control col-md-2">用户名：</span>
                 <div class="col-md-5">
-                    <input type="text" placeholder="用户名" class="form-control" name="comment_nickname" id="comment_nickname">
+                    <input type="text" placeholder="用户名" class="form-control" name="comment_nickname"
+                        id="comment_nickname">
                 </div>
 
             </div>
@@ -135,8 +132,8 @@
             <div class="form-group">
                 <span class="label-control col-md-2">评论内容：</span>
                 <div class="col-md-10">
-                    <textarea class="form-control input-comment" id="comment_content" name="comment_content" placeholder="评论内容..."
-                        rows="3"></textarea>
+                    <textarea class="form-control input-comment" id="comment_content" name="comment_content"
+                        placeholder="评论内容..." rows="3"></textarea>
                 </div>
             </div>
             <input type="hidden" name="comment_parentid" id="comment_parentid" value="0">
@@ -147,32 +144,38 @@
         <a class="btn btn-success" id="subcomment" href="javascript:void(0)">发表评论</a>
     </div>
     <hr>
-    <div class="comment-detial">
-        <ul id="comment_list">
-            <?php if(is_array($_comment) || $_comment instanceof \think\Collection || $_comment instanceof \think\Paginator): $i = 0; $__LIST__ = $_comment;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$comment): $mod = ($i % 2 );++$i;?>
-            <li>
-                <div class="user-info">
-                    <div class="user-header"><i class="fa fa-user-circle-o fa-2x"></i></div>
-                    <div class="nickname"><?php echo $comment['comment_nickname']; ?> </div>
-                    <div class="comment-time">在 <?php echo date('Y/m/d H:i',$comment['create_time']); ?> 说：</div>
-                    <div class="comment-id"><?php echo $comment['comment_id']; ?></div>
+    <ul class="media-list comment-detail" id="comment_list">
+        <?php if(is_array($_comment) || $_comment instanceof \think\Collection || $_comment instanceof \think\Paginator): $i = 0; $__LIST__ = $_comment;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$comment): $mod = ($i % 2 );++$i;?>
+        <li class="media">
+            <div class="media-left">
+                <i class="fa fa-user-circle-o fa-2x"></i>
+            </div>
+            <div class="media-body">
+                <div>
+                    <h5 class="media-heading pull-left" id="nickname"><?php echo $comment['comment_nickname']; ?></h5>
+                    <h6 class="comment-time">在 <?php echo date('Y/m/d H:i',$comment['create_time']); ?> 说：</h6>
                     <div class="clear"></div>
                 </div>
-                <div class="user-comment">
+                <div id="comment-content">
                     <?php echo $comment['comment_content']; ?>
-                    <div class="reply">
-                        <a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
-                    </div>
+
+                    
                 </div>
-            </li>
-            <hr> <?php endforeach; endif; else: echo "" ;endif; ?>
-            <div class="pull-right">
-                <?php echo $_comment->render(); ?>
             </div>
-            <div class="clear"></div>
-            
-        </ul>
-    </div>
+            <div class="comment-id" id="comment_id"><?php echo $comment['comment_id']; ?></div>
+            <div class="media-right"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
+            </div>
+        </li>
+        <hr>
+        <?php endforeach; endif; else: echo "" ;endif; ?>
+        <div class="pull-right">
+            <?php echo $_comment->render(); ?>
+        </div>
+        <div class="clear"></div>
+    </ul>
+
+
+
 </div>
 
 
@@ -182,18 +185,18 @@
         $('html, body').animate({ scrollTop: 0 }, 'fast');//带动画  
     }
 
-    function loadsubcomment(){
-        $('#comment_list > li').each(function(){
-            _this=$(this);
+    function loadsubcomment() {
+        $('#comment_list > li').each(function () {
+            _this = $(this);
             $.ajax({
-                type:'post',
-                url:'<?php echo url("index/index/getSubcomment"); ?>',
-                data:{"comment_id":$(this).find('.comment-id').html()},
-                success:function(data){
-                    data=JSON.parse(data);
-                    for(i=0;i<data.length;i++){
+                type: 'post',
+                url: '<?php echo url("index/index/getSubcomment"); ?>',
+                data: { "comment_id": $(this).find('.comment-id').html() },
+                success: function (data) {
+                    data = JSON.parse(data);
+                    for (i = 0; i < data.length; i++) {
                         alert(_this.find('.comment-id').html());
-                        if(data[i].comment_parentid==_this.find('.comment-id').html()){
+                        if (data[i].comment_parentid == _this.find('.comment-id').html()) {
                             alert(1);
                             _this.html('<h1>hello</h1>');
                         }
@@ -201,7 +204,7 @@
                     }
 
                 },
-                dataType:'json'
+                dataType: 'json'
             })
         })
     }
@@ -222,6 +225,16 @@
         return o;
     }
 
+    function getQueryParam(paramName) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == paramName) { return pair[1]; }
+        }
+        return (false);
+    }
+
     require(['hdjs'], function (hdjs) {
 
         hdjs.markdownToHTML("editormd", {
@@ -230,45 +243,51 @@
         });
         loadsubcomment();
 
-        $('#subcomment').click(function () {
-            comment_parentid=$('#comment_parentid').val();
-            postdata = serializeObject($('#form-comment'));
-            console.log(postdata);
-            $.post(
-                "<?php echo url('comment'); ?>", postdata,
+        if(getQueryParam("page")){
+            location.href='#comment_list';
+        }
 
-                function (res) {
+            $('#subcomment').click(function () {
+                comment_parentid = $('#comment_parentid').val();
+                postdata = serializeObject($('#form-comment'));
+                console.log(postdata);
+                $.post(
+                    "<?php echo url('comment'); ?>", postdata,
 
-                    if (res.code) {
-                        if(comment_parentid==0){
-                            comment_html='<li><div class="user-info"><div class="user-header"><i class="fa fa-user-circle-o fa-2x"></i></div><div class="nickname">'+$('#comment_nickname').val()+'</div><div class="comment-time">在刚刚说：</div><div class="clear"></div></div><div class="user-comment">'+$('#comment_content').val()+'<div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a></div></div></li><hr>';
-                            $('#comment_list').prepend(comment_html);
-                        }else{
-                            comment_html='<div class="user-info"><div class="user-header"><i class="fa fa-user-circle-o fa-2x"></i></div><div class="nickname">'+$('#comment_nickname').val()+'</div><div class="comment-time">在刚刚说：</div><div class="clear"></div></div><div class="user-comment">'+$('#comment_content').val()+'<div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a></div></div>';
-                            $('#comment_list > li').each(function(){
-                                id=$(this).find('.comment-id').html();
-                                if(id==res.comment_parentid){
-                                    $(this).append(comment_html);
-                                }
-                            })
+                    function (res) {
+
+                        if (res.code) {
+                            if (comment_parentid == 0) {
+                                comment_html = '<li><div class="user-info"><div class="user-header"><i class="fa fa-user-circle-o fa-2x"></i></div><div class="nickname">' + $('#comment_nickname').val() + '</div><div class="comment-time">在刚刚说：</div><div class="clear"></div></div><div class="user-comment">' + $('#comment_content').val() + '<div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a></div></div></li><hr>';
+                                $('#comment_list').prepend(comment_html);
+                            } else {
+                                comment_html = '<div class="user-info"><div class="user-header"><i class="fa fa-user-circle-o fa-2x"></i></div><div class="nickname">' + $('#comment_nickname').val() + '</div><div class="comment-time">在刚刚说：</div><div class="clear"></div></div><div class="user-comment">' + $('#comment_content').val() + '<div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a></div></div>';
+                                $('#comment_list > li').each(function () {
+                                    id = $(this).find('.comment-id').html();
+                                    if (id == res.comment_parentid) {
+                                        $(this).append(comment_html);
+                                    }
+                                })
+                            }
+
+                        } else {
+                            alert('评论失败' + res.msg);
                         }
-
-                    } else {
-                        alert('评论失败'+res.msg);
-                    }
-                }, 'json'
-            );
-        })
+                    }, 'json'
+                );
+            })
 
 
-        $('.btn-reply').each(function(){
-            $(this).click(function(){
-                comment_id=$(this).parentsUntil('#comment_list').find('.comment-id').html();
-                nickname=$(this).parentsUntil('#comment_list').find('.nickname').html();
+        $('.btn-reply').each(function () {
+            $(this).click(function () {
+                comment_id = $(this).parent().parent().find('#comment_id').html();
+                nickname = $(this).parent().parent().find('#nickname').html();
                 $('#comment_parentid').val(comment_id);
-                $('#comment_content').html('@'+nickname+" ");
+                $('#comment_content').html('@' + nickname + " ");
+                location.href='#comment_title';
                 $('#comment_content').focus();
                 
+
             })
         })
     });
