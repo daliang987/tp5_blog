@@ -88,7 +88,6 @@ a:hover{
 
 .arclist {
     margin-bottom: 30px;
-    border-right:1px dotted  #efefef;
 }
 .arclist ul li{
     list-style-type: none;
@@ -160,8 +159,8 @@ a:hover{
 
 .bdeditore-preview{
     padding:20px;
-    background: #232323;
-    color:#efefef;
+    background: #FFFFFF;
+    border-radius: 5px;
 }
 
 .blog-content-left{
@@ -333,11 +332,8 @@ a:hover{
 }
 
 
-.nickname{
-    line-height: 28px;
-    float: left;
-    margin-left: 15px;
-    font-size: 14px;
+#nickname{
+    color:#00bebe;
 }
 
 .comment-time{
@@ -351,12 +347,6 @@ a:hover{
 
 .comment-detail{
     color:#efefef;
-}
-
-.user-info{
-    color:#efefef;
-    line-height: 28px;
-    width: 100%;
 }
 
 .media{
@@ -373,14 +363,6 @@ a:hover{
     top: 0px;
 }
 
-/* #reply_comment{
-    color:#efefef;
-    border:1px solid #00bebe;
-    margin:5px;
-    padding:5px;
-    border-radius: 3px;
-    background: #00bebe;
-} */
 
 .pagination>li>a, .pagination>li>span {
     position: relative;

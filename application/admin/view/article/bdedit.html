@@ -112,7 +112,7 @@
                                     style="height:300px;width:100%;">{$oldArc.arc_content}</textarea>
                             </div>
                             <input type="hidden" id="editor_type" name="editor_type" value="bd">
-                            <input type="hidden" name="arc_id" value="{$oldArc.arc_id}">
+                            <input type="hidden" id="arc_id" name="arc_id" value="{$oldArc.arc_id}">
                         </div>
                         <div class="form-group">
 
@@ -165,7 +165,7 @@
 
         $('#switch_editor').click(function(){
             hdjs.confirm('切换编辑器所有更改将不保存，确定切换吗?', function () { 
-                location.href='{:url("admin/article/mdedit")}';
+                location.href='{:url("admin/article/mdedit",["arc_id"=>$oldArc.arc_id])}';
             })
         })
 

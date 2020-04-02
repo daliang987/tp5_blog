@@ -30,7 +30,7 @@
             <tr>
                 <td>{$article.arc_id}</td>
                 <td>
-                    {if condition="$article.editor_type='bd'"}
+                    {if condition="$article.editor_type eq 'bd'"}
                     <a href="{:url('bdedit',['arc_id'=>$article.arc_id])}"> {$article.arc_title}</a>
                     {else /}
                     <a href="{:url('mdedit',['arc_id'=>$article.arc_id])}"> {$article.arc_title}</a>
@@ -50,7 +50,7 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                {if condition="$article.editor_type='bd'"}
+                                {if condition="$article.editor_type eq 'bd'"}
                                 <a href="{:url('bdedit',['arc_id'=>$article.arc_id])}">编辑</a>
                                 {else /}
                                 <a href="{:url('mdedit',['arc_id'=>$article.arc_id])}">编辑</a>

@@ -168,7 +168,7 @@
 
         $('#switch_editor').click(function(){
             hdjs.confirm('切换编辑器所有更改将不保存，确定切换吗?', function () { 
-                location.href='{:url("admin/article/bdedit")}';
+                location.href='{:url("admin/article/bdedit",["arc_id"=>$oldArc.arc_id])})}';
             })
         })
 

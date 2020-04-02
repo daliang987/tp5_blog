@@ -9,6 +9,9 @@ use think\Controller;
 class Index extends Common
 {
 
+
+    protected $temp=[];
+
     public function index()
     {
         parent::setTitle('首页');
@@ -58,24 +61,20 @@ class Index extends Common
         $tag_data = parent::getTags($arcdata);
         $this->assign('tag', $tag_data);
         
-        $comment = db('comment')->where('arc_id',$arc_id)->where('comment_parentid',0)->select();
+        $comment = db('comment')->where('arc_id',$arc_id)->where('comment_parentid',0)->order('create_time desc')->select();
         $subcomment = db('comment')->where('arc_id',$arc_id)->where('comment_parentid','<>',0)->select();
 
-        // halt($subcomment);
         $new=[];
         foreach($comment as $com){
-
-            $subs=$this->getSubcomment($com["comment_id"],$subcomment);
-            $com["subcomment"]=$subs;
+            global $temp;
+            $temp=[];   
+            $com["subcomment"]=$this->getSubcomment($com["comment_id"],$subcomment);
             $new[]=$com;
-            unset($subs);
+
         }
 
-
-        // halt($new);
         $this->assign('_comment', $new);
-        
-
+    
         return $this->fetch();
     }
 
@@ -123,10 +122,11 @@ class Index extends Common
 
     public function comment()
     {
-        if (request()->isAjax()) {
+        if (request()->post()) {
+            
             $res = (new \app\common\model\Comment())->store(input('post.'));
             if ($res['valid']) {
-                $this->success($res['msg']);
+                $this->redirect('content',['arc_id'=>input('post.arc_id')]);
                 exit;
             } else {
                 $this->error($res['msg']);
@@ -137,7 +137,7 @@ class Index extends Common
 
     public function getSubcomment($parentid,$subcomment)
     {
-        static $temp=[];
+        global $temp;
 
         foreach($subcomment as $sub){
             

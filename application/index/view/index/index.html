@@ -66,16 +66,4 @@
         $(".catelist ul li:first").nextAll("li").slideToggle();
     }
 
-    require(['hdjs'],function(hdjs){
-        $(function(){
-            $.ajax({
-                type:'get',
-                url:'{:url("index/Index/loadweather")}',
-                success:function(data){
-                    alert(data.status);
-                },
-                dataType:'json',
-            })
-        })
-    })
 </script> {/block}
