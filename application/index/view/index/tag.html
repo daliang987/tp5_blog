@@ -1,29 +1,9 @@
 {extend name="index_base" /} {block name="content"}
 
-<div class="blog-function">
-    <div class="func">
-        <a href="javascript:history.back()" id="back">返回</a>
-        <hr>
-        <a href="javascript:scrolltop()">回到顶部</a>
-        <hr>
-        <a href="javascript:void(0)">分享
-            <span>
-                <div class="bdsharebuttonbox">
-                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                    <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
-                    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-                </div>
-                <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {}, "image": { "viewList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"], "viewText": "分享到：", "viewSize": "16" }, "selectShare": { "bdContainerClass": null, "bdSelectMiniList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"] } }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
-    </div>
-
-</div>
 <p class="text-center text-white">
     {volist name="_tag" id="tag"}
     <a href="{:url('tag',['tag_id'=>$tag.tag_id])}">
-        {if condition="input('param.tag_id')==$tag.tag_id"}
+        {if condition="input('param.tag_id') eq $tag.tag_id"}
         <span class="label label-success">{$tag.tag_name}</span>
         {else}
         <span class="label label-info">{$tag.tag_name}</span>

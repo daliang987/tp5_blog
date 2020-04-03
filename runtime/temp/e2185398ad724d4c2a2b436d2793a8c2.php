@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/index\view\index\content.html";i:1585814629;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585793408;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/index\view\index\content.html";i:1585912731;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585912229;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    
     <!-- <div hd-cloak> -->
     <div class="blog-show">
         <div class="blog-header">
@@ -50,6 +51,7 @@
         <div hd-cloak>
             <div class="blog-content">
                 
+
 <div class="blog-function">
     <div class="func">
         <a href="javascript:history.back()" id="back">返回</a>
@@ -90,7 +92,6 @@
 </div>
 
 <div class="article-content">
-
 
     <?php if($arcdata['editor_type'] == 'md'): ?>
     <div id="editormd">
@@ -144,7 +145,7 @@
         </form>
 
 
-       
+
     </div>
     <hr>
     <ul class="media-list comment-detail" id="comment_list">
@@ -182,7 +183,7 @@
                         <div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
                         </div>
                     </div>
-                    
+
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                 </div>
             </div>
@@ -239,14 +240,15 @@
 
         hdjs.markdownToHTML("editormd", {
             htmlDecode: "style,script,iframe,php",
-            emoji: true
+            emoji: true,
+            
         });
 
         if (getQueryParam("page")) {
             location.href = '#comment_list';
         }
 
-        
+
 
 
         $('.btn-reply').each(function () {
@@ -260,11 +262,19 @@
 
 
             })
+        });
+
+        $('html').append('<script src="__STATIC__/js/imgpreview.js">');
+
+        $('img').each(function(){
+            $(this).wrap('<a href='+$(this).attr('src')+' class="swipebox"></a>');
+            
         })
+
     });
+    
+</script>
 
-
-</script> 
             </div>
         </div>
         <hr>
@@ -293,5 +303,4 @@
 </body>
 
 <link rel="stylesheet" href="__STATIC__/css/index.css">
-
 </html>

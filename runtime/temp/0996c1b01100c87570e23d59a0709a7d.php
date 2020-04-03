@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/admin\view\article\index.html";i:1585815086;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1585906133;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\xampp\htdocs\blog\public/../application/admin\view\webset\store.html";i:1547690768;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1585532521;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">博客系统</a>
+                <a class="navbar-brand" href="#">博客系统</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -111,104 +111,53 @@
                 
 
 <div class="alert alert-info">
-    文章列表
+    网站配置
 </div>
-
 <div class="panel panel-info">
     <div class="panel-body">
         <ul class="nav nav-tabs">
-            <li class="active">
-                <a href="<?php echo url('admin/article/index'); ?>">文章管理</a>
-            </li>
             <li>
-                <a href="<?php echo url('admin/article/mdstore'); ?>">文章添加</a>
+                <a href="<?php echo url('admin/webset/index'); ?>">网站配置</a>
+            </li>
+            <li class="active">
+                <a href="<?php echo url('admin/webset/store'); ?>">添加配置</a>
             </li>
         </ul>
     </div>
     <div class="container-fluid">
-        <table class="table table-striped table-bordered table-hover table-condensed">
-            <tr class="info">
-                <th>编号</th>
-                <th>文章名称</th>
-                <th>作者</th>
-                <th class="col-md-1">排序</th>
-                <th>所属分类</th>
-                <th>添加时间</th>
-                <th>操作</th>
-            </tr>
-            <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$article): $mod = ($i % 2 );++$i;?>
-            <tr>
-                <td><?php echo $article['arc_id']; ?></td>
-                <td>
-                    <?php if($article['editor_type'] == 'bd'): ?>
-                    <a href="<?php echo url('bdedit',['arc_id'=>$article['arc_id']]); ?>"> <?php echo $article['arc_title']; ?></a>
-                    <?php else: ?>
-                    <a href="<?php echo url('mdedit',['arc_id'=>$article['arc_id']]); ?>"> <?php echo $article['arc_title']; ?></a>
-                    <?php endif; ?>
-                </td>
-                <td><?php echo $article['arc_author']; ?></td>
-                <td>
-                    <input type="number" value="<?php echo $article['arc_sort']; ?>" class="form-control"
-                        onblur="changeSort(this,'<?php echo $article['arc_id']; ?>')" />
-                </td>
-                <td><?php echo $article['cate_name']; ?></td>
-                <td><?php echo date('Y-m-d H:i:s',$article['sendtime']); ?></td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <?php if($article['editor_type'] == 'bd'): ?>
-                                <a href="<?php echo url('bdedit',['arc_id'=>$article['arc_id']]); ?>">编辑</a>
-                                <?php else: ?>
-                                <a href="<?php echo url('mdedit',['arc_id'=>$article['arc_id']]); ?>">编辑</a>
-                                <?php endif; ?>
-                            </li>
-
-                            <li class="divider"></li>
-                            <li>
-                                <a href="javascript:del(<?php echo $article['arc_id']; ?>)">删除到回收站</a>
-                            </li>
-                        </ul>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <form class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">配置名称</label>
+                        <div class="col-md-8">
+                            <input type="text" name="webset_name" class="form-control" placeholder="配置名称">
+                        </div>
                     </div>
-                </td>
-            </tr>
-            <?php endforeach; endif; else: echo "" ;endif; ?>
-        </table>
-        <div class="pull-right">
-            <?php echo $data->render(); ?>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">配置值</label>
+                        <div class="col-md-8">
+                            <input type="text" name="webset_value" class="form-control" placeholder="配置值">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">描述</label>
+                        <div class="col-md-8">
+                            <input type="text" name="webset_desc" class="form-control" placeholder="描述">
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-offset-2 col-md-8">
+                            <input type="submit" class="form-control col-md-12 btn-info" value="添加配置">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-<script>
-    function del(arc_id) {
-        require(['hdjs'], function (hdjs) {
-            hdjs.confirm('确定删除到回收站吗?', function () {
-                location.href = 'deltorecycle?arc_id=' + arc_id;
-            })
-        })
-    }
 
-    function changeSort(obj, arc_id) {
-        value = $(obj).val();
-        // alert(value);
-        // alert(arc_id);
-        $.post("<?php echo url('changeSort'); ?>", { arc_sort: value, arc_id: arc_id }, function (res) {
-            // alert(res.code);
-            if (res.code) {
-                require(['hdjs'], function (hdjs) {
-                    hdjs.message(res.msg, 'refresh', 'success', res.wait);
-                });
-            } else {
-                require(['hdjs'], function (hdjs) {
-                    hdjs.message(res.msg, 'back', 'error', res.wait);
-                });
-            }
-        }, 'json');
-    }
-</script> 
             </div>
         </div>
     </div>

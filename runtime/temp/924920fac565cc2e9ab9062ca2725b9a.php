@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"D:\xampp\htdocs\blog\public/../application/index\view\index\tag.html";i:1585904025;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585825306;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index\year.html";i:1585905225;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585825306;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,37 +51,40 @@
         <div hd-cloak>
             <div class="blog-content">
                 
+<div class="blog-content-left">
+    <div class="arclist">
 
-<p class="text-center text-white">
-    <?php if(is_array($_tag) || $_tag instanceof \think\Collection || $_tag instanceof \think\Paginator): $i = 0; $__LIST__ = $_tag;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tag): $mod = ($i % 2 );++$i;?>
-    <a href="<?php echo url('tag',['tag_id'=>$tag['tag_id']]); ?>">
-        <?php if(input('param.tag_id') == $tag['tag_id']): ?>
-        <span class="label label-success"><?php echo $tag['tag_name']; ?></span>
-        <?php else: ?>
-        <span class="label label-info"><?php echo $tag['tag_name']; ?></span>
-        <?php endif; ?>
-    </a>
-    <?php endforeach; endif; else: echo "" ;endif; ?>
-    <br>
-    <br>
-    <small>共<?php echo $count; ?>篇文章</small>
-</p>
+        <ul>
+            <?php if(is_array($articles) || $articles instanceof \think\Collection || $articles instanceof \think\Paginator): $i = 0; $__LIST__ = $articles;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arc): $mod = ($i % 2 );++$i;?>
+            <li>
+                <span class="time"><?php echo date('Y/m/d H:i',$arc['sendtime']); ?></span>
+                <a href="<?php echo url('content',['arc_id'=>$arc['arc_id']]); ?>"><?php echo $arc['arc_title']; ?></a>
+            </li>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
 
-<hr>
-<div class="arclist">
-
-    <ul>
-        <?php if(is_array($arcdata) || $arcdata instanceof \think\Collection || $arcdata instanceof \think\Paginator): $i = 0; $__LIST__ = $arcdata;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arc): $mod = ($i % 2 );++$i;?>
-        <li>
-            <span class="time"><?php echo date('Y/m/d H:i',$arc['sendtime']); ?></span>
-            <a href="<?php echo url('content',['arc_id'=>$arc['arc_id']]); ?>"><?php echo $arc['arc_title']; ?></a>
-        </li>
-        <?php endforeach; endif; else: echo "" ;endif; ?>
-
-    </ul>
-    <?php echo $arcdata->render(); ?>
+        </ul>
+    </div>
 </div>
+<div class="blog-content-right">
+    <div class="catelist">
 
+        <ul>
+            <?php if($curr_year == ''): ?>
+            <li><a href="<?php echo url('index/Index/year'); ?>" class="link-active">所有</a></li>
+            <?php else: ?>
+            <li><a href="<?php echo url('index/Index/year'); ?>">所有</a></li>
+            <?php endif; if(is_array($_date) || $_date instanceof \think\Collection || $_date instanceof \think\Paginator): $i = 0; $__LIST__ = $_date;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$d): $mod = ($i % 2 );++$i;if($d['year'] == $curr_year): ?>
+            <li><a href="<?php echo url('index/Index/year',['date'=>$d['year']]); ?>" class="link-active">
+                <?php echo $d['year']; ?>
+            </a></li>
+            <?php else: ?>
+            <li><a href="<?php echo url('index/Index/year',['date'=>$d['year']]); ?>""><?php echo $d['year']; ?></a></li>
+            <?php endif; endforeach; endif; else: echo "" ;endif; ?>
+
+        </ul>
+    </div>
+
+</div>
 
 
 

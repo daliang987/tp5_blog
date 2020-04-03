@@ -10,6 +10,7 @@ class Common extends Controller{
         $this->loadCate();
         $this->loadWebset();
         $this->loadTag();
+        $this->loadArticleDate();
     }
 
     public function loadCate(){
@@ -26,6 +27,11 @@ class Common extends Controller{
     public function loadTag(){
         $dbTag=db('tag')->select();
         $this->assign('_tag',$dbTag);
+    }
+
+    public function loadArticleDate(){
+        $dbDate=db('article')->query("select distinct(FROM_UNIXTIME(a.sendtime,'%Y')) as year from blog_article a  group by year order by year desc");
+        $this->assign('_date',$dbDate);
     }
 
 

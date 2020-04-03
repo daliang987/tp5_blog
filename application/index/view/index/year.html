@@ -1,0 +1,41 @@
+{extend name="index_base" /} {block name="content"}
+<div class="blog-content-left">
+    <div class="arclist">
+
+        <ul>
+            {volist name="articles" id="arc"}
+            <li>
+                <span class="time">{:date('Y/m/d H:i',$arc.sendtime)}</span>
+                <a href="{:url('content',['arc_id'=>$arc.arc_id])}">{$arc.arc_title}</a>
+            </li>
+            {/volist}
+
+        </ul>
+    </div>
+</div>
+<div class="blog-content-right">
+    <div class="catelist">
+
+        <ul>
+            {if condition="$curr_year eq ''"}
+            <li><a href="{:url('index/Index/year')}" class="link-active">所有</a></li>
+            {else /}
+            <li><a href="{:url('index/Index/year')}">所有</a></li>
+            {/if}
+            {volist name="_date" id="d"}
+            {if condition="$d.year eq $curr_year"}
+            <li><a href="{:url('index/Index/year',['date'=>$d.year])}" class="link-active">
+                {$d.year}
+            </a></li>
+            {else /}
+            <li><a href="{:url('index/Index/year',['date'=>$d.year])}"">{$d.year}</a></li>
+            {/if}
+            {/volist}
+
+        </ul>
+    </div>
+
+</div>
+
+
+{/block}

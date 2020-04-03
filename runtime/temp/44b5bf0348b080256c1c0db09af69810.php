@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\xampp\htdocs\blog\public/../application/index\view\index\search.html";i:1547690769;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585793408;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\xampp\htdocs\blog\public/../application/index\view\index\search.html";i:1547690769;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585825306;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    
     <!-- <div hd-cloak> -->
     <div class="blog-show">
         <div class="blog-header">

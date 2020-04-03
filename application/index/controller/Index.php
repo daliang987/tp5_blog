@@ -35,13 +35,30 @@ class Index extends Common
             $this->assign('cate_son', []);
         }
 
+        // 当前分类
         $curr_cate = db('cate')->find($cate_id);
         $this->assign('curr_cate', $curr_cate);
         parent::setTitle($curr_cate['cate_name']);
 
+        // 获取分类id获取文章
         $arcdata = (new \app\common\model\Category())->getArc($cate_id);
         parent::setCount($arcdata);
         $this->assign('arcdata', $arcdata);
+        return $this->fetch();
+    }
+
+
+    public function year(){
+        $year=input('param.date');
+        if($year){
+            $data=db('artiles')->query("select a.*,FROM_UNIXTIME(a.sendtime,'%Y') as year from blog_article a group by year having year=".$year);
+        }else{
+            $data=db('artiles')->query("select a.*,FROM_UNIXTIME(a.sendtime,'%Y') as year from blog_article a group by year");
+        }
+        
+        // halt($data);
+        $this->assign('articles',$data);
+        $this->assign('curr_year',$year);
         return $this->fetch();
     }
 

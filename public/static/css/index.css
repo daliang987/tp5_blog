@@ -27,6 +27,10 @@ a:hover{
     color: #00bebe!important;
 }
 
+a.link-active{
+    color: #00bebe!important;
+}
+
 .label-control{
     color:#efefef;
 }
@@ -108,7 +112,7 @@ a:hover{
 
 
 .blog-content{
-    padding:10px 25px 10px 25px;
+    padding:10px 15px 10px 15px;
     min-height: 700px;
 }
 
@@ -172,7 +176,7 @@ a:hover{
 .blog-content-right{
     width: 25%;
     float: right;
-    margin-top:50px;
+    margin-top:20px;
 }
 
 .index-title{
@@ -180,6 +184,10 @@ a:hover{
     font-size: 30px;
     margin:40px 0px 15px 0px;
     color:#00bebe;
+}
+
+.index-title:first-child{
+    margin:10px 0px 15px 0px;
 }
 
 
@@ -209,7 +217,7 @@ a:hover{
 .taglist{
     border:1px solid #efefef;
     border-radius: 5px;
-    margin-top:30px;
+    margin-top:50px;
 }
 
 

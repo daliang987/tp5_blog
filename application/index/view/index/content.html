@@ -1,4 +1,5 @@
 {extend name="index_base" /} {block name="content"}
+
 <div class="blog-function">
     <div class="func">
         <a href="javascript:history.back()" id="back">返回</a>
@@ -39,7 +40,6 @@
 </div>
 
 <div class="article-content">
-
 
     {if condition="$arcdata.editor_type eq 'md'"}
     <div id="editormd">
@@ -93,7 +93,7 @@
         </form>
 
 
-       
+
     </div>
     <hr>
     <ul class="media-list comment-detail" id="comment_list">
@@ -111,7 +111,7 @@
                 </div>
                 <div id="comment-content">
                     {$comment.comment_content}
-                    
+
                     {volist name="comment.subcomment" id="c"}
                     <hr>
                     <div class="media ">
@@ -133,7 +133,7 @@
                         <div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
                         </div>
                     </div>
-                    
+
                     {/volist}
                 </div>
             </div>
@@ -190,14 +190,15 @@
 
         hdjs.markdownToHTML("editormd", {
             htmlDecode: "style,script,iframe,php",
-            emoji: true
+            emoji: true,
+            
         });
 
         if (getQueryParam("page")) {
             location.href = '#comment_list';
         }
 
-        
+
 
 
         $('.btn-reply').each(function () {
@@ -211,8 +212,16 @@
 
 
             })
+        });
+
+        $('html').append('<script src="__STATIC__/js/imgpreview.js">');
+
+        $('img').each(function(){
+            $(this).wrap('<a href='+$(this).attr('src')+' class="swipebox"></a>');
+            
         })
+
     });
-
-
-</script> {/block}
+    
+</script>
+{/block}

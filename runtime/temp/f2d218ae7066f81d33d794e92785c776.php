@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\blog\public/../application/index\view\index\index.html";i:1585820365;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585793408;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\blog\public/../application/index\view\index\index.html";i:1585905823;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585912229;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    
     <!-- <div hd-cloak> -->
     <div class="blog-show">
         <div class="blog-header">
@@ -82,11 +83,11 @@
         
         <ul>
             <li onclick="javascript:cateshow()">
-                <a href="javascript:void(0)">文章分类</a>
+                <a href="javascript:void(0)">归档</a>
             </li>
-            <?php if(is_array($_cate) || $_cate instanceof \think\Collection || $_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ca): $mod = ($i % 2 );++$i;?>
+            <?php if(is_array($_date) || $_date instanceof \think\Collection || $_date instanceof \think\Paginator): $i = 0; $__LIST__ = $_date;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$da): $mod = ($i % 2 );++$i;?>
             <li>
-                <a href="<?php echo url('category',['cate_id'=>$ca['cate_id']]); ?>"><?php echo $ca['cate_name']; ?></a>
+                <a href="<?php echo url('index/Index/year',['date'=>$da['year']]); ?>"><?php echo $da['year']; ?></a>
             </li>
             <?php endforeach; endif; else: echo "" ;endif; ?>
         </ul>
@@ -112,12 +113,7 @@
 
 <div class="clear"></div>
 
-<script>
-    function cateshow() {
-        $(".catelist ul li:first").nextAll("li").slideToggle();
-    }
-
-</script> 
+ 
             </div>
         </div>
         <hr>
@@ -146,5 +142,4 @@
 </body>
 
 <link rel="stylesheet" href="__STATIC__/css/index.css">
-
 </html>
