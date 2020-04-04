@@ -24,7 +24,7 @@ class Webset extends Controller{
     public function edit(){
         
         if(request()->isAjax()){
-            // halt(input('post.'));
+            halt(input('post.'));
             $res=$this->db->edit(input('post.'));
             if($res['valid']){
                 $this->success($res['msg'],'index');exit;
