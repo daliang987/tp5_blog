@@ -30,7 +30,7 @@ class Common extends Controller{
     }
 
     public function loadArticleDate(){
-        $dbDate=db('article')->query("select distinct(FROM_UNIXTIME(a.sendtime,'%Y')) as year from blog_article a  group by year order by year desc");
+        $dbDate=db('article')->distinct(true)->field("FROM_UNIXTIME(sendtime,'%Y') as  year")->order('year desc')->limit(5)->select();
         $this->assign('_date',$dbDate);
     }
 

@@ -17,12 +17,12 @@ class Login extends Controller{
     public function vcode(){
         $config=[
             'codeSet'=>'1234567890',
-            'length' =>3,
+            'length' =>4,
             'useNoise' => false,
             'imageH' => 35,
             'imageW' => 150,
             'fontSize' => 20,
-            'useCurve' => false,
+            'useCurve' => true,
         ];
 
         $captcha=new Captcha($config);

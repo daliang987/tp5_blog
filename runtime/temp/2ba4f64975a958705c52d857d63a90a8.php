@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:75:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\article\index.html";i:1585580044;s:66:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\base.html";i:1585319215;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:75:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\article\index.html";i:1585968573;s:66:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\base.html";i:1585997021;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">博客系统</a>
+                <a class="navbar-brand" target="_blank" href="/">博客系统</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -140,7 +140,7 @@
             <tr>
                 <td><?php echo $article['arc_id']; ?></td>
                 <td>
-                    <?php if($article['editor_type']='bd'): ?>
+                    <?php if($article['editor_type'] == 'bd'): ?>
                     <a href="<?php echo url('bdedit',['arc_id'=>$article['arc_id']]); ?>"> <?php echo $article['arc_title']; ?></a>
                     <?php else: ?>
                     <a href="<?php echo url('mdedit',['arc_id'=>$article['arc_id']]); ?>"> <?php echo $article['arc_title']; ?></a>
@@ -160,7 +160,7 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <?php if($article['editor_type']='bd'): ?>
+                                <?php if($article['editor_type'] == 'bd'): ?>
                                 <a href="<?php echo url('bdedit',['arc_id'=>$article['arc_id']]); ?>">编辑</a>
                                 <?php else: ?>
                                 <a href="<?php echo url('mdedit',['arc_id'=>$article['arc_id']]); ?>">编辑</a>

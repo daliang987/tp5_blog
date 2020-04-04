@@ -16,10 +16,33 @@
                     <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
                     <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
                 </div>
-                <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {}, "image": { "viewList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"], "viewText": "分享到：", "viewSize": "16" }, "selectShare": { "bdContainerClass": null, "bdSelectMiniList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"] } }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+                <script>
+                    window._bd_share_config = {
+                        "common": {
+                            "bdSnsKey": {},
+                            "bdText": "",
+                            "bdMini": "2",
+                            "bdMiniList": false,
+                            "bdPic": "",
+                            "bdStyle": "0",
+                            "bdSize": "16"
+                        },
+                        "share": {},
+                        "image": {
+                            "viewList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"],
+                            "viewText": "分享到：",
+                            "viewSize": "16"
+                        },
+                        "selectShare": {
+                            "bdContainerClass": null,
+                            "bdSelectMiniList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"]
+                        }
+                    };
+                    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+                </script>
     </div>
 </div>
-
+<link rel="stylesheet" href="__STATIC/css/swipebox.css">
 
 <div class="article-header">
     <div class="title">{$arcdata.arc_title}</div>
@@ -46,7 +69,7 @@
         <textarea hidden>{$arcdata.arc_content}</textarea>
     </div>
     {else /}
-    <div class="bdeditore-preview">
+    <div class="bdeditore-preview" id="mycontent">
         {$arcdata.arc_content}
     </div>
     {/if}
@@ -57,29 +80,7 @@
 <div class="comment">
     <div class="new-comment">
         <form class="form-horizontal" method="post" action="{:url('comment')}" id="form-comment">
-            <div class="form-group">
-                <span class="label-control col-md-2">用户名：</span>
-                <div class="col-md-5">
-                    <input type="text" placeholder="用户名" class="form-control" name="comment_nickname"
-                        id="comment_nickname">
-                </div>
 
-            </div>
-            <div class="form-group">
-                <span class="label-control col-md-2">邮箱：</span>
-                <div class="col-md-5">
-                    <input type="text" placeholder="邮箱（非必填）" class="form-control " name="comment_email"
-                        id="comment_email">
-                </div>
-
-            </div>
-            <div class="form-group">
-                <span class="label-control col-md-2">博客地址：</span>
-                <div class="col-md-10">
-                    <input type="text" placeholder="个人博客地址（非必填）" name="comment_url" class="form-control"
-                        id="comment_url">
-                </div>
-            </div>
             <div class="form-group">
                 <span class="label-control col-md-2">评论内容：</span>
                 <div class="col-md-10">
@@ -87,6 +88,32 @@
                         placeholder="评论内容..." rows="3"></textarea>
                 </div>
             </div>
+            <div class="form-group">
+                <span class="label-control col-md-2">用户名：</span>
+                <div class="col-md-4">
+                    <input type="text" placeholder="用户名" class="form-control" name="comment_nickname"
+                        id="comment_nickname">
+                </div>
+                <span class="label-control col-md-2"> <img src="{:url('vcode')}" alt="captcha" id="captcha"
+                        onclick="reloadCaptcha()" /> </span>
+                <div class="col-md-4">
+                    <input type="text" placeholder="验证码" class="form-control" name="verify_code" id="verify_code">
+                </div>
+            </div>
+            <div class="form-group">
+                <span class="label-control col-md-2">邮箱：</span>
+                <div class="col-md-4">
+                    <input type="text" placeholder="邮箱（非必填）" class="form-control " name="comment_email"
+                        id="comment_email">
+                </div>
+                <span class="label-control col-md-2">博客地址：</span>
+                <div class="col-md-4">
+                    <input type="text" placeholder="个人博客地址（非必填）" name="comment_url" class="form-control"
+                        id="comment_url">
+                </div>
+
+            </div>
+
             <input type="hidden" name="comment_parentid" id="comment_parentid" value="0">
             <input type="hidden" name="arc_id" value="{$arcdata.arc_id}">
             <input type="submit" class="btn btn-success" value="提交评论">
@@ -105,14 +132,12 @@
             <div class="media-body">
                 <div>
                     <h5 class="media-heading pull-left" id="nickname">{$comment.comment_nickname}</h5>
-                    <h6 class="comment-time">在 {:date('Y/m/d H:i',$comment.create_time)} 说：</h6>
+                    <span class="comment-time">在 {:date('Y/m/d H:i',$comment.create_time)} 说：</span>
 
                     <div class="clear"></div>
                 </div>
-                <div id="comment-content">
-                    {$comment.comment_content}
-
-                    {volist name="comment.subcomment" id="c"}
+                <div class="comment-content">
+                    {$comment.comment_content} {volist name="comment.subcomment" id="c"}
                     <hr>
                     <div class="media ">
                         <div class="media-left">
@@ -121,11 +146,11 @@
                         <div class="media-body">
                             <div>
                                 <h5 class="media-heading pull-left" id="nickname">{$c.comment_nickname}</h5>
-                                <h6 class="comment-time">在 {:date('Y/m/d H:i',$c.create_time)} 说：</h6>
+                                <span class="comment-time">在 {:date('Y/m/d H:i',$c.create_time)} 说：</span>
 
                                 <div class="clear"></div>
                             </div>
-                            <div id="comment-content">
+                            <div class="comment-content">
                                 {$c.comment_content}
                             </div>
                         </div>
@@ -141,8 +166,7 @@
             <div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
             </div>
         </li>
-        <hr>
-        {/volist}
+        <hr> {/volist}
 
         <div class="clear"></div>
     </ul>
@@ -153,10 +177,12 @@
 
 
 <script>
-
     function scrolltop() {
-        $('html, body').animate({ scrollTop: 0 }, 'fast');//带动画  
+        $('html, body').animate({
+            scrollTop: 0
+        }, 'fast'); //带动画  
     }
+
 
 
 
@@ -181,17 +207,19 @@
         var vars = query.split("&");
         for (var i = 0; i < vars.length; i++) {
             var pair = vars[i].split("=");
-            if (pair[0] == paramName) { return pair[1]; }
+            if (pair[0] == paramName) {
+                return pair[1];
+            }
         }
         return (false);
     }
 
     require(['hdjs'], function (hdjs) {
 
+
         hdjs.markdownToHTML("editormd", {
             htmlDecode: "style,script,iframe,php",
             emoji: true,
-            
         });
 
         if (getQueryParam("page")) {
@@ -199,6 +227,12 @@
         }
 
 
+        function reloadCaptcha() {
+            captcha_src = $('#captcha').attr('src');
+            pathname = captcha_src.split('?')[0];
+            $('#captcha').attr('src', pathname + '?' + Math.random());
+        }
+        reloadCaptcha(); //加载验证码
 
 
         $('.btn-reply').each(function () {
@@ -216,12 +250,19 @@
 
         $('html').append('<script src="__STATIC__/js/imgpreview.js">');
 
-        $('img').each(function(){
-            $(this).wrap('<a href='+$(this).attr('src')+' class="swipebox"></a>');
-            
-        })
+        function loadImgPreview() {
+            ImagePreview.init({
+                id: $('.article-content p img')
+            });
+        }
 
+        loadImgPreview();
+        loadImgs = setTimeout(loadImgPreview, 1000);
+
+        loadImgs = setTimeout(loadImgPreview, 4000);
+        id: $('.article-content p img').attr('style', 'height:100%');
     });
-    
+
+
 </script>
 {/block}

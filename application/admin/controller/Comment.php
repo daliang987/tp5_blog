@@ -13,7 +13,7 @@ class Comment extends Controller{
 
     public function index(){
 
-        $dataComment=db('comment')->order('create_time desc')->paginate(10);
+        $dataComment=db('comment')->alias('c')->join('article a','c.arc_id=a.arc_id')->paginate(15);
 
         $this->assign('commentdata',$dataComment);
 
@@ -22,7 +22,13 @@ class Comment extends Controller{
 
 
     public function del(){
-
+        $cid=input('get.comment_id');
+        $res=$this->db->del($cid);
+        if($res['valid']){
+            $this->success($res['msg']);
+        }else{
+            $this->error($res['msg']);
+        }
     }
 
     public function show(){

@@ -49,7 +49,7 @@
                                 <input type="text" class="form-control" name="vcode" placeholder="验证码">
                             </div>
                             <div class="col-md-4">
-                                <img src="{:url('vcode')}" alt="captcha" onclick=this.src=this.src+'?'+Math.random() /> 
+                                <img src="{:url('vcode')}" alt="captcha" id="captcha" onclick="reloadCaptcha()" /> 
                             </div>
                         </div>
                         <div class="form-group">
@@ -63,5 +63,12 @@
         </div>
     </div>
 </body>
-
+<script>
+    function reloadCaptcha(){
+        captcha_src=$('#captcha').attr('src');
+        pathname=captcha_src.split('?')[0];
+        $('#captcha').attr('src',pathname+'?'+Math.random());
+    }
+    reloadCaptcha();
+</script>
 </html>

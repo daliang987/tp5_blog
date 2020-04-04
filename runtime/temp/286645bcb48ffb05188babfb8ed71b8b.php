@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:75:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index\content.html";i:1585757042;s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index_base.html";i:1585322471;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:75:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index\content.html";i:1586019937;s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index_base.html";i:1585968573;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    
     <!-- <div hd-cloak> -->
     <div class="blog-show">
         <div class="blog-header">
@@ -50,6 +51,7 @@
         <div hd-cloak>
             <div class="blog-content">
                 
+
 <div class="blog-function">
     <div class="func">
         <a href="javascript:history.back()" id="back">返回</a>
@@ -66,10 +68,33 @@
                     <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
                     <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
                 </div>
-                <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {}, "image": { "viewList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"], "viewText": "分享到：", "viewSize": "16" }, "selectShare": { "bdContainerClass": null, "bdSelectMiniList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"] } }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+                <script>
+                    window._bd_share_config = {
+                        "common": {
+                            "bdSnsKey": {},
+                            "bdText": "",
+                            "bdMini": "2",
+                            "bdMiniList": false,
+                            "bdPic": "",
+                            "bdStyle": "0",
+                            "bdSize": "16"
+                        },
+                        "share": {},
+                        "image": {
+                            "viewList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"],
+                            "viewText": "分享到：",
+                            "viewSize": "16"
+                        },
+                        "selectShare": {
+                            "bdContainerClass": null,
+                            "bdSelectMiniList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"]
+                        }
+                    };
+                    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+                </script>
     </div>
 </div>
-
+<link rel="stylesheet" href="__STATIC/css/swipebox.css">
 
 <div class="article-header">
     <div class="title"><?php echo $arcdata['arc_title']; ?></div>
@@ -91,13 +116,12 @@
 
 <div class="article-content">
 
-
     <?php if($arcdata['editor_type'] == 'md'): ?>
     <div id="editormd">
         <textarea hidden><?php echo $arcdata['arc_content']; ?></textarea>
     </div>
     <?php else: ?>
-    <div class="bdeditore-preview">
+    <div class="bdeditore-preview" id="mycontent">
         <?php echo $arcdata['arc_content']; ?>
     </div>
     <?php endif; ?>
@@ -107,28 +131,8 @@
 
 <div class="comment">
     <div class="new-comment">
-        <form class="form-horizontal" id="form-comment">
-            <div class="form-group">
-                <span class="label-control col-md-2">用户名：</span>
-                <div class="col-md-5">
-                    <input type="text" placeholder="用户名" class="form-control" name="comment_nickname"
-                        id="comment_nickname">
-                </div>
+        <form class="form-horizontal" method="post" action="<?php echo url('comment'); ?>" id="form-comment">
 
-            </div>
-            <div class="form-group">
-                <span class="label-control col-md-2">邮箱：</span>
-                <div class="col-md-5">
-                    <input type="text" placeholder="邮箱（非必填）" class="form-control " name="comment_email" id="">
-                </div>
-
-            </div>
-            <div class="form-group">
-                <span class="label-control col-md-2">博客地址：</span>
-                <div class="col-md-10">
-                    <input type="text" placeholder="个人博客地址（非必填）" name="comment_url" class="form-control">
-                </div>
-            </div>
             <div class="form-group">
                 <span class="label-control col-md-2">评论内容：</span>
                 <div class="col-md-10">
@@ -136,12 +140,39 @@
                         placeholder="评论内容..." rows="3"></textarea>
                 </div>
             </div>
+            <div class="form-group">
+                <span class="label-control col-md-2">用户名：</span>
+                <div class="col-md-4">
+                    <input type="text" placeholder="用户名" class="form-control" name="comment_nickname"
+                        id="comment_nickname">
+                </div>
+                <span class="label-control col-md-2"> <img src="<?php echo url('vcode'); ?>" alt="captcha" id="captcha"
+                        onclick="reloadCaptcha()" /> </span>
+                <div class="col-md-4">
+                    <input type="text" placeholder="验证码" class="form-control" name="verify_code" id="verify_code">
+                </div>
+            </div>
+            <div class="form-group">
+                <span class="label-control col-md-2">邮箱：</span>
+                <div class="col-md-4">
+                    <input type="text" placeholder="邮箱（非必填）" class="form-control " name="comment_email"
+                        id="comment_email">
+                </div>
+                <span class="label-control col-md-2">博客地址：</span>
+                <div class="col-md-4">
+                    <input type="text" placeholder="个人博客地址（非必填）" name="comment_url" class="form-control"
+                        id="comment_url">
+                </div>
+
+            </div>
+
             <input type="hidden" name="comment_parentid" id="comment_parentid" value="0">
             <input type="hidden" name="arc_id" value="<?php echo $arcdata['arc_id']; ?>">
+            <input type="submit" class="btn btn-success" value="提交评论">
         </form>
 
 
-        <a class="btn btn-success" id="subcomment" href="javascript:void(0)">发表评论</a>
+
     </div>
     <hr>
     <ul class="media-list comment-detail" id="comment_list">
@@ -153,43 +184,41 @@
             <div class="media-body">
                 <div>
                     <h5 class="media-heading pull-left" id="nickname"><?php echo $comment['comment_nickname']; ?></h5>
-                    <h6 class="comment-time">在 <?php echo date('Y/m/d H:i',$comment['create_time']); ?> 说：</h6>
-                    
+                    <span class="comment-time">在 <?php echo date('Y/m/d H:i',$comment['create_time']); ?> 说：</span>
+
                     <div class="clear"></div>
                 </div>
-                <div id="comment-content">
-                    <?php echo $comment['comment_content']; ?>
+                <div class="comment-content">
+                    <?php echo $comment['comment_content']; if(is_array($comment['subcomment']) || $comment['subcomment'] instanceof \think\Collection || $comment['subcomment'] instanceof \think\Paginator): $i = 0; $__LIST__ = $comment['subcomment'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?>
                     <hr>
-                        <?php if(is_array($comment['subcomment']) || $comment['subcomment'] instanceof \think\Collection || $comment['subcomment'] instanceof \think\Paginator): $i = 0; $__LIST__ = $comment['subcomment'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?>
-                        <div class="media ">
-                            <div class="media-left">
-                                <i class="fa fa-user-circle-o fa-2x"></i>
+                    <div class="media ">
+                        <div class="media-left">
+                            <i class="fa fa-user-circle-o fa-2x"></i>
+                        </div>
+                        <div class="media-body">
+                            <div>
+                                <h5 class="media-heading pull-left" id="nickname"><?php echo $c['comment_nickname']; ?></h5>
+                                <span class="comment-time">在 <?php echo date('Y/m/d H:i',$c['create_time']); ?> 说：</span>
+
+                                <div class="clear"></div>
                             </div>
-                            <div class="media-body">
-                                <div>
-                                    <h5 class="media-heading pull-left" id="nickname"><?php echo $c['comment_nickname']; ?></h5>
-                                    <h6 class="comment-time">在 <?php echo date('Y/m/d H:i',$c['create_time']); ?> 说：</h6>
-                                    
-                                    <div class="clear"></div>
-                                </div>
-                                <div id="comment-content">
-                                    <?php echo $c['comment_content']; ?>
-                                </div>
-                            </div>
-                            <div class="comment-id" id="comment_id"><?php echo $c['comment_id']; ?></div>
-                            <div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
+                            <div class="comment-content">
+                                <?php echo $c['comment_content']; ?>
                             </div>
                         </div>
-                        <hr>
-                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                        <div class="comment-id" id="comment_id<?php echo $c['comment_id']; ?>"><?php echo $c['comment_id']; ?></div>
+                        <div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
+                        </div>
+                    </div>
+
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
                 </div>
             </div>
-            <div class="comment-id" id="comment_id"><?php echo $comment['comment_id']; ?></div>
+            <div class="comment-id" id="comment_id<?php echo $comment['comment_id']; ?>"><?php echo $comment['comment_id']; ?></div>
             <div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
             </div>
         </li>
-        <hr>
-        <?php endforeach; endif; else: echo "" ;endif; ?>
+        <hr> <?php endforeach; endif; else: echo "" ;endif; ?>
 
         <div class="clear"></div>
     </ul>
@@ -200,34 +229,14 @@
 
 
 <script>
-
     function scrolltop() {
-        $('html, body').animate({ scrollTop: 0 }, 'fast');//带动画  
+        $('html, body').animate({
+            scrollTop: 0
+        }, 'fast'); //带动画  
     }
 
-    function loadsubcomment() {
-        $('#comment_list > li').each(function () {
-            _this = $(this);
-            $.ajax({
-                type: 'post',
-                url: '<?php echo url("index/index/getSubcomment"); ?>',
-                data: { "comment_id": $(this).find('.comment-id').html() },
-                success: function (data) {
-                    data = JSON.parse(data);
-                    for (i = 0; i < data.length; i++) {
-                        alert(_this.find('.comment-id').html());
-                        if (data[i].comment_parentid == _this.find('.comment-id').html()) {
-                            alert(1);
-                            _this.html('<h1>hello</h1>');
-                        }
-                        //alert(data[i].comment_id);
-                    }
 
-                },
-                dataType: 'json'
-            })
-        })
-    }
+
 
     serializeObject = function (form) {
         var o = {};
@@ -250,70 +259,65 @@
         var vars = query.split("&");
         for (var i = 0; i < vars.length; i++) {
             var pair = vars[i].split("=");
-            if (pair[0] == paramName) { return pair[1]; }
+            if (pair[0] == paramName) {
+                return pair[1];
+            }
         }
         return (false);
     }
 
     require(['hdjs'], function (hdjs) {
 
+
         hdjs.markdownToHTML("editormd", {
             htmlDecode: "style,script,iframe,php",
-            emoji: true
+            emoji: true,
         });
-        loadsubcomment();
 
-        if(getQueryParam("page")){
-            location.href='#comment_list';
+        if (getQueryParam("page")) {
+            location.href = '#comment_list';
         }
 
-            $('#subcomment').click(function () {
-                comment_parentid = $('#comment_parentid').val();
-                postdata = serializeObject($('#form-comment'));
-                console.log(postdata);
-                $.post(
-                    "<?php echo url('comment'); ?>", postdata,
 
-                    function (res) {
-
-                        if (res.code) {
-                            if (comment_parentid == 0) {
-                                comment_html = '<li><div class="user-info"><div class="user-header"><i class="fa fa-user-circle-o fa-2x"></i></div><div class="nickname">' + $('#comment_nickname').val() + '</div><div class="comment-time">在刚刚说：</div><div class="clear"></div></div><div class="user-comment">' + $('#comment_content').val() + '<div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a></div></div></li><hr>';
-                                $('#comment_list').prepend(comment_html);
-                            } else {
-                                comment_html = '<div class="user-info"><div class="user-header"><i class="fa fa-user-circle-o fa-2x"></i></div><div class="nickname">' + $('#comment_nickname').val() + '</div><div class="comment-time">在刚刚说：</div><div class="clear"></div></div><div class="user-comment">' + $('#comment_content').val() + '<div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a></div></div>';
-                                $('#comment_list > li').each(function () {
-                                    id = $(this).find('.comment-id').html();
-                                    if (id == res.comment_parentid) {
-                                        $(this).append(comment_html);
-                                    }
-                                })
-                            }
-
-                        } else {
-                            alert('评论失败' + res.msg);
-                        }
-                    }, 'json'
-                );
-            })
+        function reloadCaptcha() {
+            captcha_src = $('#captcha').attr('src');
+            pathname = captcha_src.split('?')[0];
+            $('#captcha').attr('src', pathname + '?' + Math.random());
+        }
+        reloadCaptcha(); //加载验证码
 
 
         $('.btn-reply').each(function () {
             $(this).click(function () {
-                comment_id = $(this).parent().parent().find('#comment_id').html();
+                comment_id = $(this).parent().parent().find('.comment-id').html();
                 nickname = $(this).parent().parent().find('#nickname').html();
                 $('#comment_parentid').val(comment_id);
                 $('#comment_content').html('@' + nickname + " ");
-                location.href='#comment_title';
+                location.href = '#comment_title';
                 $('#comment_content').focus();
-                
+
 
             })
-        })
+        });
+
+        $('html').append('<script src="__STATIC__/js/imgpreview.js">');
+
+        function loadImgPreview() {
+            ImagePreview.init({
+                id: $('.article-content p img')
+            });
+        }
+
+        loadImgPreview();
+        loadImgs = setTimeout(loadImgPreview, 1000);
+
+        loadImgs = setTimeout(loadImgPreview, 4000);
+        id: $('.article-content p img').attr('style', 'height:100%');
     });
 
 
-</script> 
+</script>
+
             </div>
         </div>
         <hr>
@@ -342,5 +346,4 @@
 </body>
 
 <link rel="stylesheet" href="__STATIC__/css/index.css">
-
 </html>

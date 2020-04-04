@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:77:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\article\mdstore.html";i:1585496675;s:66:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\base.html";i:1585319215;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:77:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\article\mdstore.html";i:1585496675;s:66:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\base.html";i:1585997021;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">博客系统</a>
+                <a class="navbar-brand" target="_blank" href="/">博客系统</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

@@ -17,7 +17,16 @@ class Comment extends Model{
        if($result){
             return ['valid'=>1,'msg'=>'发表评论成功'];
        }else{
-            return ['valid'=>1,'msg'=>$this->getError()];
+            return ['valid'=>0,'msg'=>$this->getError()];
+       }
+    }
+
+    public function del($cid){
+        $result=$this->destroy($cid);
+        if($result){
+            return ['valid'=>1,'msg'=>'删除评论成功'];
+        }else{
+            return ['valid'=>0,'msg'=>$this->getError()];
        }
     }
 }

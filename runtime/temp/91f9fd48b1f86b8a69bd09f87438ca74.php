@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:68:"D:\xampp\htdocs\blog\public/../application/index\view\index\tag.html";i:1585904025;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585825306;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index\tag.html";i:1585968573;s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index_base.html";i:1585968573;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -113,5 +113,4 @@
 </body>
 
 <link rel="stylesheet" href="__STATIC__/css/index.css">
-
 </html>

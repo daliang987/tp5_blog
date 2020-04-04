@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/admin\view\comment\index.html";i:1547690768;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1585532521;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:77:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\article\recycle.html";i:1517930367;s:66:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\base.html";i:1585997021;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">博客系统</a>
+                <a class="navbar-brand" target="_blank" href="/">博客系统</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -111,17 +111,14 @@
                 
 
 <div class="alert alert-info">
-    评论首页
+    文章列表
 </div>
-
-
-
 
 <div class="panel panel-info">
     <div class="panel-body">
         <ul class="nav nav-tabs">
             <li class="active">
-                <a href="<?php echo url('admin/tag/index'); ?>">评论列表</a>
+                <a href="<?php echo url('admin/article/index'); ?>">文章回收站</a>
             </li>
         </ul>
     </div>
@@ -129,17 +126,23 @@
         <table class="table table-striped table-bordered table-hover table-condensed">
             <tr class="info">
                 <th>编号</th>
-                <th>昵称</th>
-                <th>邮箱</th>
-                <th>内容</th>
+                <th>文章名称</th>
+                <th>作者</th>
+                <th class="col-md-1">排序</th>
+                <th>所属分类</th>
+                <th>添加时间</th>
                 <th>操作</th>
             </tr>
-            <?php if(is_array($commentdata) || $commentdata instanceof \think\Collection || $commentdata instanceof \think\Paginator): $i = 0; $__LIST__ = $commentdata;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$comment): $mod = ($i % 2 );++$i;?>
+            <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$article): $mod = ($i % 2 );++$i;?>
             <tr>
-                <td><?php echo $comment['comment_id']; ?></td>
-                <td><?php echo $comment['comment_nickname']; ?></td>
-                <td><?php echo $comment['comment_email']; ?></td>
-                <td><?php echo $comment['comment_content']; ?></td>
+                <td><?php echo $article['arc_id']; ?></td>
+                <td><?php echo $article['arc_title']; ?></td>
+                <td><?php echo $article['arc_author']; ?></td>
+                <td>
+                    <input type="number" value="<?php echo $article['arc_sort']; ?>" class="form-control" onblur="changeSort(this,'<?php echo $article['arc_id']; ?>')" />
+                </td>
+                <td><?php echo $article['cate_name']; ?></td>
+                <td><?php echo date('Y-m-d H:i:s',$article['sendtime']); ?></td>
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作
@@ -147,12 +150,12 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="<?php echo url('admin/comment/show',['comment_id'=>$comment['comment_id']]); ?>">查看</a>
+                                <a href="<?php echo url('outToRecycle',['arc_id'=>$article['arc_id']]); ?>">还原</a>
                             </li>
 
                             <li class="divider"></li>
                             <li>
-                                <a href="javascript:del(<?php echo $comment['comment_id']; ?>)">删除</a>
+                                <a href="javascript:confirmDel(<?php echo $article['arc_id']; ?>)">彻底删除</a>
                             </li>
                         </ul>
                     </div>
@@ -160,17 +163,36 @@
             </tr>
             <?php endforeach; endif; else: echo "" ;endif; ?>
         </table>
-        <?php echo $commentdata->render(); ?>
+        <div class="pull-right">
+            <?php echo $data->render(); ?>
+        </div>
     </div>
 </div>
-
 <script>
-    function del(tag_id) {
+    function confirmDel(arc_id) {
         require(['hdjs'], function (hdjs) {
-            hdjs.confirm('确定删除吗?', function () {
-                location.href = '<?php echo url("del"); ?>?comment_id=' + tag_id;
+            hdjs.confirm('确定彻底删除吗?', function () {
+                location.href = 'confirmDel?arc_id=' + arc_id;
             })
         })
+    }
+
+    function changeSort(obj, arc_id) {
+        value = $(obj).val();
+        // alert(value);
+        // alert(arc_id);
+        $.post("<?php echo url('changeSort'); ?>", { arc_sort: value, arc_id: arc_id }, function (res) {
+            // alert(res.code);
+            if (res.code) {
+                require(['hdjs'], function (hdjs) {
+                    hdjs.message(res.msg, 'refresh', 'success', res.wait);
+                });
+            } else {
+                require(['hdjs'], function (hdjs) {
+                    hdjs.message(res.msg, 'back', 'error', res.wait);
+                });
+            }
+        }, 'json');
     }
 </script> 
             </div>

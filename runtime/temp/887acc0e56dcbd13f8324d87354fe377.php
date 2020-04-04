@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index\index.html";i:1585740747;s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index_base.html";i:1585322471;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index\index.html";i:1586010070;s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index_base.html";i:1585968573;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    
     <!-- <div hd-cloak> -->
     <div class="blog-show">
         <div class="blog-header">
@@ -69,7 +70,7 @@
         <ul>
             <?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): $i = 0; $__LIST__ = $article;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arc): $mod = ($i % 2 );++$i;?>
             <li>
-                <span class="time"><?php echo date('Y M d',$arc['sendtime']); ?></span>
+                <span class="time"><?php echo date('Y-m-d',$arc['sendtime']); ?></span>
                 <a href="<?php echo url('content',['arc_id'=>$arc['arc_id']]); ?>"><?php echo $arc['arc_title']; ?></a>
             </li>
             <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -82,11 +83,11 @@
         
         <ul>
             <li onclick="javascript:cateshow()">
-                <a href="javascript:void(0)">文章分类</a>
+                <a href="javascript:void(0)">归档</a>
             </li>
-            <?php if(is_array($_cate) || $_cate instanceof \think\Collection || $_cate instanceof \think\Paginator): $i = 0; $__LIST__ = $_cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ca): $mod = ($i % 2 );++$i;?>
+            <?php if(is_array($_date) || $_date instanceof \think\Collection || $_date instanceof \think\Paginator): $i = 0; $__LIST__ = $_date;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$da): $mod = ($i % 2 );++$i;?>
             <li>
-                <a href="<?php echo url('category',['cate_id'=>$ca['cate_id']]); ?>"><?php echo $ca['cate_name']; ?></a>
+                <a href="<?php echo url('index/Index/year',['date'=>$da['year']]); ?>"><?php echo $da['year']; ?></a>
             </li>
             <?php endforeach; endif; else: echo "" ;endif; ?>
         </ul>
@@ -112,24 +113,7 @@
 
 <div class="clear"></div>
 
-<script>
-    function cateshow() {
-        $(".catelist ul li:first").nextAll("li").slideToggle();
-    }
-
-    require(['hdjs'],function(hdjs){
-        $(function(){
-            $.ajax({
-                type:'get',
-                url:'<?php echo url("index/Index/loadweather"); ?>',
-                success:function(data){
-                    alert(data.status);
-                },
-                dataType:'json',
-            })
-        })
-    })
-</script> 
+ 
             </div>
         </div>
         <hr>
@@ -158,5 +142,4 @@
 </body>
 
 <link rel="stylesheet" href="__STATIC__/css/index.css">
-
 </html>

@@ -19,6 +19,7 @@
         <table class="table table-striped table-bordered table-hover table-condensed">
             <tr class="info">
                 <th>编号</th>
+                <th>评论文章</th>
                 <th>昵称</th>
                 <th>邮箱</th>
                 <th>内容</th>
@@ -27,6 +28,7 @@
             {volist name="commentdata" id='comment'}
             <tr>
                 <td>{$comment.comment_id}</td>
+                <td><a href="{:url('admin/comment/show',['comment_id'=>$comment.comment_id])}">{$comment.arc_title}</a></td>
                 <td>{$comment.comment_nickname}</td>
                 <td>{$comment.comment_email}</td>
                 <td>{$comment.comment_content}</td>

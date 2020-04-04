@@ -11,6 +11,7 @@
             {/volist}
 
         </ul>
+        {$articles->render()}
     </div>
 </div>
 <div class="blog-content-right">
@@ -22,7 +23,7 @@
             {else /}
             <li><a href="{:url('index/Index/year')}">所有</a></li>
             {/if}
-            {volist name="_date" id="d"}
+            {volist name="allyear" id="d"}
             {if condition="$d.year eq $curr_year"}
             <li><a href="{:url('index/Index/year',['date'=>$d.year])}" class="link-active">
                 {$d.year}

@@ -52,7 +52,11 @@
                         <div class="form-group">
                             <label for="" class="col-md-2 control-label">评论文章</label>
                             <div class="col-md-8">
-                                <p class="form-control-static"><a href="{:url('admin/article/edit',['arc_id'=>$comment.arc_id])}">{$comment.arc_title}</a></p>
+                                {if condition="$comment.editor_type eq 'bd'"}
+                                <p class="form-control-static"><a href="{:url('admin/article/bdedit',['arc_id'=>$comment.arc_id])}">{$comment.arc_title}</a></p>
+                                {else /}
+                                <p class="form-control-static"><a href="{:url('admin/article/mdedit',['arc_id'=>$comment.arc_id])}">{$comment.arc_title}</a></p>
+                                {/if}
                             </div>
                         </div>
                     </form>

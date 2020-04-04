@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index\year.html";i:1585905225;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1585825306;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:76:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index\category.html";i:1585968573;s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index_base.html";i:1585968573;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,11 +51,18 @@
         <div hd-cloak>
             <div class="blog-content">
                 
-<div class="blog-content-left">
-    <div class="arclist">
 
+
+<div class="blog-content-left">
+    <p class="text-white">
+        当前分类：|--
+        <span class="text-light"><?php echo $curr_cate['cate_name']; ?></span>
+        <small class="text-right">共<?php echo $count; ?>篇文章</small>
+    </p>
+    <hr>
+    <div class="arclist">
         <ul>
-            <?php if(is_array($articles) || $articles instanceof \think\Collection || $articles instanceof \think\Paginator): $i = 0; $__LIST__ = $articles;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arc): $mod = ($i % 2 );++$i;?>
+            <?php if(is_array($arcdata) || $arcdata instanceof \think\Collection || $arcdata instanceof \think\Paginator): $i = 0; $__LIST__ = $arcdata;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arc): $mod = ($i % 2 );++$i;?>
             <li>
                 <span class="time"><?php echo date('Y/m/d H:i',$arc['sendtime']); ?></span>
                 <a href="<?php echo url('content',['arc_id'=>$arc['arc_id']]); ?>"><?php echo $arc['arc_title']; ?></a>
@@ -65,27 +72,23 @@
         </ul>
     </div>
 </div>
+
 <div class="blog-content-right">
     <div class="catelist">
-
         <ul>
-            <?php if($curr_year == ''): ?>
-            <li><a href="<?php echo url('index/Index/year'); ?>" class="link-active">所有</a></li>
-            <?php else: ?>
-            <li><a href="<?php echo url('index/Index/year'); ?>">所有</a></li>
-            <?php endif; if(is_array($_date) || $_date instanceof \think\Collection || $_date instanceof \think\Paginator): $i = 0; $__LIST__ = $_date;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$d): $mod = ($i % 2 );++$i;if($d['year'] == $curr_year): ?>
-            <li><a href="<?php echo url('index/Index/year',['date'=>$d['year']]); ?>" class="link-active">
-                <?php echo $d['year']; ?>
-            </a></li>
-            <?php else: ?>
-            <li><a href="<?php echo url('index/Index/year',['date'=>$d['year']]); ?>""><?php echo $d['year']; ?></a></li>
-            <?php endif; endforeach; endif; else: echo "" ;endif; ?>
+            <li onclick="javascript:cateshow()">
+                <a href="javascript:void(0)"><?php echo $curr_cate['cate_name']; ?></a>
+            </li>
+
+            <?php if(is_array($cate_son) || $cate_son instanceof \think\Collection || $cate_son instanceof \think\Paginator): $i = 0; $__LIST__ = $cate_son;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$son): $mod = ($i % 2 );++$i;?>
+            <li>
+                <a href="<?php echo url('category',['cate_id'=>$son['cate_id']]); ?>"><?php echo $son['cate_name']; ?></a>
+            </li>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
 
         </ul>
     </div>
-
 </div>
-
 
 
             </div>
@@ -116,5 +119,4 @@
 </body>
 
 <link rel="stylesheet" href="__STATIC__/css/index.css">
-
 </html>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\xampp\htdocs\blog\public/../application/admin\view\webset\store.html";i:1547690768;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1585532521;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:76:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\category\index.html";i:1517930367;s:66:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\base.html";i:1585997021;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">博客系统</a>
+                <a class="navbar-brand" target="_blank" href="/">博客系统</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -111,52 +111,68 @@
                 
 
 <div class="alert alert-info">
-    网站配置
+    栏目首页
 </div>
+
+
+
+
 <div class="panel panel-info">
     <div class="panel-body">
         <ul class="nav nav-tabs">
-            <li>
-                <a href="<?php echo url('admin/webset/index'); ?>">网站配置</a>
-            </li>
             <li class="active">
-                <a href="<?php echo url('admin/webset/store'); ?>">添加配置</a>
+                <a href="<?php echo url('admin/category/index'); ?>">栏目首页</a>
+            </li>
+            <li>
+                <a href="<?php echo url('admin/category/store'); ?>">创建栏目</a>
             </li>
         </ul>
     </div>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-offset-2 col-md-8">
-                <form class="form-horizontal" method="post">
-                    <div class="form-group">
-                        <label for="" class="col-md-2 control-label">配置名称</label>
-                        <div class="col-md-8">
-                            <input type="text" name="webset_name" class="form-control" placeholder="配置名称">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-md-2 control-label">配置值</label>
-                        <div class="col-md-8">
-                            <input type="text" name="webset_value" class="form-control" placeholder="配置值">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-md-2 control-label">描述</label>
-                        <div class="col-md-8">
-                            <input type="text" name="webset_desc" class="form-control" placeholder="描述">
-                        </div>
-                    </div>
-                    <div class="form-group">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <tr class="info">
+                <th>编号</th>
+                <th>栏目名称</th>
+                <th>操作</th>
+            </tr>
+            <?php if(is_array($cate_data) || $cate_data instanceof \think\Collection || $cate_data instanceof \think\Paginator): $i = 0; $__LIST__ = $cate_data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cate_data): $mod = ($i % 2 );++$i;?>
+            <tr>
+                <td><?php echo $cate_data['cate_id']; ?></td>
+                <td><?php echo $cate_data['_cate_name']; ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">操作
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="<?php echo url('admin/category/addson',['cate_id'=>$cate_data['cate_id']]); ?>">添加子类</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo url('admin/category/edit',['cate_id'=>$cate_data['cate_id']]); ?>">编辑</a>
+                            </li>
 
-                        <div class="col-md-offset-2 col-md-8">
-                            <input type="submit" class="form-control col-md-12 btn-info" value="添加配置">
-                        </div>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="javascript:del(<?php echo $cate_data['cate_id']; ?>)">删除</a>
+                            </li>
+                        </ul>
                     </div>
-                </form>
-            </div>
-        </div>
+                </td>
+            </tr>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+        </table>
     </div>
 </div>
+<script>
+        function del(cate_id) {
+            require(['hdjs'], function (hdjs) {
+                hdjs.confirm('确定删除吗?', function () {
+                    location.href='<?php echo url("del"); ?>?cate_id='+cate_id;
+                })
+            })
+        }
+    </script>
 
             </div>
         </div>

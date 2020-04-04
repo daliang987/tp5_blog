@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\xampp\htdocs\blog\public/../application/admin\view\article\bdedit.html";i:1585818879;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1585532521;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:76:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\article\mdedit.html";i:1585968573;s:66:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\base.html";i:1585997021;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">博客系统</a>
+                <a class="navbar-brand" target="_blank" href="/">博客系统</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -120,7 +120,7 @@
                 <a href="<?php echo url('admin/article/index'); ?>">文章管理</a>
             </li>
             <li class="active">
-                <a href="<?php echo url('admin/article/bdedit'); ?>">文章编辑</a>
+                <a href="<?php echo url('admin/article/mdedit'); ?>">文章编辑</a>
             </li>
         </ul>
     </div>
@@ -151,20 +151,17 @@
                         <div class="col-md-10">
                             <select class="form-control" name="cate_id">
                                 <?php if(is_array($catedata) || $catedata instanceof \think\Collection || $catedata instanceof \think\Paginator): $i = 0; $__LIST__ = $catedata;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-                                <option value="<?php echo $vo['cate_id']; ?>" <?php if($vo['cate_id']==session('formdata.cate_id')): ?>
-                                    selected<?php endif; ?>><?php echo $vo['_cate_name']; ?> </option> 
-                                <?php endforeach; endif; else: echo "" ;endif; ?> 
-                            </select> 
-                        </div> 
-                    </div> 
-                        <div class="form-group">
-                            <label for="" class="col-md-2 control-label">添加标签</label>
-                            <div class="col-md-9">
-                                <input type="text" id="arc_tag" class="form-control">
-                            </div>
-                            <div class="col-md-1">
-                                <input type="button" class="btn btn-primary col-md-12" id="btn-add-tag" value="添加">
-                            </div>
+                                <option value="<?php echo $vo['cate_id']; ?>" <?php if($vo['cate_id']==$oldArc['cate_id']): ?>
+                                    selected<?php endif; ?>><?php echo $vo['_cate_name']; ?> </option> <?php endforeach; endif; else: echo "" ;endif; ?> </select> </div> </div> <div
+                                    class="form-group">
+                                    <label for="" class="col-md-2 control-label">添加标签</label>
+                                    <div class="col-md-9">
+                                        <input type="text" id="arc_tag" class="form-control">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <input type="button" class="btn btn-primary col-md-12" id="btn-add-tag"
+                                            value="添加">
+                                    </div>
                         </div>
                         <div class="form-group">
                             <label for="" class="col-md-2 control-label">标签</label>
@@ -216,13 +213,17 @@
                             <label for="" class="col-md-2 control-label">文章内容<br>
                                 <a href="javascript:void(0)" id="switch_editor" class="btn btn-info">切换编辑器</a></label>
 
-                            <div class="col-md-10" id="bd">
-                                <textarea id="bdeditor" name="arc_content"
-                                    style="height:300px;width:100%;"><?php echo $oldArc['arc_content']; ?></textarea>
+                            <div class="col-md-10" id="md">
+                                <div id="mdeditor">
+                                    <textarea name="arc_content" hidden><?php echo $oldArc['arc_content']; ?></textarea>
+                                </div>
                             </div>
-                            <input type="hidden" id="editor_type" name="editor_type" value="bd">
-                            <input type="hidden" id="arc_id" name="arc_id" value="<?php echo $oldArc['arc_id']; ?>">
+
+                            <input type="hidden" id="editor_type" name="editor_type" value="md">
                         </div>
+
+                        <input type="hidden" name="arc_id" value="<?php echo $oldArc['arc_id']; ?>">
+
                         <div class="form-group">
 
                             <div class="col-md-offset-2 col-md-4">
@@ -267,16 +268,19 @@
 
 
     require(['hdjs'], function (hdjs) {
-
-        hdjs.ueditor('bdeditor', { hash: 2, data: 'hd' }, function (e) {
-            console.log(e);
+        hdjs.markdown("mdeditor", {
+            width: '100%',
+            heigth: 300,
+            autoFocus: false,
         });
+
 
         $('#switch_editor').click(function(){
             hdjs.confirm('切换编辑器所有更改将不保存，确定切换吗?', function () { 
-                location.href='<?php echo url("admin/article/mdedit",["arc_id"=>$oldArc['arc_id']]); ?>';
+                location.href='<?php echo url("admin/article/bdedit",["arc_id"=>$oldArc['arc_id']]); ?>)}';
             })
         })
+
 
 
 

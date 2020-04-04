@@ -5,6 +5,7 @@ namespace app\index\controller;
 use MessageFormatter;
 use PDO;
 use think\Controller;
+use think\captcha\Captcha;
 
 class Index extends Common
 {
@@ -50,15 +51,20 @@ class Index extends Common
 
     public function year(){
         $year=input('param.date');
+        $allyear=db('article')->distinct(true)->field("FROM_UNIXTIME(sendtime,'%Y') year")->order("FROM_UNIXTIME(sendtime,'%Y') desc")->select();
         if($year){
-            $data=db('artiles')->query("select a.*,FROM_UNIXTIME(a.sendtime,'%Y') as year from blog_article a group by year having year=".$year);
+            
+            $data=db('article')->field("sendtime,arc_title,arc_id,FROM_UNIXTIME(sendtime,'%Y') year")->where(["FROM_UNIXTIME(sendtime,'%Y')"=>$year])->order('sendtime desc')->paginate(20);
         }else{
-            $data=db('artiles')->query("select a.*,FROM_UNIXTIME(a.sendtime,'%Y') as year from blog_article a group by year");
+            $data=db('article')->field("*,FROM_UNIXTIME(sendtime,'%Y')")->order('sendtime desc')->paginate(20);
         }
         
+
+
         // halt($data);
         $this->assign('articles',$data);
         $this->assign('curr_year',$year);
+        $this->assign('allyear',$allyear);
         return $this->fetch();
     }
 
@@ -87,7 +93,6 @@ class Index extends Common
             $temp=[];   
             $com["subcomment"]=$this->getSubcomment($com["comment_id"],$subcomment);
             $new[]=$com;
-
         }
 
         $this->assign('_comment', $new);
@@ -140,10 +145,10 @@ class Index extends Common
     public function comment()
     {
         if (request()->post()) {
-            
-            $res = (new \app\common\model\Comment())->store(input('post.'));
+      
+            $res = (new \app\common\model\Comment())->allowField(true)->store(input('post.'));
             if ($res['valid']) {
-                $this->redirect('content',['arc_id'=>input('post.arc_id')]);
+                $this->redirect('content#comment_title',['arc_id'=>input('post.arc_id')]);
                 exit;
             } else {
                 $this->error($res['msg']);
@@ -168,38 +173,18 @@ class Index extends Common
     }
 
 
-    function get_real_ip(){
-    
-        $ip=FALSE;
-        if(!empty($_SERVER["HTTP_CLIENT_IP"])){
-            $ip = $_SERVER["HTTP_CLIENT_IP"];
-        }
-    
-        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ips = explode (", ", $_SERVER['HTTP_X_FORWARDED_FOR']);   
-            if ($ip) { array_unshift($ips, $ip); $ip = FALSE; }
-            
-            for ($i = 0; $i < count($ips); $i++) {
-                    preg_match("^(10│172.16│192.168).", $ips[$i],$match);
-                    if ($match) {
-                    $ip = $ips[$i];
-                    break;
-                }
-            }
-        }
+    public function vcode(){
+        $config=[
+            'codeSet'=>'1234567890',
+            'length' =>3,
+            'useNoise' => false,
+            'imageH' => 35,
+            'imageW' => 120,
+            'fontSize' => 18,
+            'useCurve' => true,
+        ];
 
-        return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
-    
-    }
-
-    public function loadweather(){
-        $ip=$this->get_real_ip();
-        $ak='171699eaffea974105b6e32b49eea637';
-        $weatherUrl='http://api.map.baidu.com/telematics/v3/weather?location='.$ip.'&output=json&ak='.$ak;
-        $ch=curl_init($weatherUrl);
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($ch,CURLOPT_BINARYTRANSFER,true);
-        $result=curl_exec($ch);
-        return json_encode($result);
+        $captcha=new Captcha($config);
+        return $captcha->entry();
     }
 }

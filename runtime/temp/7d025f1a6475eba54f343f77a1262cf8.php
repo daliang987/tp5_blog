@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:76:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\article\bdedit.html";i:1585495213;s:66:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\base.html";i:1585319215;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:76:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\article\bdedit.html";i:1585968573;s:66:"D:\phpstudy_pro\WWW\tp5\public/../application/admin\view\base.html";i:1585997021;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">博客系统</a>
+                <a class="navbar-brand" target="_blank" href="/">博客系统</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -221,7 +221,7 @@
                                     style="height:300px;width:100%;"><?php echo $oldArc['arc_content']; ?></textarea>
                             </div>
                             <input type="hidden" id="editor_type" name="editor_type" value="bd">
-                            <input type="hidden" name="arc_id" value="<?php echo $oldArc['arc_id']; ?>">
+                            <input type="hidden" id="arc_id" name="arc_id" value="<?php echo $oldArc['arc_id']; ?>">
                         </div>
                         <div class="form-group">
 
@@ -274,7 +274,7 @@
 
         $('#switch_editor').click(function(){
             hdjs.confirm('切换编辑器所有更改将不保存，确定切换吗?', function () { 
-                location.href='<?php echo url("admin/article/mdedit"); ?>';
+                location.href='<?php echo url("admin/article/mdedit",["arc_id"=>$oldArc['arc_id']]); ?>';
             })
         })
 
