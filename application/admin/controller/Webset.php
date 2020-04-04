@@ -23,9 +23,11 @@ class Webset extends Controller{
 
     public function edit(){
         
+        //列表页面ajax发送请求
         if(request()->isAjax()){
-            halt(input('post.'));
-            $res=$this->db->edit(input('post.'));
+            $data=input('post.');
+            $data['webset_value']=input('post.webset_value','',null); //不过滤网站设置值
+            $res=$this->db->edit($data);
             if($res['valid']){
                 $this->success($res['msg'],'index');exit;
             }else{
@@ -37,8 +39,15 @@ class Webset extends Controller{
         $websetdata=db('webset')->find($webset_id);
         $this->assign('webset',$websetdata);
 
+
+        //单独的编辑页面编辑
         if(request()->isPost()){
-            $res=$this->db->edit(input('post.'));
+            $data=input('post.');
+            $webset_value=input('post.webset_value','',null);
+            $data['webset_value']=$webset_value; //不过滤网站设置
+            
+            $res=$this->db->edit($data);
+            // halt($res);
             if($res['valid']){
                 $this->success($res['msg'],'index');exit;
             }else{

@@ -12,7 +12,7 @@ class Webset extends Model{
         if($result){
             return ['valid'=>1,'msg'=>'修改配置成功'];
         }else{
-            return ['valid'=>1,'msg'=>$this->getError()];            
+            return ['valid'=>0,'msg'=>$this->getError()];            
         }
     }
 
@@ -21,7 +21,7 @@ class Webset extends Model{
         if($result){
             return ['valid'=>1,'msg'=>'添加配置成功'];
         }else{
-            return ['valid'=>1,'msg'=>$this->getError()];            
+            return ['valid'=>0,'msg'=>$this->getError()];            
         }
     }
 
@@ -31,7 +31,7 @@ class Webset extends Model{
         if($result){
             return ['valid'=>1,'msg'=>'删除配置成功'];
         }else{
-            return ['valid'=>1,'msg'=>$this->getError()];            
+            return ['valid'=>0,'msg'=>$this->getError()];            
         }
     }
 

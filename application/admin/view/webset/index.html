@@ -1,4 +1,4 @@
- {extend name="base" /} {block name="content"}
+{extend name="base" /} {block name="content"}
 
 
 <div class="alert alert-info">
@@ -31,7 +31,8 @@
                 <td>{$webset.webset_id}</td>
                 <td>{$webset.webset_name}</td>
                 <td>
-                    <input type="text" class="form-control" name="webset_value" value="{$webset.webset_value}" id="websetvalue" onblur="changeValue('{$webset.webset_id}',this)">
+                    <input type="text" class="form-control" name="webset_value" value="{$webset.webset_value}"
+                        id="websetvalue" onfocus="getWebsetValue(this)" onblur="changeValue('{$webset.webset_id}',this)">
                 </td>
                 <td>{$webset.webset_desc}</td>
                 <td>
@@ -59,17 +60,21 @@
 
 </div>
 <script>
+    function getWebsetValue(obj){
+        originVal= $(obj).val();
+    }
     function changeValue(id, obj) {
+        if($(obj).val()==originVal){
+            return;
+        }
         $.post("{:url('edit')}", { webset_id: id, webset_value: $(obj).val() }, function (res) {
-            if (res.code) {
-                require(['hdjs'], function (hdjs) {
+            require(['hdjs'], function (hdjs) {
+                if (res.code) {
                     hdjs.message(res.msg, 'refresh', 'success', res.wait);
-                });
-            } else {
-                require(['hdjs'], function (hdjs) {
+                } else {
                     hdjs.message(res.msg, 'back', 'error', res.wait);
-                });
-            }
+                }
+            });
         });
     }
 
