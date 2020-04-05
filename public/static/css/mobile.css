@@ -69,15 +69,16 @@ iframe{
 
 .mobile-menu ul li{
     float: left;
-    width: 60px;
+    width: 50px;
     border-right: 1px dotted #00bebe;
-    margin-left:20px;
+    margin-right: 15px;
 }
 .mobile-menu ul li>a{
     line-height: 45px;
     font-size: 18px;
     cursor: pointer;
     color:#efefef;
+
 }
 
 .mobile-menu ul li i{
