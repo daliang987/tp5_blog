@@ -42,7 +42,6 @@
                 </script>
     </div>
 </div>
-<link rel="stylesheet" href="__STATIC/css/swipebox.css">
 
 <div class="article-header">
     <div class="title">{$arcdata.arc_title}</div>
@@ -52,9 +51,9 @@
         <span class="readcount">阅读：{$arcdata.arc_click}</span>
 
         <p>
-            {volist name="tag" id="tagd"}
-            <a href="{:url('tag',['tag_id'=>$tagd.tag_id])}">
-                <span class="label label-success">{$tagd.tag_name}</span>
+            {volist name="tagdata" id="tagdata"}
+            <a href="{:url('tag',['tag_id'=>$tagdata.tag_id])}">
+                <span class="label label-success">{$tagdata.tag_name}</span>
             </a>
             {/volist}
 

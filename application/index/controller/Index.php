@@ -82,7 +82,8 @@ class Index extends Common
         $this->assign('arcdata', $arcdata);
 
         $tag_data = parent::getTags($arcdata);
-        $this->assign('tag', $tag_data);
+        // halt($tag_data);
+        $this->assign('tagdata', $tag_data);
         
         $comment = db('comment')->where('arc_id',$arc_id)->where('comment_parentid',0)->order('create_time desc')->select();
         $subcomment = db('comment')->where('arc_id',$arc_id)->where('comment_parentid','<>',0)->select();
@@ -179,8 +180,8 @@ class Index extends Common
             'length' =>3,
             'useNoise' => false,
             'imageH' => 35,
-            'imageW' => 120,
-            'fontSize' => 18,
+            'imageW' => 100,
+            'fontSize' => 1,
             'useCurve' => true,
         ];
 

@@ -1,0 +1,16 @@
+.blog-header{
+    height: 45px;
+    padding:10px 25px 10px 25px;
+}
+
+.mobile-menu{
+    display: none;
+}
+
+#sort_arc{
+    display: none;
+}
+
+#tag_arc{
+    display: none;
+}

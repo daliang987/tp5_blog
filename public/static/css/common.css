@@ -1,4 +1,7 @@
+
+
 body {
+    
     background-color: #232323;
     font-family: '微软雅黑';
     padding: 20px;
@@ -47,10 +50,7 @@ video{
     margin: auto;
 }
 
-.blog-header{
-    height: 45px;
-    padding:10px 25px 10px 25px;
-}
+
 
 .blog-title{
     float:right;

@@ -7,8 +7,10 @@
     </div>
     <div class="index-title">Search</div>
     <div class="search">
-        <form action="{:url('search')}" method="post" method="post">
-            <input type="text" name="keyword">
+        <form action="{:url('search')}" method="post" class="form-inline">
+            <div class="form-group">
+                <input type="text" name="keyword" class="form-control">
+            </div>
             <input type="submit" value="搜索" class="btn btn-success">
         </form>
     </div>
@@ -28,10 +30,10 @@
 </div>
 <div class="blog-content-right">
     <div class="catelist">
-        
+
         <ul>
-            <li onclick="javascript:cateshow()">
-                <a href="javascript:void(0)">归档</a>
+            <li>
+                <a href="{:url('index/Index/year')}">归档</a>
             </li>
             {volist name="_date" id="da"}
             <li>
@@ -61,4 +63,4 @@
 
 <div class="clear"></div>
 
- {/block}
+{/block}

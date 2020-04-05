@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index\year.html";i:1586017036;s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index_base.html";i:1585968573;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index\year.html";i:1586017036;s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index_base.html";i:1586072991;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,10 +26,21 @@
 </head>
 
 <body>
-    
     <!-- <div hd-cloak> -->
     <div class="blog-show">
-        <div class="blog-header">
+        <div class="mobile-menu">
+            <ul>
+                <li>
+                    <i class="fa fa-shield fa-2x"></i>
+                </li>
+                <li><a href="/">首页</a></li>
+                <li><a id="getCate">分类</a></li>
+                <li><a id="getSort">归档</a></li>
+                <li><a id="getTag">标签</a></li>
+                <li><a id="Tool">分享</a></li>
+            </ul>
+        </div>
+        <div class="blog-header" id="index_cate">
             <ul>
                 <li>
                     <i class="fa fa-shield fa-2x"></i>
@@ -42,9 +53,35 @@
                     <a href="<?php echo url('category',['cate_id'=>$category['cate_id']]); ?>"><?php echo $category['cate_name']; ?></a>
                 </li>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
-                <div class="clear"></div>
+
             </ul>
             <div class="blog-title"><?php echo $_webset['blog_title']; ?></div>
+            <div class="clear"></div>
+
+        </div>
+
+        <div class="blog-header" id="sort_arc">
+            <ul>
+                <li>
+                    <a href="<?php echo url('index/Index/year'); ?>">归档</a>
+                </li>
+                <?php if(is_array($_date) || $_date instanceof \think\Collection || $_date instanceof \think\Paginator): $i = 0; $__LIST__ = $_date;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$da): $mod = ($i % 2 );++$i;?>
+                <li>
+                    <a href="<?php echo url('index/Index/year',['date'=>$da['year']]); ?>"><?php echo $da['year']; ?></a>
+                </li>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </ul>
+        </div>
+
+        <div class="blog-header" id="tag_arc">
+            <ul>
+                <?php if(is_array($_tag) || $_tag instanceof \think\Collection || $_tag instanceof \think\Paginator): $i = 0; $__LIST__ = $_tag;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$tag): $mod = ($i % 2 );++$i;?>
+                <li>
+                    <a href="<?php echo url('tag',['tag_id'=>$tag['tag_id']]); ?>"><?php echo $tag['tag_name']; ?></a>
+                </li>
+
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </ul>
         </div>
 
         <hr>
@@ -116,5 +153,32 @@
     <!-- </div> -->
 </body>
 
-<link rel="stylesheet" href="__STATIC__/css/index.css">
+<link rel="stylesheet" href="__STATIC__/css/common.css">
+<link media="(max-width:800px)" rel="stylesheet" href="__STATIC__/css/mobile.css">
+<link media="(min-width:800px)" rel="stylesheet" href="__STATIC__/css/desktop.css">
+<script>
+
+    require(['hdjs'], function (hdjs) {
+        $('#getCate').click(function () {
+            $('#sort_arc').hide();
+            $('#tag_arc').hide();
+            $('#index_cate').toggle(300);
+        })
+
+        $('#getSort').click(function () {
+            $('#index_cate').hide();
+            $('#tag_arc').hide();
+            $('#sort_arc').toggle(300);
+        })
+
+        $('#getTag').click(function () {
+            $('#index_cate').hide();
+            $('#sort_arc').hide();
+            $('#tag_arc').toggle(300);
+        })
+
+    });
+
+</script>
+
 </html>

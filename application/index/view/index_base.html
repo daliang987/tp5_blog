@@ -25,10 +25,20 @@
 </head>
 
 <body>
-    
     <!-- <div hd-cloak> -->
     <div class="blog-show">
-        <div class="blog-header">
+        <div class="mobile-menu">
+            <ul>
+                <li>
+                    <i class="fa fa-shield fa-2x"></i>
+                </li>
+                <li><a href="/">首页</a></li>
+                <li><a id="getCate">分类</a></li>
+                <li><a id="getSort">归档</a></li>
+                <li><a id="getTag">标签</a></li>
+            </ul>
+        </div>
+        <div class="blog-header" id="index_cate">
             <ul>
                 <li>
                     <i class="fa fa-shield fa-2x"></i>
@@ -41,9 +51,35 @@
                     <a href="{:url('category',['cate_id'=>$category.cate_id])}">{$category.cate_name}</a>
                 </li>
                 {/volist}
-                <div class="clear"></div>
+
             </ul>
             <div class="blog-title">{$_webset.blog_title}</div>
+            <div class="clear"></div>
+
+        </div>
+
+        <div class="blog-header" id="sort_arc">
+            <ul>
+                <li>
+                    <a href="{:url('index/Index/year')}">所有归档</a>
+                </li>
+                {volist name="_date" id="da"}
+                <li>
+                    <a href="{:url('index/Index/year',['date'=>$da.year])}">{$da.year}</a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+
+        <div class="blog-header" id="tag_arc">
+            <ul>
+                {volist name="_tag" id="tag"}
+                <li>
+                    <a href="{:url('tag',['tag_id'=>$tag.tag_id])}">{$tag.tag_name}</a>
+                </li>
+
+                {/volist}
+            </ul>
         </div>
 
         <hr>
@@ -77,5 +113,32 @@
     <!-- </div> -->
 </body>
 
-<link rel="stylesheet" href="__STATIC__/css/index.css">
+<link rel="stylesheet" href="__STATIC__/css/common.css">
+<link media="(max-width:800px)" rel="stylesheet" href="__STATIC__/css/mobile.css">
+<link media="(min-width:800px)" rel="stylesheet" href="__STATIC__/css/desktop.css">
+<script>
+
+    require(['hdjs'], function (hdjs) {
+        $('#getCate').click(function () {
+            $('#sort_arc').hide();
+            $('#tag_arc').hide();
+            $('#index_cate').toggle(300);
+        })
+
+        $('#getSort').click(function () {
+            $('#index_cate').hide();
+            $('#tag_arc').hide();
+            $('#sort_arc').toggle(300);
+        })
+
+        $('#getTag').click(function () {
+            $('#index_cate').hide();
+            $('#sort_arc').hide();
+            $('#tag_arc').toggle(300);
+        })
+
+    });
+
+</script>
+
 </html>
