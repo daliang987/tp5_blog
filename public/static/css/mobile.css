@@ -90,3 +90,30 @@ iframe{
 .mobile-menu ul li>a:hover{
     color:#00bebe;
 }
+
+
+.blog-function{
+    position: fixed;
+    top:100px;
+    right: 15px;
+    border: 1px solid #00bebe;
+    padding:5px;
+    border-radius: 5px;
+    background: #232323;
+    z-index: 100;
+    text-align: center;
+}
+
+.mobile-tool{
+    color:#efefef;    
+}
+
+.mobile-tool hr{
+    display: none;
+}
+
+.func{
+    display: none;
+    text-align: center;
+}
+

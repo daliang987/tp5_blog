@@ -181,7 +181,7 @@ class Index extends Common
             'useNoise' => false,
             'imageH' => 35,
             'imageW' => 100,
-            'fontSize' => 1,
+            'fontSize' => 16,
             'useCurve' => true,
         ];
 

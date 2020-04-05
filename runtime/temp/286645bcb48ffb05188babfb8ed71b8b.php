@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:75:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index\content.html";i:1586073641;s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index_base.html";i:1586073131;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:75:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index\content.html";i:1586088719;s:72:"D:\phpstudy_pro\WWW\tp5\public/../application/index\view\index_base.html";i:1586073131;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,6 +89,10 @@
                 
 
 <div class="blog-function">
+    <div class="mobile-tool">
+        <i class="fa fa-navicon"></i>
+        <hr>
+    </div>
     <div class="func">
         <a href="javascript:history.back()" id="back">返回</a>
         <hr>
@@ -113,7 +117,7 @@
                             "bdMiniList": false,
                             "bdPic": "",
                             "bdStyle": "0",
-                            "bdSize": "16"
+                            "bdSize": "24"
                         },
                         "share": {},
                         "image": {
@@ -273,6 +277,10 @@
 
 
 
+
+
+
+
     serializeObject = function (form) {
         var o = {};
         var a = form.serializeArray();
@@ -321,6 +329,9 @@
         }
         reloadCaptcha(); //加载验证码
 
+        $('#captcha').click(function(){
+            reloadCaptcha();
+        })
 
         $('.btn-reply').each(function () {
             $(this).click(function () {
@@ -334,6 +345,12 @@
 
             })
         });
+
+        $('.mobile-tool').click(function () {
+    
+            $('.func').toggle(300);
+            $(this).find('hr').toggle(300);
+        })
 
         $('html').append('<script src="__STATIC__/js/imgpreview.js">');
 

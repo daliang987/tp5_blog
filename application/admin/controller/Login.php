@@ -35,7 +35,7 @@ class Login extends Controller{
         if(request()->isPost()){
             $result=(new Admin())->login(input('post.'));
             if($result['valid']){
-                $this->success($result['msg'],'admin/index/index');
+                $this->redirect('admin/index/index');
             }else{
                 $this->error($result['msg']);exit;
             }

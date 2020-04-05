@@ -14,3 +14,29 @@
 #tag_arc{
     display: none;
 }
+
+.blog-function{
+    position: fixed;
+    bottom:250px;
+    right: 20px;
+    border: 1px dashed #00bebe;
+    padding:10px;
+    border-radius: 10px;
+}
+
+.blog-function:before {
+    content: "";
+    width: 0;
+    height: 0;
+    right: 100%;
+    top: 38px;
+    position: absolute;
+    border-top: 13px solid transparent;
+    border-right: 26px solid #00bebe;
+    border-bottom: 13px solid transparent;
+} 
+
+
+.mobile-tool{
+    display: none;
+}
