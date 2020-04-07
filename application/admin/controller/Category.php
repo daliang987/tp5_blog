@@ -2,9 +2,7 @@
 
 namespace app\admin\controller;
 
-use think\Controller;
-
-class Category extends Controller
+class Category extends Common
 {
     protected $db;
     protected function _initialize()

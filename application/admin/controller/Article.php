@@ -6,7 +6,7 @@ use think\Controller;
 use houdunwang\config\Config;
 use houdunwang\file\File;
 
-class Article extends Controller
+class Article extends Common
 {
     protected $db;
     

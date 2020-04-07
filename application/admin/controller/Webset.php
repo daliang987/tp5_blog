@@ -1,9 +1,7 @@
 <?php
 namespace app\admin\controller;
 
-use think\Controller;
-
-class Webset extends Controller{
+class Webset extends Common{
 
     protected $db;
 

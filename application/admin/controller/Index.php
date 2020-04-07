@@ -2,7 +2,6 @@
 
 namespace app\admin\controller;
 
-use think\Controller;
 use app\common\model\Admin;
 
 class Index extends Common
