@@ -14,7 +14,7 @@ class Webset extends Controller{
 
     public function index(){
 
-        $setdata=db('webset')->paginate(5);
+        $setdata=db('webset')->paginate(10);
         $this->assign('setdata',$setdata);
 
         return $this->fetch();

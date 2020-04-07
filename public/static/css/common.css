@@ -216,6 +216,9 @@ video{
     padding: 10px;
 }
 
+.sortlist ul li:hover{
+    background: #444;
+}
 .sortlist ul li:first-child{
     border-bottom: 2px dotted #00bebe;
 }
@@ -235,6 +238,7 @@ video{
     float: left;
     margin: 10px 5px;
     padding:5px;
+
 }
 
 .taglist li:first-child{
@@ -243,13 +247,23 @@ video{
     display: block;
     border-bottom: 1px dotted #00bebe;
     padding:10px;
+    background: rgba(0,0,0,0);
+}
+
+.taglist li:first-child a{
+    color:#efefef;
+    padding: 5px;
+    border:1px solid #efefef;
+    background: #232323;
+    font-size: 14px;
 }
 
 .taglist li a{
     color:#efefef;
-    background: #232323;
     padding: 5px;
     border:1px solid #efefef;
+    background: #444;
+    font-size: 12px;
 }
 
 .tag-title{
