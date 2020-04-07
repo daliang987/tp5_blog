@@ -10,7 +10,7 @@ class Link extends Model{
 
     public function getAll(){
 
-        $data=db('link')->order('link_sort,link_id')->paginate(2);
+        $data=db('link')->order('link_sort,link_id')->paginate(10);
         return $data;
     }
 

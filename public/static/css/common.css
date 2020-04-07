@@ -207,27 +207,24 @@ video{
 }
 
 
-.catelist{
-    border:1px solid #efefef;
-    border-radius: 10px;
+.sortlist{
+    border:1px dotted #00bebe;
     margin-bottom:20px;
 }
 
-.catelist ul li{
+.sortlist ul li{
     padding: 10px;
 }
 
-.catelist ul li:first-child{
-    border-radius: 10px;
-    border-bottom: 2px solid #efefef;
+.sortlist ul li:first-child{
+    border-bottom: 2px dotted #00bebe;
 }
-.catelist ul li a{
+.sortlist ul li a{
     color:#efefef;
 }
 
 .taglist{
-    border:1px solid #efefef;
-    border-radius: 5px;
+    border:1px dotted #00bebe;
     margin-top:50px;
 }
 
@@ -244,8 +241,7 @@ video{
     float:none;
     margin: 0px;
     display: block;
-    border-radius: 5px;
-    border-bottom: 1px double #efefef;
+    border-bottom: 1px dotted #00bebe;
     padding:10px;
 }
 
@@ -253,7 +249,6 @@ video{
     color:#efefef;
     background: #232323;
     padding: 5px;
-    border-radius: 5px;
     border:1px solid #efefef;
 }
 
