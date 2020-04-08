@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\xampp\htdocs\blog\public/../application/index\view\index\category.html";i:1585904986;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1586242245;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\xampp\htdocs\blog\public/../application/index\view\index\category.html";i:1586256468;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1586242245;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,7 +110,7 @@
 </div>
 
 <div class="blog-content-right">
-    <div class="catelist">
+    <div class="sortlist">
         <ul>
             <li onclick="javascript:cateshow()">
                 <a href="javascript:void(0)"><?php echo $curr_cate['cate_name']; ?></a>
