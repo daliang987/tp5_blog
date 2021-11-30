@@ -23,22 +23,19 @@ create table blog_tag(
     tag_name varchar(50) not null default ''
 );
 
-
 create table blog_article(
     arc_id int unsigned auto_increment primary key,
     arc_title varchar(45) not null default '',
-    arc_author varchar(45) not null default '',
     arc_sort int unsigned not null default 100,
-    arc_digist varchar(200) not null default '',
     arc_content text,
     arc_click int not null default 0,
     editor_type varchar(10) not null default 'md',
     sendtime int not null default 0,
     updatetime int not null default 0,
     is_recycle tinyint not null default 2,
-    arc_thumb varchar(100),
     cate_id int,
-    admin_id int
+    admin_id int,
+    arc_public tinyint not null default 0
 );
 
 create table blog_arc_tag(

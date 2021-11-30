@@ -6,25 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>博客系统</title>
-    <!-- <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script> -->
+    <link rel="stylesheet" href="__STATIC__/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="__STATIC__/css/font-awesome.min.css">
     <link rel="stylesheet" href="__STATIC__/css/blog-style.css">
-
-
-    <script>
-        window.hdjs = {};
-        //组件目录必须绝对路径(在网站根目录时不用设置)
-        window.hdjs.base = '__STATIC__/node_modules/hdjs';
-        //上传文件后台地址
-        //window.hdjs.uploader = 'test/php/uploader.php?';
-        window.hdjs.uploader = '{:url("admin/article/upload")}';
-        //获取文件列表的后台地址
-        window.hdjs.filesLists = '{:url("admin/article/filelist")}?';
-    </script>
-    <script src="__STATIC__/node_modules/hdjs/static/requirejs/require.js"></script>
-    <script src="__STATIC__/node_modules/hdjs/static/requirejs/config.js"></script>
-    <link rel="stylesheet" href="__STATIC__/node_modules/hdjs/dist/hdjs.css">
+    {block name="css"} {/block}
 </head>
 
 <body>
@@ -72,11 +57,16 @@
         <!-- /.container-fluid -->
     </nav>
     <div class="container-fluid">
+
         <div class="row">
-            <div class="col-md-2">
+            <div hidden><a href="javascript:;" id="show-menu" class="hidden">展开菜单</a></div>
+            <div class="col-md-2" id="menu_id">
                 <div class="panel panel-info">
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked">
+                            <li role="presentation">
+                                <a href="javascript:void(0);" id="hide_menu">隐藏菜单</a>
+                            </li>
                             <li role="presentation">
                                 <a href="{:url('admin/index/index')}">博客首页</a>
                             </li>
@@ -106,7 +96,7 @@
                 </div>
 
             </div>
-            <div class="col-md-10">
+            <div class="col-md-10" id="main-content">
                 {block name="content"}{/block}
             </div>
         </div>
@@ -114,5 +104,21 @@
 
 
 </body>
+<script src="__STATIC__/js/jquery.min.js"></script>
+<script src="__STATIC__/bootstrap/bootstrap.min.js"></script>
+<script>
+
+    $('#hide_menu').click(function () {
+        // alert(1);
+        $('#menu_id').hide();
+        $('#main-content').removeClass('col-md-10').addClass('col-md-12');
+    })
+
+</script>
+{block name="javascript"}
+
+
+
+{/block}
 
 </html>

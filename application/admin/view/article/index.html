@@ -10,8 +10,13 @@
             <li class="active">
                 <a href="{:url('admin/article/index')}">文章管理</a>
             </li>
-            <li>
-                <a href="{:url('admin/article/mdstore')}">文章添加</a>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">文章添加 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{:url('admin/article/mdstore')}">添加Markdown文章</a></li>
+                    <li><a href="{:url('admin/article/bdstore')}">添加普通文章</a></li>
+                </ul>
             </li>
         </ul>
     </div>
@@ -20,9 +25,9 @@
             <tr class="info">
                 <th>编号</th>
                 <th>文章名称</th>
-                <th>作者</th>
                 <th class="col-md-1">排序</th>
                 <th>所属分类</th>
+                <th>文章类型</th>
                 <th>添加时间</th>
                 <th>操作</th>
             </tr>
@@ -36,12 +41,12 @@
                     <a href="{:url('mdedit',['arc_id'=>$article.arc_id])}"> {$article.arc_title}</a>
                     {/if}
                 </td>
-                <td>{$article.arc_author}</td>
                 <td>
                     <input type="number" value="{$article.arc_sort}" class="form-control"
                         onblur="changeSort(this,'{$article.arc_id}')" />
                 </td>
                 <td>{$article.cate_name}</td>
+                <td>{if condition="$article.arc_public eq 1"}已发布{else /}草稿{/if}</td>
                 <td>{:date('Y-m-d H:i:s',$article.sendtime)}</td>
                 <td>
                     <div class="btn-group">
@@ -59,7 +64,7 @@
 
                             <li class="divider"></li>
                             <li>
-                                <a href="javascript:del({$article.arc_id})">删除到回收站</a>
+                                <a href="javascript:confirmDel({$article.arc_id})">删除到回收站</a>
                             </li>
                         </ul>
                     </div>
@@ -72,30 +77,127 @@
         </div>
     </div>
 </div>
-<script>
-    function del(arc_id) {
-        require(['hdjs'], function (hdjs) {
-            hdjs.confirm('确定删除到回收站吗?', function () {
-                location.href = 'deltorecycle?arc_id=' + arc_id;
-            })
-        })
-    }
 
-    function changeSort(obj, arc_id) {
-        value = $(obj).val();
-        // alert(value);
-        // alert(arc_id);
-        $.post("{:url('changeSort')}", { arc_sort: value, arc_id: arc_id }, function (res) {
-            // alert(res.code);
-            if (res.code) {
-                require(['hdjs'], function (hdjs) {
-                    hdjs.message(res.msg, 'refresh', 'success', res.wait);
-                });
-            } else {
-                require(['hdjs'], function (hdjs) {
-                    hdjs.message(res.msg, 'back', 'error', res.wait);
-                });
-            }
-        }, 'json');
-    }
+<!-- 信息删除确认 -->
+<div class="modal fade" id="delcfmModel">
+    <div class="modal-dialog">
+        <div class="modal-content message_align">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">提示信息</h4>
+            </div>
+            <div class="modal-body">
+                <p>您确认要删除吗？</p>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="url" />
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <a onclick="urlSubmit()" class="btn btn-danger" data-dismiss="modal">确定</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="infoshow">
+    <div class="modal-dialog">
+        <div class="modal-content message_align">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">提示信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-2"><i id="tip_icon" class="fa  fa-4x"></i></div>
+                    <div class="col-md-10">
+                        <h4 class="text-success" id="info_detail"></h4>
+                        <p class="text-info">本窗口<span id="timeout"></span>秒后自动关闭</p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+{/block}
+{block name="javascript"}
+
+<script src="__STATIC__/js/common.js"></script>
+
+<script>
+
+    $(function () {
+        function confirmDel(arc_id) {
+            $('#url').val('deltorecycle?arc_id=' + arc_id);
+            $('#delcfmModel').modal();
+        }
+
+        function urlSubmit() {
+            var url = $.trim($('#url').val());
+            window.location.href = url;
+        }
+
+
+        function changeSort(obj, arc_id) {
+            value = $(obj).val();
+            // alert(value);
+            // alert(arc_id);
+            $.post("{:url('changeSort')}", { arc_sort: value, arc_id: arc_id }, function (res) {
+                // alert(res.code);
+                if (res.code) {
+                    //先注册事件
+                    $('#infoshow').on('show.bs.modal', function () {
+                        var modal = $(this);
+                        modal.find('#info_detail').text(res.msg);
+                        modal.find('#timeout').text(res.wait);
+                        modal.find('#tip_icon').addClass('fa-check-square text-success')
+                        timeout = res.wait;
+                        timer = setInterval(function () {
+                            if (timeout <= 1) {
+                                modal.modal('hide');
+                                clearTimeout(timer);
+                                window.location.reload()
+                                return;
+                            } else {
+                                timeout--;
+                                modal.find("#timeout").text(timeout);
+                            }
+                        }, 1000)
+                    })
+                    $('#infoshow').on('hide.bs.modal', function () {
+                        clearInterval(timer);
+                    })
+                    $('#infoshow').modal('show');
+                } else {
+                    $('#infoshow').on('show.bs.modal', function () {
+                        var modal = $(this);
+                        modal.find('#info_detail').text(res.msg);
+                        modal.find('#timeout').text(res.wait);
+                        modal.find('#tip_icon').addClass('fa-warning text-warning')
+                        timeout = res.wait;
+                        timer = setInterval(function () {
+                            if (timeout <= 1) {
+                                modal.modal('hide');
+                                clearTimeout(timer);
+                                return;
+                            } else {
+                                timeout--;
+                                modal.find("#timeout").text(timeout);
+                            }
+                        }, 1000)
+
+                    })
+                    $('#infoshow').on('hide.bs.modal', function () {
+                        clearInterval(timer);
+                    })
+                    $('#infoshow').modal('show');
+                }
+            }, 'json');
+        }
+    })
+
 </script> {/block}

@@ -25,12 +25,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-md-2 control-label">文章作者</label>
-                        <div class="col-md-10">
-                            <input type="text" name="arc_author" value="{$oldArc.arc_author}" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label for="" class="col-md-2 control-label">文章排序</label>
                         <div class="col-md-10">
                             <input type="number" name="arc_sort" value="{$oldArc.arc_sort}" class="form-control">
@@ -42,134 +36,93 @@
                             <select class="form-control" name="cate_id">
                                 {volist name="catedata" id="vo"}
                                 <option value="{$vo.cate_id}" {if condition="$vo.cate_id==session('formdata.cate_id')" }
-                                    selected{/if}>{$vo._cate_name} </option> 
-                                {/volist} 
-                            </select> 
-                        </div> 
-                    </div> 
-                        <div class="form-group">
-                            <label for="" class="col-md-2 control-label">添加标签</label>
-                            <div class="col-md-9">
-                                <input type="text" id="arc_tag" class="form-control">
-                            </div>
-                            <div class="col-md-1">
-                                <input type="button" class="btn btn-primary col-md-12" id="btn-add-tag" value="添加">
-                            </div>
+                                    selected{/if}>{$vo._cate_name} </option>
+                                {/volist}
+                            </select>
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-2 control-label">标签</label>
-                            <div class="col-md-10">
-                                <div class="checkbox" id="tag_checkbox">
-                                    {volist name="tagdata" id="tag"}
-                                    <label>
-                                        <input type="checkbox" {if condition="in_array($tag.tag_id,$tag_ids)"
-                                            }checked{/if} name="tag[]" value="{$tag.tag_id}">{$tag.tag_name}</label>
-                                    {/volist}
-
-                                </div>
-                            </div>
-
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">添加标签</label>
+                        <div class="col-md-9">
+                            <input type="text" id="arc_tag" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-2 control-label">缩略图</label>
-                            <div class="col-md-10">
-                                <div class="input-group">
-                                    <input class="form-control" name="arc_thumb" readonly=""
-                                        value="{$oldArc.arc_thumb}">
-                                    <div class="input-group-btn">
-                                        <button onclick="upImagePc(this)" class="btn btn-default"
-                                            type="button">选择图片</button>
-                                    </div>
-                                </div>
-                                <div class="input-group" style="margin-top:5px;">
-                                    {if condition="$oldArc.arc_thumb neq ''"}
-                                    <img src="{$oldArc.arc_thumb}" class="img-responsive img-thumbnail" width="150">
-                                    <em class="close" style="position:absolute; top: 0px; right: -14px;" title="删除这张图片"
-                                        onclick="removeImg(this)">×</em>
-                                    {else /}
-                                    <img src="__STATIC__/img/nopic.jpg" class="img-responsive img-thumbnail"
-                                        width="150">
-                                    <em class="close" style="position:absolute; top: 0px; right: -14px;" title="删除这张图片"
-                                        onclick="removeImg(this)">×</em>
-                                    {/if}
-                                </div>
+                        <div class="col-md-1">
+                            <input type="button" class="btn btn-primary col-md-12" id="btn-add-tag" value="添加">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">标签</label>
+                        <div class="col-md-10">
+                            <div class="checkbox" id="tag_checkbox">
+                                {volist name="tagdata" id="tag"}
+                                <label>
+                                    <input type="checkbox" {if condition="in_array($tag.tag_id,$tag_ids)" }checked{/if}
+                                        name="tag[]" value="{$tag.tag_id}">{$tag.tag_name}</label>
+                                {/volist}
+
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="" class="col-md-2 control-label">文章摘要</label>
-                            <div class="col-md-10">
-                                <textarea name="arc_digist" id="" rows="3"
-                                    class="form-control">{$oldArc.arc_digist}</textarea>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-2 control-label">文章内容</label>
+                        <div class="col-md-10" id="bd">
+                            <textarea id="bdeditor" name="arc_content"
+                                style="height:300px;width:100%;">{$oldArc.arc_content}</textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-2 control-label">文章内容<br>
-                                <a href="javascript:void(0)" id="switch_editor" class="btn btn-info">切换编辑器</a></label>
-
-                            <div class="col-md-10" id="bd">
-                                <textarea id="bdeditor" name="arc_content"
-                                    style="height:300px;width:100%;">{$oldArc.arc_content}</textarea>
-                            </div>
-                            <input type="hidden" id="editor_type" name="editor_type" value="bd">
-                            <input type="hidden" id="arc_id" name="arc_id" value="{$oldArc.arc_id}">
+                        <input type="hidden" id="editor_type" name="editor_type" value="bd">
+                        <input type="hidden" id="arc_id" name="arc_id" value="{$oldArc.arc_id}">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-5">
+                            <button class="form-control btn-info" onclick="return saveDarft()">保存草稿</button>
                         </div>
-                        <div class="form-group">
-
-                            <div class="col-md-offset-2 col-md-4">
-                                <input type="submit" class="form-control col-md-12 btn-info" value="修改文章">
-                            </div>
+                        <div class="col-md-5">
+                            <button class="form-control btn-danger" onclick="return publicArticle()">发布文章</button>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+{/block}
+
+{block name="javascript"}
+<!-- 配置文件 -->
+<script type="text/javascript" src="__STATIC__/js/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__STATIC__/js/ueditor.all.min.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('bdeditor', {
+        initialFrameHeight: 500,
+        initialFrameWidth: '100%',
+    });
+    //对编辑器的操作最好在编辑器ready之后再做
+    ue.ready(function () {
+        //获取html内容，返回: <p>hello</p>
+        var html = ue.getContent();
+        //获取纯文本内容，返回: hello
+        var txt = ue.getContentTxt();
+    });
+</script>
+
 <script>
 
-    //上传图片
-    function upImagePc() {
-        require(['hdjs'], function (hdjs) {
-            var options = {
-                multiple: false,//是否允许多图上传
-                //data是向后台服务器提交的POST数据
-                data: { name: '后盾人', year: 2099 },
-            };
-            hdjs.image(function (images) {
-                //上传成功的图片，数组类型
-                $("[name='arc_thumb']").val(images[0]);
-                $(".img-thumbnail").attr('src', images[0]);
-            }, options)
-        });
-    }
-    //移除图片
-    function removeImg(obj) {
-        $(obj).prev('img').attr('src', '__STATIC__/img/nopic.jpg');
-        $(obj).parent().prev().find('input').val('');
-    }
 
-    require(['hdjs'], function (hdjs) {
-        hdjs.markdown("mdeditor", {
-            width: '100%',
-            heigth: 300,
-            autoFocus: false
-        });
-    });
+    $(function () {
 
+        
+        function saveDarft() {
+            $('#arc_public').val('0');
+            return true;
+        }
 
-    require(['hdjs'], function (hdjs) {
-
-        hdjs.ueditor('bdeditor', { hash: 2, data: 'hd' }, function (e) {
-            console.log(e);
-        });
-
-        $('#switch_editor').click(function(){
-            hdjs.confirm('切换编辑器所有更改将不保存，确定切换吗?', function () { 
-                location.href='{:url("admin/article/mdedit",["arc_id"=>$oldArc.arc_id])}';
-            })
-        })
-
-
+        function publicArticle() {
+            $('#arc_public').val('1');
+            return true;
+        }
 
         //添加标签
 
@@ -190,6 +143,7 @@
                 })
             }
         })
+
     })
 
 

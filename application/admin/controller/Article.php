@@ -9,16 +9,16 @@ use houdunwang\file\File;
 class Article extends Common
 {
     protected $db;
-    
+
     protected function _initialize()
     {
         parent::_initialize();
-        $this->db=new \app\common\model\Article();
+        $this->db = new \app\common\model\Article();
     }
 
     public function index()
     {
-        $fields=$this->db->getAll();
+        $fields = $this->db->getAll();
         $this->assign('data', $fields);
         return $this->fetch();
     }
@@ -26,55 +26,46 @@ class Article extends Common
     public function mdstore()
     {
         if (request()->isPost()) {
-            $data1=input('post.');
-            $content=input('post.arc_content','',null); //博文内容不过滤
-            $data1['arc_content']=$content;
+            $data1 = input('post.');
+            $content = input('post.arc_content', '', null); //博文内容不过滤
+            $data1['arc_content'] = $content;
 
-            if($data1['switch']=="yes"){
-                session('formdata',$data1);
-                $this->redirect('bdstore');
-            }
-            else{
-                $res=$this->db->store($data1);
-                if ($res['valid']) {
-                    session('formdata',null);
-                    $this->success($res['msg'], 'index');
-                    exit;
-                } else {
-                    $this->error($res['msg']);
-                    exit;
-                }
-                
+            $res = $this->db->store($data1);
+            if ($res['valid']) {
+                session('formdata', null);
+                $this->success($res['msg'], 'index');
+                exit;
+            } else {
+                $this->error($res['msg']);
+                exit;
             }
         }
-        
-        $cateData=(new \app\common\model\Category())->getAll();
+
+        $cateData = (new \app\common\model\Category())->getAll();
         $this->assign('catedata', $cateData);
 
-        $tagData=db('tag')->select();
+        $tagData = db('tag')->select();
         $this->assign('tagdata', $tagData);
         return $this->fetch();
-        
     }
 
     public function bdstore()
     {
         if (request()->isPost()) {
-            $data1=input('post.');
-            $content=input('post.arc_content','',null); //博文内容不过滤
-            $data1['arc_content']=$content;
+            $data1 = input('post.');
+            $content = input('post.arc_content', '', null); //博文内容不过滤
+            $data1['arc_content'] = $content;
 
-            if(input('post.switch')=="yes"){
-                session('formdata',$data1);
+            if (input('post.switch') == "yes") {
+                session('formdata', $data1);
                 // halt($data1);
                 $this->redirect('mdstore');;
-            }
-            else{ 
-                $res=$this->db->store($data1);
+            } else {
+                $res = $this->db->store($data1);
                 if ($res['valid']) {
-                    session('formdata',null);
+                    session('formdata', null);
                     $this->success($res['msg'], 'index');
-                    
+
                     exit;
                 } else {
                     $this->error($res['msg']);
@@ -83,11 +74,11 @@ class Article extends Common
             }
         }
 
-       
-        $cateData=(new \app\common\model\Category())->getAll();
+
+        $cateData = (new \app\common\model\Category())->getAll();
         $this->assign('catedata', $cateData);
 
-        $tagData=db('tag')->select();
+        $tagData = db('tag')->select();
         $this->assign('tagdata', $tagData);
         return $this->fetch();
     }
@@ -98,35 +89,38 @@ class Article extends Common
             'mold' => 'local',
             'type' => 'jpg,jpeg,gif,png',
             'size' => 1000000,
-            'path' => 'uploads/'.date('Y/m/d'),
-            
+            'path' => 'uploads/' . date('Y/m/d'),
+
         ]);
         $file = File::path('uploads')->upload();
         if ($file) {
             //成功时返回数据 message 为文件地址
-            $json = ['valid' => 1, 'message' => '/'.$file[0]['path']];
+            $json = ['valid' => 1, 'message' => '/' . $file[0]['path']];
         } else {
             //失败时返回数据 message 为失败原因
-            $json = ['valid' => 0, 'message' => "后台提示:".File::getError()];
+            $json = ['valid' => 0, 'message' => "后台提示:" . File::getError()];
         }
         die(json_encode($json));
     }
 
     public function tp_upload()
     {
-        $file=request()->file('image');
+        $file = request()->file('editormd-image-file');
         // halt($file);
         if ($file) {
-            $info=$file->validate(['size'=>1024*1024*5,'ext'=>'jpg,png,gif'])->move(ROOT_PATH . 'public' . DS . 'uploads');
+            $info = $file->validate(['size' => 1024 * 1024 * 5, 'ext' => 'jpg,png,gif'])->move(ROOT_PATH . 'public' . DS . 'uploads');
             if ($info) {
-                halt($info);
                 // 成功上传后 获取上传信息
                 // 输出 jpg
-                echo $info->getExtension();
+                $extension = $info->getExtension();
                 // 输出 20160820/42a79759f284b767dfcb2a0197904287.jpg
-                echo $info->getSaveName();
+                $saveName = $info->getSaveName();
                 // 输出 42a79759f284b767dfcb2a0197904287.jpg
-                echo $info->getFilename();
+                $fileName = $info->getFilename();
+                $saveNameUrl=str_replace("\\","/",$saveName);
+                $url = "/blog/public/uploads/" . $saveNameUrl;
+                $json_info = ["success" => 1, "message" => "上传成功", "url" => $url];
+                return json_encode($json_info);
             } else {
                 // 上传失败获取错误信息
                 echo $file->getError();
@@ -139,10 +133,10 @@ class Article extends Common
         $files = glob('uploads/*');
         // halt($files);
         foreach ($files as $f) {
-            $data[] = ['url' => "/".$f, 'path' => '/'.$f];
+            $data[] = ['url' => "/" . $f, 'path' => '/' . $f];
         }
         //返回数据 data为文件列表 page 为分页数据，可以使用 houdunwang/page 组件生成
-        $json = ['valid'=>1,'data' => $data,'page'=>[]];
+        $json = ['valid' => 1, 'data' => $data, 'page' => []];
         die(json_encode($json));
     }
 
@@ -151,7 +145,7 @@ class Article extends Common
     {
         // halt($_POST);
         if (request()->isAjax()) {
-            $res=$this->db->changeSort(input('post.'));
+            $res = $this->db->changeSort(input('post.'));
             if ($res['valid']) {
                 $this->success($res['msg'], 'index');
                 exit;
@@ -166,11 +160,11 @@ class Article extends Common
     {
         if (request()->isPost()) {
 
-            $data1=input('post.');
-            $content=input('post.arc_content','',null); //博文内容不过滤
-            $data1['arc_content']=$content;
+            $data1 = input('post.');
+            $content = input('post.arc_content', '', null); //博文内容不过滤
+            $data1['arc_content'] = $content;
             //halt($data1);
-            $res=$this->db->edit($data1);
+            $res = $this->db->edit($data1);
             if ($res['valid']) {
                 $this->success($res['msg'], 'index');
                 exit;
@@ -180,13 +174,13 @@ class Article extends Common
             }
         }
 
-        $arc_id=input('param.arc_id');
-        
-        $oldData=db('article')->find($arc_id);
-        $cate_data=(new \app\common\model\Category)->getAll();
-        $tag_data=db('tag')->select();
+        $arc_id = input('param.arc_id');
 
-        $tag_ids=db('arc_tag')->where('arc_id', $arc_id)->column("tag_id");
+        $oldData = db('article')->find($arc_id);
+        $cate_data = (new \app\common\model\Category)->getAll();
+        $tag_data = db('tag')->select();
+
+        $tag_ids = db('arc_tag')->where('arc_id', $arc_id)->column("tag_id");
         $this->assign('tag_ids', $tag_ids);
         // halt($oldData);
         $this->assign('catedata', $cate_data);
@@ -199,11 +193,11 @@ class Article extends Common
     {
         if (request()->isPost()) {
 
-            $data1=input('post.');
-            $content=input('post.arc_content','',null); //博文内容不过滤
-            $data1['arc_content']=$content;
+            $data1 = input('post.');
+            $content = input('post.arc_content', '', null); //博文内容不过滤
+            $data1['arc_content'] = $content;
             // halt($data1);
-            $res=$this->db->edit($data1);
+            $res = $this->db->edit($data1);
             if ($res['valid']) {
                 $this->success($res['msg'], 'index');
                 exit;
@@ -213,13 +207,13 @@ class Article extends Common
             }
         }
 
-        $arc_id=input('param.arc_id');
-        
-        $oldData=db('article')->find($arc_id);
-        $cate_data=(new \app\common\model\Category)->getAll();
-        $tag_data=db('tag')->select();
+        $arc_id = input('param.arc_id');
 
-        $tag_ids=db('arc_tag')->where('arc_id', $arc_id)->column("tag_id");
+        $oldData = db('article')->find($arc_id);
+        $cate_data = (new \app\common\model\Category)->getAll();
+        $tag_data = db('tag')->select();
+
+        $tag_ids = db('arc_tag')->where('arc_id', $arc_id)->column("tag_id");
         $this->assign('tag_ids', $tag_ids);
         // halt($oldData);
         $this->assign('catedata', $cate_data);
@@ -230,8 +224,8 @@ class Article extends Common
 
     public function deltorecycle()
     {
-        $arc_id=input('get.arc_id');
-        $res=$this->db->save(['is_recycle'=>1], ['arc_id'=>$arc_id]);
+        $arc_id = input('get.arc_id');
+        $res = $this->db->save(['is_recycle' => 1], ['arc_id' => $arc_id]);
         if ($res) {
             $this->success('删除到回收站', 'index');
             exit;
@@ -243,7 +237,7 @@ class Article extends Common
 
     public function recycle()
     {
-        $fields=$this->db->getRecycle();
+        $fields = $this->db->getRecycle();
         $this->assign('data', $fields);
         return $this->fetch();
     }
@@ -251,8 +245,8 @@ class Article extends Common
 
     public function outToRecycle()
     {
-        $arc_id=input('param.arc_id');
-        $res=$this->db->save(['is_recycle'=>2], ['arc_id'=>$arc_id]);
+        $arc_id = input('param.arc_id');
+        $res = $this->db->save(['is_recycle' => 2], ['arc_id' => $arc_id]);
         if ($res) {
             $this->success('已恢复该文章', 'index');
             exit;
@@ -265,8 +259,8 @@ class Article extends Common
 
     public function confirmDel()
     {
-        $arc_id=input('get.arc_id');
-        $res=$this->db->confirmDel($arc_id);
+        $arc_id = input('get.arc_id');
+        $res = $this->db->confirmDel($arc_id);
         if ($res) {
             $this->success($res['msg'], 'recycle');
             exit;

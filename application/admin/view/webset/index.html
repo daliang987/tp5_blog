@@ -32,7 +32,8 @@
                 <td>{$webset.webset_name}</td>
                 <td>
                     <input type="text" class="form-control" name="webset_value" value="{$webset.webset_value}"
-                        id="websetvalue" onfocus="getWebsetValue(this)" onblur="changeValue('{$webset.webset_id}',this)">
+                        id="websetvalue" onfocus="getWebsetValue(this)"
+                        onblur="changeValue('{$webset.webset_id}',this)">
                 </td>
                 <td>{$webset.webset_desc}</td>
                 <td>
@@ -59,30 +60,133 @@
     </div>
 
 </div>
+
+
+<!-- 信息删除确认 -->
+<div class="modal fade" id="delcfmModel">
+    <div class="modal-dialog">
+        <div class="modal-content message_align">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">提示信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-2"><i class="fa fa-remove fa-3x text-danger"></i></div>
+                    <div class="col-md-10">
+                        <h5>您确认要删除吗？</h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="url" />
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <a onclick="urlSubmit()" class="btn btn-danger" data-dismiss="modal">确定</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="infoshow">
+    <div class="modal-dialog">
+        <div class="modal-content message_align">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">提示信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-2"><i id="tip_icon" class="fa  fa-4x"></i></div>
+                    <div class="col-md-10">
+                        <h4 class="text-success" id="info_detail"></h4>
+                        <p class="text-info">本窗口<span id="timeout"></span>秒后自动关闭</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+{/block}
+
+{block name="javascript"}
+
 <script>
-    function getWebsetValue(obj){
-        originVal= $(obj).val();
-    }
-    function changeValue(id, obj) {
-        if($(obj).val()==originVal){
-            return;
+    $(function () {
+        function getWebsetValue(obj) {
+            originVal = $(obj).val();
         }
-        $.post("{:url('edit')}", { webset_id: id, webset_value: $(obj).val() }, function (res) {
-            require(['hdjs'], function (hdjs) {
+        function changeValue(id, obj) {
+            if ($(obj).val() == originVal) {
+                return;
+            }
+            $.post("{:url('edit')}", { webset_id: id, webset_value: $(obj).val() }, function (res) {
                 if (res.code) {
-                    hdjs.message(res.msg, 'refresh', 'success', res.wait);
+                    //先注册事件
+                    $('#infoshow').on('show.bs.modal', function () {
+                        var modal = $(this);
+                        modal.find('#info_detail').text(res.msg);
+                        modal.find('#timeout').text(res.wait);
+                        modal.find('#tip_icon').addClass('fa-check-square text-success')
+                        timeout = res.wait;
+                        timer = setInterval(function () {
+                            if (timeout <= 1) {
+                                modal.modal('hide');
+                                clearTimeout(timer);
+                                window.location.reload()
+                                return;
+                            } else {
+                                timeout--;
+                                modal.find("#timeout").text(timeout);
+                            }
+                        }, 1000)
+                    })
+                    $('#infoshow').on('hide.bs.modal', function () {
+                        clearInterval(timer);
+                    })
+                    $('#infoshow').modal('show');
                 } else {
-                    hdjs.message(res.msg, 'back', 'error', res.wait);
+                    $('#infoshow').on('show.bs.modal', function () {
+                        var modal = $(this);
+                        modal.find('#info_detail').text(res.msg);
+                        modal.find('#timeout').text(res.wait);
+                        modal.find('#tip_icon').addClass('fa-warning text-warning')
+                        timeout = res.wait;
+                        timer = setInterval(function () {
+                            if (timeout <= 1) {
+                                modal.modal('hide');
+                                clearTimeout(timer);
+                                return;
+                            } else {
+                                timeout--;
+                                modal.find("#timeout").text(timeout);
+                            }
+                        }, 1000)
+
+                    })
+                    $('#infoshow').on('hide.bs.modal', function () {
+                        clearInterval(timer);
+                    })
+                    $('#infoshow').modal('show');
                 }
             });
-        });
-    }
+        }
 
-    function del(id) {
-        require(['hdjs'], function (hdjs) {
-            hdjs.confirm('确定删除吗?', function () {
-                location.href = '{:url("del")}?webset_id=' + id;
-            })
-        })
-    }
+
+        function del(id) {
+            $('#url').val('{:url("del")}?webset_id=' + id);
+            $('#delcfmModel').modal();
+        }
+
+        function urlSubmit() {
+            var url = $.trim($('#url').val());
+            window.location.href = url;
+        }
+    })
+
 </script> {/block}

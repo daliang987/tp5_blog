@@ -2,6 +2,10 @@
     font-family: 微软雅黑;
 }
 
+body{
+    padding:0 0 30px 0;
+}
+
 .login-form {
     margin-top: 100px;
 }

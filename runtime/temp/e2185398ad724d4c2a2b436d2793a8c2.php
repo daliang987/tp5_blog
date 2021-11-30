@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/index\view\index\content.html";i:1586242245;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1586242245;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/index\view\index\content.html";i:1638269361;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1638242793;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,20 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php if(isset($title)): ?><?php echo $title; endif; ?>--[<?php echo $_webset['blog_title']; ?>]</title>
-    <script>
-        window.hdjs = {};
-        //组件目录必须绝对路径(在网站根目录时不用设置)
-        window.hdjs.base = '__STATIC__/node_modules/hdjs';
-        //上传文件后台地址
-        //window.hdjs.uploader = 'test/php/uploader.php?';
-        window.hdjs.uploader = '<?php echo url("admin/article/upload"); ?>';
-        //获取文件列表的后台地址
-        window.hdjs.filesLists = '<?php echo url("admin/article/filelist"); ?>?';
-    </script>
+    <link rel="stylesheet" href="__STATIC__/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="__STATIC__/css/common.css">
+    <link media="(max-width:800px)" rel="stylesheet" href="__STATIC__/css/mobile.css">
+    <link media="(min-width:800px)" rel="stylesheet" href="__STATIC__/css/desktop.css">
+    
+<link rel="stylesheet" href="__STATIC__/editormd/css/editormd.min.css">
 
-    <script src="__STATIC__/node_modules/hdjs/static/requirejs/require.js"></script>
-    <script src="__STATIC__/node_modules/hdjs/static/requirejs/config.js"></script>
-    <link rel="stylesheet" href="__STATIC__/node_modules/hdjs/dist/hdjs.css">
 
 </head>
 
@@ -83,7 +76,7 @@
             </ul>
         </div>
 
-        <hr>
+        <hr class="blog-hr">
         <div hd-cloak>
             <div class="blog-content">
                 
@@ -98,47 +91,14 @@
         <hr>
         <a href="javascript:scrolltop()">回到顶部</a>
         <hr>
-        <a href="javascript:void(0)">分享
-            <span>
-                <div class="bdsharebuttonbox">
-                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                    <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
-                    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-                </div>
-                <script>
-                    window._bd_share_config = {
-                        "common": {
-                            "bdSnsKey": {},
-                            "bdText": "",
-                            "bdMini": "2",
-                            "bdMiniList": false,
-                            "bdPic": "",
-                            "bdStyle": "0",
-                            "bdSize": "24"
-                        },
-                        "share": {},
-                        "image": {
-                            "viewList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"],
-                            "viewText": "分享到：",
-                            "viewSize": "16"
-                        },
-                        "selectShare": {
-                            "bdContainerClass": null,
-                            "bdSelectMiniList": ["tsina", "qzone", "youdao", "renren", "weixin", "sqq"]
-                        }
-                    };
-                    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
-                </script>
+
     </div>
 </div>
 
 <div class="article-header">
     <div class="title"><?php echo $arcdata['arc_title']; ?></div>
     <div class="min-title">
-        <span class="author">作者：<?php echo $arcdata['arc_author']; ?></span>
+        <span class="author">作者： <?php echo session('admin.admin_username'); ?></span>
         <span class="sendtime"><?php echo date('Y/m/d H:i',$arcdata['sendtime']); ?></span>
         <span class="readcount">阅读：<?php echo $arcdata['arc_click']; ?></span>
 
@@ -148,7 +108,6 @@
                 <span class="label label-success"><?php echo $tagdata['tag_name']; ?></span>
             </a>
             <?php endforeach; endif; else: echo "" ;endif; ?>
-
         </p>
     </div>
 </div>
@@ -156,7 +115,7 @@
 <div class="article-content">
 
     <?php if($arcdata['editor_type'] == 'md'): ?>
-    <div id="editormd">
+    <div id="editormd-id">
         <textarea hidden><?php echo $arcdata['arc_content']; ?></textarea>
     </div>
     <?php else: ?>
@@ -182,24 +141,25 @@
             <div class="form-group">
                 <span class="label-control col-md-2">用户名：</span>
                 <div class="col-md-4">
-                    <input type="text" placeholder="用户名" class="form-control" name="comment_nickname"
+                    <input type="text" placeholder="用户名" class="form-control input-sm" name="comment_nickname"
                         id="comment_nickname">
                 </div>
                 <span class="label-control col-md-2"> <img src="<?php echo url('vcode'); ?>" alt="captcha" id="captcha"
                         onclick="reloadCaptcha()" /> </span>
                 <div class="col-md-4">
-                    <input type="text" placeholder="验证码" class="form-control" name="verify_code" id="verify_code">
+                    <input type="text" placeholder="验证码" class="form-control  input-sm" name="verify_code"
+                        id="verify_code">
                 </div>
             </div>
             <div class="form-group">
                 <span class="label-control col-md-2">邮箱：</span>
                 <div class="col-md-4">
-                    <input type="text" placeholder="邮箱（非必填）" class="form-control " name="comment_email"
+                    <input type="text" placeholder="邮箱（非必填）" class="form-control input-sm" name="comment_email"
                         id="comment_email">
                 </div>
                 <span class="label-control col-md-2">博客地址：</span>
                 <div class="col-md-4">
-                    <input type="text" placeholder="个人博客地址（非必填）" name="comment_url" class="form-control"
+                    <input type="text" placeholder="个人博客地址（非必填）" name="comment_url" class="form-control input-sm"
                         id="comment_url">
                 </div>
 
@@ -207,7 +167,7 @@
 
             <input type="hidden" name="comment_parentid" id="comment_parentid" value="0">
             <input type="hidden" name="arc_id" value="<?php echo $arcdata['arc_id']; ?>">
-            <input type="submit" class="btn btn-success" value="提交评论">
+            <input type="submit" class="btn btn-success btn-sm" value="提交评论">
         </form>
 
 
@@ -246,7 +206,7 @@
                             </div>
                         </div>
                         <div class="comment-id" id="comment_id<?php echo $c['comment_id']; ?>"><?php echo $c['comment_id']; ?></div>
-                        <div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
+                        <div class="reply"><a href="javascript:void(0)" class="btn btn-link btn-sm btn-reply">回复</a>
                         </div>
                     </div>
 
@@ -254,7 +214,7 @@
                 </div>
             </div>
             <div class="comment-id" id="comment_id<?php echo $comment['comment_id']; ?>"><?php echo $comment['comment_id']; ?></div>
-            <div class="reply"><a href="javascript:void(0)" class="btn btn-success btn-sm btn-reply">回复</a>
+            <div class="reply"><a href="javascript:void(0)" class="btn btn-link btn-sm btn-reply">回复</a>
             </div>
         </li>
         <hr> <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -266,6 +226,69 @@
 
 </div>
 
+<!-- 信息删除确认 -->
+<div class="modal fade" id="delcfmModel">
+    <div class="modal-dialog">
+        <div class="modal-content message_align">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">提示信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-2"><i class="fa fa-remove fa-3x text-danger"></i></div>
+                    <div class="col-md-10">
+                        <h5>您确认要删除吗？</h5>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="url" />
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <a onclick="urlSubmit()" class="btn btn-danger" data-dismiss="modal">确定</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+            </div>
+        </div>
+        <hr>
+        <div class="blog-footer">
+            <div class="copyright">
+                <?php echo $_webset['copyright']; ?>
+            </div>
+            <div class="blog-footer-link">
+                <ul>
+                    <li>
+                        <a href="<?php echo url('link'); ?>">友情链接</a>
+                    </li>
+                    <li>
+                        <a href="mailto:<?php echo $_webset['email']; ?>">邮箱</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $_webset['weibo']; ?>" target="_blank">微博</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+
+</body>
+<script src="__STATIC__/js/jquery.min.js"></script>
+<script src="__STATIC__/bootstrap/bootstrap.min.js"></script>
+
+<script src="__STATIC__/editormd/lib/marked.min.js"></script>
+<script src="__STATIC__/editormd/lib/prettify.min.js"></script>
+<script src="__STATIC__/editormd/editormd.min.js"></script>
+
+
 
 <script>
     function scrolltop() {
@@ -273,11 +296,6 @@
             scrollTop: 0
         }, 'fast'); //带动画  
     }
-
-
-
-
-
 
 
 
@@ -309,12 +327,15 @@
         return (false);
     }
 
-    require(['hdjs'], function (hdjs) {
 
-
-        hdjs.markdownToHTML("editormd", {
+    $(function () {
+        var editor = editormd.markdownToHTML("editormd-id", {
+            path: "__STATIC__/js/lib/",
             htmlDecode: "style,script,iframe,php",
             emoji: true,
+            imageUploadURL: "/blog/public/uploads/",
+            previewTheme: "dark",
+            //editorTheme: "pastel-on-dark",
         });
 
         if (getQueryParam("page")) {
@@ -329,7 +350,7 @@
         }
         reloadCaptcha(); //加载验证码
 
-        $('#captcha').click(function(){
+        $('#captcha').click(function () {
             reloadCaptcha();
         })
 
@@ -347,7 +368,7 @@
         });
 
         $('.mobile-tool').click(function () {
-    
+
             $('.func').toggle(300);
             $(this).find('hr').toggle(300);
         })
@@ -368,41 +389,14 @@
     });
 
 
+
 </script>
 
-            </div>
-        </div>
-        <hr>
-        <div class="blog-footer">
-            <div class="copyright">
-                <?php echo $_webset['copyright']; ?>
-            </div>
-            <div class="blog-footer-link">
-                <ul>
-                    <li>
-                        <a href="<?php echo url('link'); ?>">友情链接</a>
-                    </li>
-                    <li>
-                        <a href="mailto:<?php echo $_webset['email']; ?>">邮箱</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo $_webset['weibo']; ?>" target="_blank">微博</a>
-                    </li>
 
-                </ul>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-    <!-- </div> -->
-</body>
 
-<link rel="stylesheet" href="__STATIC__/css/common.css">
-<link media="(max-width:800px)" rel="stylesheet" href="__STATIC__/css/mobile.css">
-<link media="(min-width:800px)" rel="stylesheet" href="__STATIC__/css/desktop.css">
 <script>
 
-    require(['hdjs'], function (hdjs) {
+    window.onload=function() {
         $('#getCate').click(function () {
             $('#sort_arc').hide();
             $('#tag_arc').hide();
@@ -421,8 +415,7 @@
             $('#tag_arc').toggle(300);
         })
 
-    });
-
+    }
 </script>
 
 </html>

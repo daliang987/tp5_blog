@@ -49,7 +49,7 @@ class Article extends Model{
 
     public function getAll(){
         $data=db('article')->alias('a')->join('cate c','a.cate_id=c.cate_id')->where('is_recycle',2)->
-        field('arc_id,arc_title,editor_type,arc_author,cate_name,arc_sort,sendtime')->
+        field('arc_id,arc_title,editor_type,arc_public,cate_name,arc_sort,sendtime')->
         order('a.arc_sort asc,a.sendtime desc,a.arc_title asc')->paginate(10);
         // halt($data);
         return $data;
@@ -92,7 +92,7 @@ class Article extends Model{
 
     public function getRecycle(){
         $data=db('article')->alias('a')->join('cate c','a.cate_id=c.cate_id')->where('is_recycle',1)->
-        field('arc_id,arc_title,arc_author,cate_name,arc_sort,sendtime')->
+        field('arc_id,arc_title,cate_name,arc_sort,sendtime')->
         order('a.arc_sort asc,a.sendtime desc,a.arc_title asc')->paginate(10);
         // halt($data);
         return $data;
