@@ -86,17 +86,15 @@
 {block name="javascript"}
 
 <script>
-    $(function () {
-        function del(cate_id) {
-            $('#url').val('{:url("del")}?cate_id=' + cate_id);
-            $('#delcfmModel').modal();
-        }
+    function del(cate_id) {
+        $('#url').val('{:url("del")}?cate_id=' + cate_id);
+        $('#delcfmModel').modal();
+    }
 
-        function urlSubmit() {
-            var url = $.trim($('#url').val());
-            window.location.href = url;
-        }
-    })
+    function urlSubmit() {
+        var url = $.trim($('#url').val());
+        window.location.href = url;
+    }
 
 
 </script>

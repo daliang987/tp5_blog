@@ -2,10 +2,6 @@
 
 namespace app\admin\controller;
 
-use think\Controller;
-use houdunwang\config\Config;
-use houdunwang\file\File;
-
 class Article extends Common
 {
     protected $db;
@@ -32,7 +28,6 @@ class Article extends Common
 
             $res = $this->db->store($data1);
             if ($res['valid']) {
-                session('formdata', null);
                 $this->success($res['msg'], 'index');
                 exit;
             } else {
@@ -56,21 +51,16 @@ class Article extends Common
             $content = input('post.arc_content', '', null); //博文内容不过滤
             $data1['arc_content'] = $content;
 
-            if (input('post.switch') == "yes") {
-                session('formdata', $data1);
-                // halt($data1);
-                $this->redirect('mdstore');;
-            } else {
-                $res = $this->db->store($data1);
-                if ($res['valid']) {
-                    session('formdata', null);
-                    $this->success($res['msg'], 'index');
 
-                    exit;
-                } else {
-                    $this->error($res['msg']);
-                    exit;
-                }
+            $res = $this->db->store($data1);
+            if ($res['valid']) {
+                session('formdata', null);
+                $this->success($res['msg'], 'index');
+
+                exit;
+            } else {
+                $this->error($res['msg']);
+                exit;
             }
         }
 
@@ -83,30 +73,10 @@ class Article extends Common
         return $this->fetch();
     }
 
-    public function upload()
-    {
-        Config::set('upload', [
-            'mold' => 'local',
-            'type' => 'jpg,jpeg,gif,png',
-            'size' => 1000000,
-            'path' => 'uploads/' . date('Y/m/d'),
-
-        ]);
-        $file = File::path('uploads')->upload();
-        if ($file) {
-            //成功时返回数据 message 为文件地址
-            $json = ['valid' => 1, 'message' => '/' . $file[0]['path']];
-        } else {
-            //失败时返回数据 message 为失败原因
-            $json = ['valid' => 0, 'message' => "后台提示:" . File::getError()];
-        }
-        die(json_encode($json));
-    }
 
     public function tp_upload()
     {
         $file = request()->file('editormd-image-file');
-        // halt($file);
         if ($file) {
             $info = $file->validate(['size' => 1024 * 1024 * 5, 'ext' => 'jpg,png,gif'])->move(ROOT_PATH . 'public' . DS . 'uploads');
             if ($info) {
@@ -117,9 +87,10 @@ class Article extends Common
                 $saveName = $info->getSaveName();
                 // 输出 42a79759f284b767dfcb2a0197904287.jpg
                 $fileName = $info->getFilename();
-                $saveNameUrl=str_replace("\\","/",$saveName);
-                $url = "/blog/public/uploads/" . $saveNameUrl;
+                $saveNameUrl = str_replace("\\", "/", $saveName);
+                $url = config('web_app_public')."uploads/" . $saveNameUrl;
                 $json_info = ["success" => 1, "message" => "上传成功", "url" => $url];
+                
                 return json_encode($json_info);
             } else {
                 // 上传失败获取错误信息

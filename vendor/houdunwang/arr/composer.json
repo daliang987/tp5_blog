@@ -27,7 +27,7 @@
   "autoload": {
     "files": [],
     "psr-4": {
-      "houdunwang\\arr\\": "src"
+      "Houdunwang\\Arr\\": "src"
     }
   },
   "autoload-dev": {

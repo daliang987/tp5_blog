@@ -115,74 +115,71 @@
 
 {block name="javascript"}
 <script>
+    function confirmDel(arc_id) {
+        $('#url').val('confirmDel?arc_id=' + arc_id);
+        $('#delcfmModel').modal();
+    }
 
-    $(function () {
-        function confirmDel(arc_id) {
-            $('#url').val('confirmDel?arc_id=' + arc_id);
-            $('#delcfmModel').modal();
-        }
+    function urlSubmit() {
+        var url = $.trim($('#url').val());
+        window.location.href = url;
+    }
 
-        function urlSubmit() {
-            var url = $.trim($('#url').val());
-            window.location.href = url;
-        }
+    function changeSort(obj, arc_id) {
+        value = $(obj).val();
+        // alert(value);
+        // alert(arc_id);
+        $.post("{:url('changeSort')}", { arc_sort: value, arc_id: arc_id }, function (res) {
+            // alert(res.code);
+            if (res.code) {
+                //先注册事件
+                $('#infoshow').on('show.bs.modal', function () {
+                    var modal = $(this);
+                    modal.find('#info_detail').text(res.msg);
+                    modal.find('#timeout').text(res.wait);
+                    modal.find('#tip_icon').addClass('fa-check-square text-success')
+                    timeout = res.wait;
+                    timer = setInterval(function () {
+                        if (timeout <= 1) {
+                            modal.modal('hide');
+                            clearTimeout(timer);
+                            window.location.reload()
+                            return;
+                        } else {
+                            timeout--;
+                            modal.find("#timeout").text(timeout);
+                        }
+                    }, 1000)
+                })
+                $('#infoshow').on('hide.bs.modal', function () {
+                    clearInterval(timer);
+                })
+                $('#infoshow').modal('show');
+            } else {
+                $('#infoshow').on('show.bs.modal', function () {
+                    var modal = $(this);
+                    modal.find('#info_detail').text(res.msg);
+                    modal.find('#timeout').text(res.wait);
+                    modal.find('#tip_icon').addClass('fa-warning text-warning')
+                    timeout = res.wait;
+                    timer = setInterval(function () {
+                        if (timeout <= 1) {
+                            modal.modal('hide');
+                            clearTimeout(timer);
+                            return;
+                        } else {
+                            timeout--;
+                            modal.find("#timeout").text(timeout);
+                        }
+                    }, 1000)
 
-        function changeSort(obj, arc_id) {
-            value = $(obj).val();
-            // alert(value);
-            // alert(arc_id);
-            $.post("{:url('changeSort')}", { arc_sort: value, arc_id: arc_id }, function (res) {
-                // alert(res.code);
-                if (res.code) {
-                    //先注册事件
-                    $('#infoshow').on('show.bs.modal', function () {
-                        var modal = $(this);
-                        modal.find('#info_detail').text(res.msg);
-                        modal.find('#timeout').text(res.wait);
-                        modal.find('#tip_icon').addClass('fa-check-square text-success')
-                        timeout = res.wait;
-                        timer = setInterval(function () {
-                            if (timeout <= 1) {
-                                modal.modal('hide');
-                                clearTimeout(timer);
-                                window.location.reload()
-                                return;
-                            } else {
-                                timeout--;
-                                modal.find("#timeout").text(timeout);
-                            }
-                        }, 1000)
-                    })
-                    $('#infoshow').on('hide.bs.modal', function () {
-                        clearInterval(timer);
-                    })
-                    $('#infoshow').modal('show');
-                } else {
-                    $('#infoshow').on('show.bs.modal', function () {
-                        var modal = $(this);
-                        modal.find('#info_detail').text(res.msg);
-                        modal.find('#timeout').text(res.wait);
-                        modal.find('#tip_icon').addClass('fa-warning text-warning')
-                        timeout = res.wait;
-                        timer = setInterval(function () {
-                            if (timeout <= 1) {
-                                modal.modal('hide');
-                                clearTimeout(timer);
-                                return;
-                            } else {
-                                timeout--;
-                                modal.find("#timeout").text(timeout);
-                            }
-                        }, 1000)
-
-                    })
-                    $('#infoshow').on('hide.bs.modal', function () {
-                        clearInterval(timer);
-                    })
-                    $('#infoshow').modal('show');
-                }
-            }, 'json');
-        }
-    })
+                })
+                $('#infoshow').on('hide.bs.modal', function () {
+                    clearInterval(timer);
+                })
+                $('#infoshow').modal('show');
+            }
+        }, 'json');
+    }
 
 </script> {/block}

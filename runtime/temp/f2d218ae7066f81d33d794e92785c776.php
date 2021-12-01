@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\blog\public/../application/index\view\index\index.html";i:1637813648;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1638242793;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\blog\public/../application/index\view\index\index.html";i:1637813648;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1638328407;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php if(isset($title)): ?><?php echo $title; endif; ?>--[<?php echo $_webset['blog_title']; ?>]</title>
     <link rel="stylesheet" href="__STATIC__/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="__STATIC__/css/font-awesome.min.css">
     <link rel="stylesheet" href="__STATIC__/css/common.css">
     <link media="(max-width:800px)" rel="stylesheet" href="__STATIC__/css/mobile.css">
     <link media="(min-width:800px)" rel="stylesheet" href="__STATIC__/css/desktop.css">
@@ -176,7 +177,7 @@
 
 <script>
 
-    window.onload=function() {
+    $(function () {
         $('#getCate').click(function () {
             $('#sort_arc').hide();
             $('#tag_arc').hide();
@@ -195,7 +196,7 @@
             $('#tag_arc').toggle(300);
         })
 
-    }
+    })
 </script>
 
 </html>

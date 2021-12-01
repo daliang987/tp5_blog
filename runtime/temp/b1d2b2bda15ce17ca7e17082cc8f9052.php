@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/admin\view\article\index.html";i:1638263846;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1638262400;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/admin\view\article\index.html";i:1638327720;s:63:"D:\xampp\htdocs\blog\public/../application/admin\view\base.html";i:1638328146;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -233,11 +233,13 @@
 <script src="__STATIC__/js/jquery.min.js"></script>
 <script src="__STATIC__/bootstrap/bootstrap.min.js"></script>
 <script>
+    $(function () {
 
-    $('#hide_menu').click(function () {
-        // alert(1);
-        $('#menu_id').hide();
-        $('#main-content').removeClass('col-md-10').addClass('col-md-12');
+        $('#hide_menu').click(function () {
+            // alert(1);
+            $('#menu_id').hide();
+            $('#main-content').removeClass('col-md-10').addClass('col-md-12');
+        })
     })
 
 </script>
@@ -313,6 +315,8 @@
             }
         }, 'json');
     }
+
+
 </script> 
 
 </html>

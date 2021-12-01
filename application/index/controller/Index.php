@@ -16,7 +16,7 @@ class Index extends Common
     public function index()
     {
         parent::setTitle('首页');
-        $arcdata = db('article')->order('sendtime desc')->limit(10)->select();
+        $arcdata = db('article')->where('arc_public',1)->order('sendtime desc')->limit(10)->select();
         $this->assign('article', $arcdata);
         return $this->fetch();
     }

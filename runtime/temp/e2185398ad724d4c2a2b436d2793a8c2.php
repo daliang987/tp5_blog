@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/index\view\index\content.html";i:1638269361;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1638242793;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/index\view\index\content.html";i:1638349355;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1638328407;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php if(isset($title)): ?><?php echo $title; endif; ?>--[<?php echo $_webset['blog_title']; ?>]</title>
     <link rel="stylesheet" href="__STATIC__/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="__STATIC__/css/font-awesome.min.css">
     <link rel="stylesheet" href="__STATIC__/css/common.css">
     <link media="(max-width:800px)" rel="stylesheet" href="__STATIC__/css/mobile.css">
     <link media="(min-width:800px)" rel="stylesheet" href="__STATIC__/css/desktop.css">
@@ -286,6 +287,8 @@
 
 <script src="__STATIC__/editormd/lib/marked.min.js"></script>
 <script src="__STATIC__/editormd/lib/prettify.min.js"></script>
+<script src="__STATIC__/editormd/lib/raphael.min.js"></script>
+<script src="__STATIC__/editormd/lib/underscore.min.js"></script>
 <script src="__STATIC__/editormd/editormd.min.js"></script>
 
 
@@ -326,14 +329,23 @@
         }
         return (false);
     }
+    function reloadCaptcha() {
+        captcha_src = $('#captcha').attr('src');
+        pathname = captcha_src.split('?')[0];
+        $('#captcha').attr('src', pathname + '?' + Math.random());
+    }
 
+    function loadImgPreview() {
+        ImagePreview.init({
+            id: $('.article-content p img')
+        });
+    }
 
     $(function () {
         var editor = editormd.markdownToHTML("editormd-id", {
             path: "__STATIC__/js/lib/",
             htmlDecode: "style,script,iframe,php",
             emoji: true,
-            imageUploadURL: "/blog/public/uploads/",
             previewTheme: "dark",
             //editorTheme: "pastel-on-dark",
         });
@@ -343,11 +355,7 @@
         }
 
 
-        function reloadCaptcha() {
-            captcha_src = $('#captcha').attr('src');
-            pathname = captcha_src.split('?')[0];
-            $('#captcha').attr('src', pathname + '?' + Math.random());
-        }
+
         reloadCaptcha(); //加载验证码
 
         $('#captcha').click(function () {
@@ -375,11 +383,7 @@
 
         $('html').append('<script src="__STATIC__/js/imgpreview.js">');
 
-        function loadImgPreview() {
-            ImagePreview.init({
-                id: $('.article-content p img')
-            });
-        }
+
 
         loadImgPreview();
         loadImgs = setTimeout(loadImgPreview, 1000);
@@ -396,7 +400,7 @@
 
 <script>
 
-    window.onload=function() {
+    $(function () {
         $('#getCate').click(function () {
             $('#sort_arc').hide();
             $('#tag_arc').hide();
@@ -415,7 +419,7 @@
             $('#tag_arc').toggle(300);
         })
 
-    }
+    })
 </script>
 
 </html>

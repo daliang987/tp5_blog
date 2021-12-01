@@ -29,7 +29,7 @@ class Article extends Model{
         if(!isset($data['tag'])){
             return ['valid'=>0,'msg'=>'请选择标签'];
         }
-        $data['admin_d']=session('admin.admin_id');
+        $data['admin_id']=session('admin.admin_id');
         $result=$this->allowField(true)->validate(true)->save($data);
 
         if($result){

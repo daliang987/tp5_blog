@@ -95,30 +95,28 @@
 {block name="javascript"}
 <script src="__STATIC__/editormd/editormd.min.js"></script>
 <script>
+    var editor = editormd("mdeditor", {
+
+        path: "__STATIC__/editormd/lib/",
+        width: "100%",
+        height: "640px",
+        imageUpload: true,
+        imageFormFormat: ["jpg", "png", "jpeg", "gif", "bmp", "webp"],
+        imageUploadURL: "__PUBLIC__/admin.php/article/tp_upload",
+    });
+
+
+    function saveDarft() {
+        $('#arc_public').val('0');
+        return true;
+    }
+
+    function publicArticle() {
+        $('#arc_public').val('1');
+        return true;
+    }
 
     $(function () {
-        var editor = editormd("mdeditor", {
-
-            path: "__STATIC__/editormd/lib/",
-            width: "100%",
-            height: "640px",
-            imageUpload: true,
-            imageFormFormat: ["jpg", "png", "jpeg", "gif", "bmp", "webp"],
-            imageUploadURL: "/blog/public/admin.php/article/tp_upload",
-        });
-
-
-        function saveDarft() {
-            $('#arc_public').val('0');
-            return true;
-        }
-
-        function publicArticle() {
-            $('#arc_public').val('1');
-            return true;
-        }
-
-
         //添加标签
 
         $('#btn-add-tag').click(function () {

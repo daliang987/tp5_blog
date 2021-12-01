@@ -70,6 +70,7 @@
                     </div>
                     <input type="hidden" id="editor_type" name="editor_type" value="bd">
                     <input type="hidden" name="arc_public" id="arc_public" value="0">
+                    
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-5">
                             <button class="form-control btn-info" onclick="return saveDarft()">保存草稿</button>
@@ -109,25 +110,23 @@
 
 
 <script>
+    function saveDarft() {
+        $('#arc_public').val('0');
+        return true;
+    }
+
+    function publicArticle() {
+        $('#arc_public').val('1');
+        return true;
+    }
+
     $(function () {
-        function saveDarft() {
-            $('#arc_public').val('0');
-            return true;
-        }
-
-        function publicArticle() {
-            $('#arc_public').val('1');
-            return true;
-        }
-
-
         $('#switch_editor').click(function () {
             $('#switch').val('yes');
             $('form').submit();
         })
 
         //添加标签
-
         $('#btn-add-tag').click(function () {
             if ($('#arc_tag').val().trim()) {
                 $.ajax({

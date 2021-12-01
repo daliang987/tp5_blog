@@ -85,16 +85,13 @@
 {block name="javascript"}
 
 <script>
-    $(function () {
-        function del(link_id) {
-            $('#url').val('{:url("del")}' + '?link_id=' + link_id);
-            $('#delcfmModel').modal();
-        }
+    function del(link_id) {
+        $('#url').val('{:url("del")}' + '?link_id=' + link_id);
+        $('#delcfmModel').modal();
+    }
 
-        function urlSubmit() {
-            var url = $.trim($('#url').val());
-            window.location.href = url;
-        }
-    })
-
+    function urlSubmit() {
+        var url = $.trim($('#url').val());
+        window.location.href = url;
+    }
 </script> {/block}

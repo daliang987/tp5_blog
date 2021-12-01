@@ -3,7 +3,6 @@
 namespace app\common\model;
 
 use think\Model;
-use houdunwang\arr\Arr;
 
 class Category extends Model{
     protected $pk="cate_id";
@@ -20,7 +19,7 @@ class Category extends Model{
     }
 
     public function getAll(){
-        $data=Arr::tree(db('cate')->order('cate_sort','cate_id')->select(), 'cate_name', $fieldPri = 'cate_id', $fieldPid = 'cate_pid');
+        $data= (new \Houdunwang\Arr\Arr())->tree(db('cate')->order('cate_sort','cate_id')->select(), 'cate_name', $fieldPri = 'cate_id', $fieldPid = 'cate_pid');
         return $data;
     }
 
@@ -34,7 +33,7 @@ class Category extends Model{
         // halt($exclude_ids);
         $rdata=db('cate')->whereNotIn('cate_id',$exclude_ids)->select();
         // halt($rdata);
-        $tree_rdata=Arr::tree($rdata, 'cate_name', $fieldPri = 'cate_id', $fieldPid = 'cate_pid');
+        $tree_rdata= (new \Houdunwang\Arr\Arr())->tree($rdata, 'cate_name', $fieldPri = 'cate_id', $fieldPid = 'cate_pid');
         return $tree_rdata;
     }
 

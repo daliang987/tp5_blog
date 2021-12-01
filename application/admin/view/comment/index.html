@@ -87,16 +87,14 @@
 {/block}
 {block name="javascript"}
 <script>
-    $(function () {
-        function del(tag_id) {
-            $('#url').val('{:url("del")}?comment_id=' + tag_id);
-            $('#delcfmModel').modal();
-        }
+    function del(tag_id) {
+        $('#url').val('{:url("del")}?comment_id=' + tag_id);
+        $('#delcfmModel').modal();
+    }
 
-        function urlSubmit() {
-            var url = $.trim($('#url').val());
-            window.location.href = url;
-        }
-    })
+    function urlSubmit() {
+        var url = $.trim($('#url').val());
+        window.location.href = url;
+    }
 
 </script> {/block}

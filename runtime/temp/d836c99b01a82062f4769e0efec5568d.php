@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\xampp\htdocs\blog\public/../application/index\view\index\category.html";i:1586256468;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1637895673;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:73:"D:\xampp\htdocs\blog\public/../application/index\view\index\category.html";i:1586256468;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1638328407;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,26 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php if(isset($title)): ?><?php echo $title; endif; ?>--[<?php echo $_webset['blog_title']; ?>]</title>
-    <link rel="stylesheet" href="__STATIC__/css/bs/bootstrap.min.css">
+    <link rel="stylesheet" href="__STATIC__/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="__STATIC__/css/font-awesome.min.css">
     <link rel="stylesheet" href="__STATIC__/css/common.css">
     <link media="(max-width:800px)" rel="stylesheet" href="__STATIC__/css/mobile.css">
     <link media="(min-width:800px)" rel="stylesheet" href="__STATIC__/css/desktop.css">
     
-    <!--
-    <script>
-        window.hdjs = {};
-        //组件目录必须绝对路径(在网站根目录时不用设置)
-        window.hdjs.base = '__STATIC__/node_modules/hdjs';
-        //上传文件后台地址
-        //window.hdjs.uploader = 'test/php/uploader.php?';
-        window.hdjs.uploader = '<?php echo url("admin/article/upload"); ?>';
-        //获取文件列表的后台地址
-        window.hdjs.filesLists = '<?php echo url("admin/article/filelist"); ?>?';
-    </script>
-    <script src="__STATIC__/node_modules/hdjs/static/requirejs/require.js"></script>
-    <script src="__STATIC__/node_modules/hdjs/static/requirejs/config.js"></script>
-    <link rel="stylesheet" href="__STATIC__/node_modules/hdjs/dist/hdjs.css">
-   -->
+
 </head>
 
 <body>
@@ -160,12 +147,12 @@
 
 </body>
 <script src="__STATIC__/js/jquery.min.js"></script>
-<script src="__STATIC__/js/bs/bootstrap.min.js"></script>
+<script src="__STATIC__/bootstrap/bootstrap.min.js"></script>
 
 
 <script>
 
-    window.onload=function() {
+    $(function () {
         $('#getCate').click(function () {
             $('#sort_arc').hide();
             $('#tag_arc').hide();
@@ -184,7 +171,7 @@
             $('#tag_arc').toggle(300);
         })
 
-    }
+    })
 </script>
 
 </html>

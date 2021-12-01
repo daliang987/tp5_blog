@@ -9,7 +9,6 @@ class ComposerStaticInite626511a65ba34803a261569c1e86cc3
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '9b552a3cc426e3287cc811caefa3cf53' => __DIR__ . '/..' . '/topthink/think-helper/src/helper.php',
-        '0f066c7cf996f26fedf8f5e90a916a95' => __DIR__ . '/..' . '/houdunwang/config/src/helper.php',
         '1cfd2761b63b0a29ed23657ea394cb2d' => __DIR__ . '/..' . '/topthink/think-captcha/src/helper.php',
         'ddc3cd2a04224f9638c5d0de6a69c7e3' => __DIR__ . '/..' . '/topthink/think-migration/src/config.php',
         'cc56288302d9df745d97c934d6a6e5f0' => __DIR__ . '/..' . '/topthink/think-queue/src/common.php',
@@ -34,12 +33,6 @@ class ComposerStaticInite626511a65ba34803a261569c1e86cc3
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        'h' => 
-        array (
-            'houdunwang\\file\\' => 16,
-            'houdunwang\\config\\' => 18,
-            'houdunwang\\arr\\' => 15,
-        ),
         'W' => 
         array (
             'Workerman\\' => 10,
@@ -54,6 +47,10 @@ class ComposerStaticInite626511a65ba34803a261569c1e86cc3
         'P' => 
         array (
             'Phinx\\' => 6,
+        ),
+        'H' => 
+        array (
+            'Houdunwang\\Arr\\' => 15,
         ),
         'D' => 
         array (
@@ -110,18 +107,6 @@ class ComposerStaticInite626511a65ba34803a261569c1e86cc3
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
-        'houdunwang\\file\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/houdunwang/file/src',
-        ),
-        'houdunwang\\config\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/houdunwang/config/src',
-        ),
-        'houdunwang\\arr\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/houdunwang/arr/src',
-        ),
         'Workerman\\' => 
         array (
             0 => __DIR__ . '/..' . '/workerman/workerman',
@@ -145,6 +130,10 @@ class ComposerStaticInite626511a65ba34803a261569c1e86cc3
         'Phinx\\' => 
         array (
             0 => __DIR__ . '/..' . '/topthink/think-migration/phinx/src/Phinx',
+        ),
+        'Houdunwang\\Arr\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/houdunwang/arr/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
