@@ -1,6 +1,8 @@
 {extend name="index_base" /}
 {block name="css"}
+{if condition="$arcdata.editor_type eq 'md'"}
 <link rel="stylesheet" href="__STATIC__/editormd/css/editormd.min.css">
+{/if}
 {/block}
 
 {block name="content"}
@@ -102,7 +104,7 @@
         {volist name="_comment" id="comment"}
         <li class="media">
             <div class="media-left">
-                <i class="fa fa-user-circle-o fa-2x"></i>
+                <i class="fa fa-user-circle fa-2x"></i>
             </div>
             <div class="media-body">
                 <div>
@@ -180,12 +182,25 @@
 {/block}
 
 {block name="javascript"}
+{if condition="$arcdata.editor_type eq 'md'"}
 <script src="__STATIC__/editormd/lib/marked.min.js"></script>
 <script src="__STATIC__/editormd/lib/prettify.min.js"></script>
 <script src="__STATIC__/editormd/lib/raphael.min.js"></script>
 <script src="__STATIC__/editormd/lib/underscore.min.js"></script>
 <script src="__STATIC__/editormd/editormd.min.js"></script>
 
+<script>
+    var editor = editormd.markdownToHTML("editormd-id", {
+        path: "__STATIC__/js/lib/",
+        htmlDecode: "style,script,iframe,php",
+        emoji: true,
+        theme: "dark",
+        previewTheme: "dark",
+        editorTheme: "pastel-on-dark",
+    });
+
+</script>
+{/if}
 
 
 <script>
@@ -237,13 +252,7 @@
     }
 
     $(function () {
-        var editor = editormd.markdownToHTML("editormd-id", {
-            path: "__STATIC__/js/lib/",
-            htmlDecode: "style,script,iframe,php",
-            emoji: true,
-            previewTheme: "dark",
-            //editorTheme: "pastel-on-dark",
-        });
+
 
         if (getQueryParam("page")) {
             location.href = '#comment_list';

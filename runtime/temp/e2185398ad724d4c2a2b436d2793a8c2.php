@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/index\view\index\content.html";i:1638349355;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1638328407;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\xampp\htdocs\blog\public/../application/index\view\index\content.html";i:1638430095;s:69:"D:\xampp\htdocs\blog\public/../application/index\view\index_base.html";i:1638429661;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php if(isset($title)): ?><?php echo $title; endif; ?>--[<?php echo $_webset['blog_title']; ?>]</title>
     <link rel="stylesheet" href="__STATIC__/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="__STATIC__/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__STATIC__/css/font-awesome.min.css"> 
     <link rel="stylesheet" href="__STATIC__/css/common.css">
     <link media="(max-width:800px)" rel="stylesheet" href="__STATIC__/css/mobile.css">
     <link media="(min-width:800px)" rel="stylesheet" href="__STATIC__/css/desktop.css">
     
+<?php if($arcdata['editor_type'] == 'md'): ?>
 <link rel="stylesheet" href="__STATIC__/editormd/css/editormd.min.css">
+<?php endif; ?>
 
 
 </head>
@@ -179,7 +181,7 @@
         <?php if(is_array($_comment) || $_comment instanceof \think\Collection || $_comment instanceof \think\Paginator): $i = 0; $__LIST__ = $_comment;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$comment): $mod = ($i % 2 );++$i;?>
         <li class="media">
             <div class="media-left">
-                <i class="fa fa-user-circle-o fa-2x"></i>
+                <i class="fa fa-user-circle fa-2x"></i>
             </div>
             <div class="media-body">
                 <div>
@@ -285,12 +287,25 @@
 <script src="__STATIC__/js/jquery.min.js"></script>
 <script src="__STATIC__/bootstrap/bootstrap.min.js"></script>
 
+<?php if($arcdata['editor_type'] == 'md'): ?>
 <script src="__STATIC__/editormd/lib/marked.min.js"></script>
 <script src="__STATIC__/editormd/lib/prettify.min.js"></script>
 <script src="__STATIC__/editormd/lib/raphael.min.js"></script>
 <script src="__STATIC__/editormd/lib/underscore.min.js"></script>
 <script src="__STATIC__/editormd/editormd.min.js"></script>
 
+<script>
+    var editor = editormd.markdownToHTML("editormd-id", {
+        path: "__STATIC__/js/lib/",
+        htmlDecode: "style,script,iframe,php",
+        emoji: true,
+        theme: "dark",
+        previewTheme: "dark",
+        editorTheme: "pastel-on-dark",
+    });
+
+</script>
+<?php endif; ?>
 
 
 <script>
@@ -342,13 +357,7 @@
     }
 
     $(function () {
-        var editor = editormd.markdownToHTML("editormd-id", {
-            path: "__STATIC__/js/lib/",
-            htmlDecode: "style,script,iframe,php",
-            emoji: true,
-            previewTheme: "dark",
-            //editorTheme: "pastel-on-dark",
-        });
+
 
         if (getQueryParam("page")) {
             location.href = '#comment_list';

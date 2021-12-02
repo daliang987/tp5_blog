@@ -78,7 +78,7 @@ class Article extends Common
     {
         $file = request()->file('editormd-image-file');
         if ($file) {
-            $info = $file->validate(['size' => 1024 * 1024 * 5, 'ext' => 'jpg,png,gif'])->move(ROOT_PATH . 'public' . DS . 'uploads');
+            $info = $file->validate(['size' => 1024 * 1024 * 5, 'ext' => 'jpg,png,gif'])->move(ROOT_PATH . 'public' . DS. "editormd" .DS . 'uploads');
             if ($info) {
                 // 成功上传后 获取上传信息
                 // 输出 jpg
@@ -88,7 +88,7 @@ class Article extends Common
                 // 输出 42a79759f284b767dfcb2a0197904287.jpg
                 $fileName = $info->getFilename();
                 $saveNameUrl = str_replace("\\", "/", $saveName);
-                $url = config('web_app_public')."uploads/" . $saveNameUrl;
+                $url = config('web_app_public')."editormd/uploads/" . $saveNameUrl;
                 $json_info = ["success" => 1, "message" => "上传成功", "url" => $url];
                 
                 return json_encode($json_info);
