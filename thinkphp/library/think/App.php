@@ -268,7 +268,7 @@ class App
             $params = $reflect->getParameters();
             foreach ($params as $param) {
                 $name  = $param->getName();
-                $class = $param->getClass();
+                $class = $param->getType();
                 if ($class) {
                     $className = $class->getName();
                     $bind      = Request::instance()->$name;

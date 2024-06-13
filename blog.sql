@@ -72,7 +72,7 @@ create table blog_comment(
 );
 
 INSERT INTO `blog_webset` (`webset_id`, `webset_name`, `webset_value`, `webset_desc`) VALUES
-(1, 'email', 'daliang987@126.com', '网站邮箱'),
+(1, 'email', 'daliang987[at]126.com', '网站邮箱'),
 (2, 'person_desc', '白帽子，普通安全爱好者一名，工作为与安全相关，多次接触政府网站安全相关问题，热爱技术<br>', '个人简介'),
 (4, 'copyright', 'Copyright © 2020 Powered by Daliang''s Blog', '版权信息'),
 (5, 'weibo', 'https://weibo.com/u/1780197770/home?wvr=5&lf=', ''),

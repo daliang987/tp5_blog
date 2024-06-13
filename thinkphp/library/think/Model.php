@@ -1795,27 +1795,31 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
     }
 
     // JsonSerializable
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->toArray();
     }
 
     // ArrayAccess
+    #[\ReturnTypeWillChange]
     public function offsetSet($name, $value)
     {
         $this->setAttr($name, $value);
     }
-
-    public function offsetExists($name)
+    #[\ReturnTypeWillChange]
+    public function offsetExists($name):bool
     {
         return $this->__isset($name);
     }
 
+    #[\ReturnTypeWillChange]
     public function offsetUnset($name)
     {
         $this->__unset($name);
     }
 
+    #[\ReturnTypeWillChange]
     public function offsetGet($name)
     {
         return $this->getAttr($name);
