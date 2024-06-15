@@ -1,4 +1,4 @@
 *.log
 runtime/*
-!.gitignore
 application/database.php
+!.gitignore
